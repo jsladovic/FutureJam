@@ -24,13 +24,13 @@ public class CanvasController : MonoBehaviour
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
     {
+        LevelText.text = $"Day {levelIndex}";
         if (levelIndex == 1)
         {
             GameController.Instance.StartLevel();
             return;
         }
         ButtonsParent.gameObject.SetActive(true);
-        LevelText.text = $"Day {levelIndex}";
         AddPicketLinerButton.enabled = levelIndex % 3 == 0;
         KickOutScabButton.enabled = canKickOutScab;
     }

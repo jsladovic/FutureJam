@@ -10,15 +10,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private Scab ScabPrefab;
     [SerializeField] private Transform ScabsParent;
     [SerializeField] private Transform PicketLinersParent;
+    [SerializeField] private ClockController Clock;
 
     private int CurrentLevelIndex;
     private int ScabsRemainingInLevel;
     private MovementCurve[] CurrentLevelCurves;
     private int LastUsedCurveIndex;
 
+    public const int LevelDurationSeconds = 30;
     private const int StartingNumberOfPicketLiners = 2;
     private const int MaxNumberOfScabsEntered = 5;
-    private const int LevelDurationSeconds = 30;
     public int NumberOfScabsEntered { get; private set; }
 
     private int TotalScabsToSpawnRemaining;
@@ -60,6 +61,7 @@ public class GameController : MonoBehaviour
     public void StartLevel()
     {
         StartCoroutine(SpawnScabCoroutine());
+        Clock.StartLevel();
     }
 
     private IEnumerator SpawnScabCoroutine()

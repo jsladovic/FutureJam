@@ -541,6 +541,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3397137756785562331, guid: 370b86ba4555f44d2b9473fd10725b82, type: 3}
   m_PrefabInstance: {fileID: 1494049153}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1519857787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8470936265839310270, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
+  m_PrefabInstance: {fileID: 7224370241000355274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4294fd810eff453caf33dd486af9dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1552052030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -814,6 +825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
+      propertyPath: Clock
+      value: 
+      objectReference: {fileID: 1519857787}
     - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
       propertyPath: ScabsParent
       value: 
@@ -1178,6 +1193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7224370241188892428, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7224370241188892429, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1261,10 +1280,6 @@ PrefabInstance:
     - target: {fileID: 7224370241188892429, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7591111389099929479, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
