@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     private int CriticalScabsToSpawnRemaining;
     private int SecondsBetweenScabsForLevel;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         NumberOfScabsEntered = 0;
@@ -49,8 +49,7 @@ public class GameController : MonoBehaviour
         CriticalScabsToSpawnRemaining = level.NumberOfCriticalScabs;
         SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
         print($"starting level {level.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
-        StartLevel();
-        // Display UI options
+        CanvasController.Instance.DisplayLevel(level.Index, NumberOfScabsEntered > 0);
     }
 
     public void StartLevel()
