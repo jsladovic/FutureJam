@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI LevelText;
     [SerializeField] private Button AddPicketLinerButton;
     [SerializeField] private Button KickOutScabButton;
+    [SerializeField] private GameObject EndGameScreen;
+    [SerializeField] private TextMeshProUGUI EndGameText;
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class CanvasController : MonoBehaviour
     public void Initialize()
     {
         ButtonsParent.gameObject.SetActive(false);
+        EndGameScreen.SetActive(false);
     }
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
@@ -53,5 +57,17 @@ public class CanvasController : MonoBehaviour
         GameController.Instance.SpawnPicketLiner();
         GameController.Instance.StartLevel();
         ButtonsParent.gameObject.SetActive(false);
+    }
+
+    public void DisplayEndGameScreen(int numberOfDays)
+    {
+        EndGameText.text = $"The strike lasted {numberOfDays} days";
+        EndGameScreen.SetActive(true);
+    }
+
+    public void RestartClicked()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.buildIndex);
     }
 }

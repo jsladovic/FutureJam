@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     private MovementCurve[] CurrentLevelCurves;
     private int LastUsedCurveIndex;
     private bool IsTimeExpired;
+    private LevelDefinition CurrentLevel;
 
     private bool isGameOver;
     private bool IsGameOver
@@ -66,16 +67,16 @@ public class GameController : MonoBehaviour
     {
         if (CurrentLevelIndex >= Levels.Length)
             throw new UnityException($"Oh no, level {CurrentLevelIndex + 1} is not yet implemented");
-        LevelDefinition level = Levels[CurrentLevelIndex];
-        ScabsRemainingInLevel = level.NumberOfDefaultScabs + level.NumberOfDesperateScabs + level.NumberOfCriticalScabs;
+        CurrentLevel = Levels[CurrentLevelIndex];
+        ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfCriticalScabs;
         TotalScabsToSpawnRemaining = ScabsRemainingInLevel;
-        CurrentLevelCurves = MovementCurvesController.Instance.GetCurvesForLevelIndex(level.Index);
-        BasicScabsToSpawnRemaining = level.NumberOfDefaultScabs;
-        DesperateScabsToSpawnRemaining = level.NumberOfDesperateScabs;
-        CriticalScabsToSpawnRemaining = level.NumberOfCriticalScabs;
+        CurrentLevelCurves = MovementCurvesController.Instance.GetCurvesForLevelIndex(CurrentLevel.Index);
+        BasicScabsToSpawnRemaining = CurrentLevel.NumberOfDefaultScabs;
+        DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
+        CriticalScabsToSpawnRemaining = CurrentLevel.NumberOfCriticalScabs;
         SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
-        print($"starting level {level.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
-        CanvasController.Instance.DisplayLevel(level.Index, NumberOfScabsEntered > 0);
+        print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
+        CanvasController.Instance.DisplayLevel(CurrentLevel.Index, NumberOfScabsEntered > 0);
     }
 
     public void KickOutScab()
@@ -102,9 +103,9 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)
     {
+        yield return new WaitForSeconds(firstScab ? SecondsBetweenScabsForLevel / 2 : SecondsBetweenScabsForLevel);
         if (IsGameOver == true)
             yield break;
-        yield return new WaitForSeconds(firstScab ? SecondsBetweenScabsForLevel / 2 : SecondsBetweenScabsForLevel);
         int curveIndex;
         do
         {
@@ -127,6 +128,7 @@ public class GameController : MonoBehaviour
         {
             print("Game over");
             IsGameOver = true;
+            CanvasController.Instance.DisplayEndGameScreen(CurrentLevel.Index);
         }
     }
 

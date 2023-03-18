@@ -44,6 +44,6 @@ public class ClockController : MonoBehaviour
 
     private void DisplayTime()
     {
-        ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, -CurrentTime / NumberOfWorkHours * 360.0f);
+        ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f - CurrentTime / NumberOfWorkHours * 360.0f);
     }
 }

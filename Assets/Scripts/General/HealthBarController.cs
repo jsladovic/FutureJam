@@ -14,7 +14,7 @@ public class HealthBarController : MonoBehaviour
     public bool DisplayLifeLost()
     {
         if (Items.Any(i => i.IsWorking == false) == false)
-            throw new UnityException("No available items found for losing a life");
+            return true;
         HealthBarItem healthBarItem;
         do
         {

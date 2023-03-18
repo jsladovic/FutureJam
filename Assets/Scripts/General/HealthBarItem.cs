@@ -19,6 +19,7 @@ public class HealthBarItem : MonoBehaviour
 
     public void DisplayWindowWorking(bool isWorking)
     {
+        IsWorking = isWorking;
         StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
     }
 
@@ -27,6 +28,5 @@ public class HealthBarItem : MonoBehaviour
         if (isWorking == true)
             yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
         SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
-        IsWorking = isWorking;
     }
 }
