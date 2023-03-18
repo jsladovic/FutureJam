@@ -20,7 +20,7 @@ public class Scab : MonoBehaviour
         ScabMovement.Initialize(this);
         HasEnteredBuilding = false;
         IsLeaving = false;
-        Rank = ScabRank.Basic;
+        Rank = ScabRank.Desperate;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
