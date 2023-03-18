@@ -50,3 +50,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef416ea4080ce4845a0d14b8fe43f563, type: 2}
   - {fileID: 11400000, guid: 68e72dda8f24a44dba63720a80e12475, type: 2}
   ScabPrefab: {fileID: 6257164572000450847, guid: d99c39ef63c1f4abfa8ea87a5806e859, type: 3}
+  PicketLinerPrefab: {fileID: 7689749573185514464, guid: cfd008b4f65e140c8b1b83744ebd2ac3, type: 3}
+  ScabsParent: {fileID: 0}
+  PicketLinersParent: {fileID: 0}
+  Clock: {fileID: 0}
+  HealthBarController: {fileID: 0}
+  PicketLinerSpawningLocation: {fileID: 0}

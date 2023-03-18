@@ -8,10 +8,12 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private LevelDefinition[] Levels;
     [SerializeField] private Scab ScabPrefab;
+    [SerializeField] private PicketLiner PicketLinerPrefab;
     [SerializeField] private Transform ScabsParent;
     [SerializeField] private Transform PicketLinersParent;
     [SerializeField] private ClockController Clock;
     [SerializeField] private HealthBarController HealthBarController;
+    [SerializeField] private Transform PicketLinerSpawningLocation;
 
     private int CurrentLevelIndex;
     private int ScabsRemainingInLevel;
@@ -34,7 +36,6 @@ public class GameController : MonoBehaviour
     }
 
     public const int LevelDurationSeconds = 30;
-    private const int StartingNumberOfPicketLiners = 2;
     public int NumberOfScabsEntered { get; private set; }
 
     private int TotalScabsToSpawnRemaining;
@@ -76,6 +77,11 @@ public class GameController : MonoBehaviour
     public void KickOutScab()
     {
         HealthBarController.DisplayLifeGained();
+    }
+
+    public void SpawnPicketLiner()
+    {
+
     }
 
     public void StartLevel()
