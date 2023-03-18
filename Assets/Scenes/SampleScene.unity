@@ -187,6 +187,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67022f892a399a4ab4e945f4dee867c, type: 3}
+--- !u!114 &207805248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6795944191603525377, guid: a67022f892a399a4ab4e945f4dee867c, type: 3}
+  m_PrefabInstance: {fileID: 207805247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5698904549b4b3ca61ef0dee8802e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &381230593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,6 +965,10 @@ PrefabInstance:
       propertyPath: PicketLinersParent
       value: 
       objectReference: {fileID: 29263412}
+    - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
+      propertyPath: HealthBarController
+      value: 
+      objectReference: {fileID: 207805248}
     - target: {fileID: 676952468101039129, guid: d961072232e024e39850cf54d282a237, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1116,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4202396804763170730, guid: 60f4813ba128346af8743633c027cda3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1213,6 +1232,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5404899637032063192, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
+      propertyPath: m_Size.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404899637032063192, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404899637032063192, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404899637032063192, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.33
+      objectReference: {fileID: 0}
     - target: {fileID: 5404899637032063193, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
       propertyPath: m_Name
       value: Factory
@@ -1245,10 +1280,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5404899637032063199, guid: 3b910d37eb71e4190b38284a14c5b00b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1262,6 +1293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3927051298206873133, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7224370241188892425, guid: a7bfb718fd4f44075be6af6d557e66d5, type: 3}
       propertyPath: m_Name
       value: Canvas
