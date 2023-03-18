@@ -15,16 +15,22 @@ public class CanvasController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void Initialize()
+    {
         ButtonsParent.gameObject.SetActive(false);
     }
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
     {
         if (levelIndex == 1)
+        {
             GameController.Instance.StartLevel();
+            return;
+        }
         ButtonsParent.gameObject.SetActive(true);
         LevelText.text = $"Day {levelIndex}";
-        ButtonsParent.gameObject.SetActive(true);
         AddPicketLinerButton.enabled = levelIndex % 3 == 0;
         KickOutScabButton.enabled = canKickOutScab;
     }

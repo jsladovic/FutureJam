@@ -27,12 +27,17 @@ public class GameController : MonoBehaviour
     private int CriticalScabsToSpawnRemaining;
     private int SecondsBetweenScabsForLevel;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
         NumberOfScabsEntered = 0;
         Levels = Levels.OrderBy(ld => ld.Index).ToArray();
         CurrentLevelIndex = 0;
+    }
+
+    private void Start()
+    {
+        CanvasController.Instance.Initialize();
         PrepareLevel();
     }
 
