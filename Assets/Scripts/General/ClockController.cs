@@ -31,6 +31,7 @@ public class ClockController : MonoBehaviour
         if (TimeRemainingInLevel <= 0)
         {
             IsRunning = false;
+            GameController.Instance.OnTimeExpired();
         }
     }
 

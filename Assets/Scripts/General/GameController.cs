@@ -16,6 +16,21 @@ public class GameController : MonoBehaviour
     private int ScabsRemainingInLevel;
     private MovementCurve[] CurrentLevelCurves;
     private int LastUsedCurveIndex;
+    private bool IsTimeExpired;
+
+    private bool isGameOver;
+    private bool IsGameOver
+    {
+        get { return isGameOver; }
+        set
+        {
+            isGameOver = value;
+            if (value == true)
+            {
+                // TODO display restart button
+            }
+        }
+    }
 
     public const int LevelDurationSeconds = 30;
     private const int StartingNumberOfPicketLiners = 2;
@@ -84,21 +99,31 @@ public class GameController : MonoBehaviour
     public void OnScabEntered()
     {
         NumberOfScabsEntered++;
-        ScabsRemainingInLevel--;
         if (NumberOfScabsEntered >= MaxNumberOfScabsEntered)
         {
             print("Game over");
+            IsGameOver = true;
         }
     }
 
-    public void OnScabLeft()
+    public void OnScabDestroyed()
     {
         ScabsRemainingInLevel--;
+        CheckForLevelOver();
+    }
+
+    public void OnTimeExpired()
+    {
+        IsTimeExpired = true;
+        CheckForLevelOver();
     }
 
     private void CheckForLevelOver()
     {
-
+        if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true)
+            return;
+        CurrentLevelIndex++;
+        PrepareLevel();
     }
 }
 

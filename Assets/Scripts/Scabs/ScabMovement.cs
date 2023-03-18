@@ -53,7 +53,10 @@ public class ScabMovement : MonoBehaviour
             TargetPosition = ExitPointsController.Instance.GetNearestExitPoint(transform.position);
         MoveTowardsPoint(TargetPosition.Value);
         if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
+        {
             Destroy(Parent.gameObject);
+            GameController.Instance.OnScabDestroyed();
+        }
     }
 
     public void OnBuildingEntered(Vector3 doorPosition)
@@ -65,6 +68,5 @@ public class ScabMovement : MonoBehaviour
     private void MoveTowardsPoint(Vector3 point)
     {
         transform.position = Vector3.MoveTowards(transform.position, point, Time.deltaTime * Speed);
-
     }
 }
