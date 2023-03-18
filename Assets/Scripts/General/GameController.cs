@@ -73,6 +73,11 @@ public class GameController : MonoBehaviour
         CanvasController.Instance.DisplayLevel(level.Index, NumberOfScabsEntered > 0);
     }
 
+    public void KickOutScab()
+    {
+        HealthBarController.DisplayLifeGained();
+    }
+
     public void StartLevel()
     {
         StartCoroutine(SpawnScabCoroutine(true));
@@ -81,6 +86,8 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)
     {
+        if (IsGameOver == true)
+            yield break;
         yield return new WaitForSeconds(firstScab ? SecondsBetweenScabsForLevel / 2 : SecondsBetweenScabsForLevel);
         int curveIndex;
         do

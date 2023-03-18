@@ -37,6 +37,7 @@ public class CanvasController : MonoBehaviour
 
     public void KickOutScabClicked()
     {
+        GameController.Instance.KickOutScab();
         GameController.Instance.StartLevel();
         ButtonsParent.gameObject.SetActive(false);
     }

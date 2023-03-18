@@ -21,13 +21,12 @@ public class HealthBarController : MonoBehaviour
             healthBarItem = Items[Random.Range(0, Items.Length)];
         } while (healthBarItem.IsWorking == true);
         healthBarItem.DisplayWindowWorking(true);
-        var workingItems = Items.Where(i => i.IsWorking == false).ToList();
         return !Items.Any(i => i.IsWorking == false);
     }
 
     public void DisplayLifeGained()
     {
-        if (Items.Any(i => i.IsWorking == true))
+        if (Items.Any(i => i.IsWorking == true) == false)
             throw new UnityException("No available items found for gaining a life");
         HealthBarItem healthBarItem;
         do
