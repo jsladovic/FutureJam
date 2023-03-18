@@ -2,14 +2,21 @@
 
 public class ModelSelector : MonoBehaviour
 {
-    [SerializeField] private GameObject BasicModel;
-    [SerializeField] private GameObject AdvancedModel;
-    [SerializeField] private GameObject EliteModel;
+    [SerializeField] private PicketLinerModel BasicModel;
+    [SerializeField] private PicketLinerModel AdvancedModel;
+    [SerializeField] private PicketLinerModel EliteModel;
+
+    public void SetCarriedSprite(bool isCarried)
+    {
+        BasicModel.SetCarriedSprite(isCarried);
+        AdvancedModel.SetCarriedSprite(isCarried);
+        EliteModel.SetCarriedSprite(isCarried);
+    }
 
     public void SetRank(PicketLinerRank rank)
     {
-        BasicModel.SetActive(rank == PicketLinerRank.Basic);
-        AdvancedModel.SetActive(rank == PicketLinerRank.Advanced);
-        EliteModel.SetActive(rank == PicketLinerRank.Elite);
+        BasicModel.gameObject.SetActive(rank == PicketLinerRank.Basic);
+        AdvancedModel.gameObject.SetActive(rank == PicketLinerRank.Advanced);
+        EliteModel.gameObject.SetActive(rank == PicketLinerRank.Elite);
     }
 }

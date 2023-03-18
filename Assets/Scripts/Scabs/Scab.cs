@@ -34,8 +34,8 @@ public class Scab : MonoBehaviour
         if (CheckForTriggers == false)
             return;
 
-        PicketLiner picketLine = collision.transform.GetComponent<PicketLiner>();
-        if (picketLine != null)
+        PicketLiner picketLiner = collision.transform.GetComponent<PicketLiner>();
+        if (picketLiner != null && picketLiner.IsCarried == false)
         {
             CollidedWithPicketLiner();
             return;
@@ -44,7 +44,6 @@ public class Scab : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print($"scab trigger entered {collision.name}");
         if (CheckForTriggers == false)
             return;
 
@@ -58,7 +57,7 @@ public class Scab : MonoBehaviour
         SphereOfInfluence sphereOfInfluence = collision.GetComponent<SphereOfInfluence>();
         if (sphereOfInfluence != null)
         {
-            HandleSphereOfInfulenceCollision(sphereOfInfluence);
+            HandleSphereOfInfulenceCollisionEntered(sphereOfInfluence);
             return;
         }
     }
@@ -73,10 +72,11 @@ public class Scab : MonoBehaviour
         }
     }
 
-    private void HandleSphereOfInfulenceCollision(SphereOfInfluence sphereOfInfluence)
+    private void HandleSphereOfInfulenceCollisionEntered(SphereOfInfluence sphereOfInfluence)
     {
-        print($"scab sphere of infuelnce entered");
         if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == true)
+            return;
+        if (sphereOfInfluence.IsCarried == true)
             return;
         CollidedSpheresOfInfluence.Add(sphereOfInfluence);
         if (TotalSpheresOfInfluence >= Rank.SpheresOfInfulenceNeededToLeave())
@@ -85,7 +85,6 @@ public class Scab : MonoBehaviour
 
     private void HandleSphereOfInfulenceCollisionExited(SphereOfInfluence sphereOfInfluence)
     {
-        print($"scab sphere of infuelnce exited");
         if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == false)
             return;
         CollidedSpheresOfInfluence.Remove(sphereOfInfluence);

@@ -7,15 +7,26 @@ public class DragController : MonoBehaviour
 {
     private static string[] InvalidLayerNames = new string[] { "Factory", "Entrance", "Scab" };
 
-    public bool IsDragging { get; private set; }
+    private PicketLiner Parent;
+    private bool isDragging;
+    public bool IsDragging
+    {
+        get { return isDragging; }
+        private set
+        {
+            isDragging = value;
+            Parent.OnIsDraggedChanged();
+        }
+    }
 
     private Vector3 MousePositionOffset;
     private Vector3 DragStartPosition;
 
     private List<Transform> InvalidCollisionObjects;
 
-    private void Awake()
+    public void Initialize(PicketLiner parent)
     {
+        Parent = parent;
         IsDragging = false;
     }
 

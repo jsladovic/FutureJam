@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156217992326768475}
   - component: {fileID: 2689489048437457107}
+  - component: {fileID: 8516898834649361824}
   m_Layer: 2
   m_Name: Advanced
   m_TagString: Untagged
@@ -217,6 +218,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8516898834649361824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632380596627082040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a3b23a255cd49d0b664f9391dfb743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarriedSprite: {fileID: -1728259854, guid: 701d058c39579194eba7c705063f41d5, type: 3}
 --- !u!1 &4498418533644937064
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412584662434801990}
   - component: {fileID: 3826790863046282549}
+  - component: {fileID: 6017966393467430449}
   m_Layer: 2
   m_Name: Elite
   m_TagString: Untagged
@@ -434,6 +449,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6017966393467430449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5670021886602537870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a3b23a255cd49d0b664f9391dfb743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarriedSprite: {fileID: -1728259854, guid: 701d058c39579194eba7c705063f41d5, type: 3}
 --- !u!1 &6172755732193259335
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6365486497128542587}
   - component: {fileID: 5624591028255050156}
+  - component: {fileID: 8107049924897921951}
   m_Layer: 2
   m_Name: Basic
   m_TagString: Untagged
@@ -518,6 +547,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8107049924897921951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172755732193259335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a3b23a255cd49d0b664f9391dfb743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarriedSprite: {fileID: -646144388, guid: 701d058c39579194eba7c705063f41d5, type: 3}
 --- !u!1 &7010323723039318914
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,9 +752,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7323ab1240a4e46199d2f5860ca72776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicModel: {fileID: 6172755732193259335}
-  AdvancedModel: {fileID: 3632380596627082040}
-  EliteModel: {fileID: 5670021886602537870}
+  BasicModel: {fileID: 8107049924897921951}
+  AdvancedModel: {fileID: 8516898834649361824}
+  EliteModel: {fileID: 6017966393467430449}
 --- !u!1 &9106189603239302421
 GameObject:
   m_ObjectHideFlags: 0

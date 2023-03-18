@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(DragController))]
 public class PicketLiner : MonoBehaviour
 {
+    private DragController DragController;
     private ModelSelector ModelSelector;
     private SphereOfInfluenceSelector SphereOfInfluenceSelector;
 
@@ -21,9 +22,20 @@ public class PicketLiner : MonoBehaviour
 
     private void Awake()
     {
+        DragController = GetComponent<DragController>();
         ModelSelector = GetComponentInChildren<ModelSelector>();
         SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
 
         Rank = PicketLinerRank.Basic;
+        SphereOfInfluenceSelector.Initialize(this);
+        DragController.Initialize(this);
     }
+
+    public void OnIsDraggedChanged()
+    {
+        ModelSelector.SetCarriedSprite(IsCarried);
+        SphereOfInfluenceSelector.SetCarriedSprite(IsCarried);
+    }
+
+    public bool IsCarried => DragController.IsDragging;
 }
