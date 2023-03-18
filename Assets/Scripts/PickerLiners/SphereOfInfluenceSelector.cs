@@ -2,9 +2,9 @@
 
 public class SphereOfInfluenceSelector : MonoBehaviour
 {
-    [SerializeField] private CapsuleCollider2D BasicCollider;
-    [SerializeField] private CapsuleCollider2D AdvancedCollider;
-    [SerializeField] private CapsuleCollider2D EliteCollider;
+    [SerializeField] private SphereOfInfluence BasicCollider;
+    [SerializeField] private SphereOfInfluence AdvancedCollider;
+    [SerializeField] private SphereOfInfluence EliteCollider;
 
     public void SetRank(PicketLinerRank rank)
     {

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185200964048269888}
+  - component: {fileID: 2091462369932338413}
   - component: {fileID: 6845376004797304972}
   - component: {fileID: 5814751786769060915}
   m_Layer: 2
@@ -33,6 +34,18 @@ Transform:
   m_Father: {fileID: 6945481053428615309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091462369932338413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013104984322931111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecb3c8ad9a1e4c09a4d785df4c00044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &6845376004797304972
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -278,6 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6720077077081350944}
+  - component: {fileID: 2913355850142587616}
   - component: {fileID: 1201405159335133498}
   - component: {fileID: 4676490204813419727}
   m_Layer: 2
@@ -302,6 +316,18 @@ Transform:
   m_Father: {fileID: 6945481053428615309}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2913355850142587616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498418533644937064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecb3c8ad9a1e4c09a4d785df4c00044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1201405159335133498
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,9 +539,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7689749573185514465}
-  - component: {fileID: 7689749573185514495}
   - component: {fileID: 7689749573185514464}
   - component: {fileID: 7439260650624262231}
+  - component: {fileID: 7689749573185514495}
   - component: {fileID: 772551763}
   m_Layer: 6
   m_Name: PicketLiner
@@ -541,22 +567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7689749573185514495
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689749573185514492}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.6
 --- !u!114 &7689749573185514464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +591,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b01a3e2a6d734333b0057a56add4b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7689749573185514495
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689749573185514492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
 --- !u!50 &772551763
 Rigidbody2D:
   serializedVersion: 4
@@ -661,6 +687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7832715058547729400}
+  - component: {fileID: 8144917488485877384}
   - component: {fileID: 2319967918995230761}
   - component: {fileID: 2405339556878685346}
   m_Layer: 2
@@ -685,6 +712,18 @@ Transform:
   m_Father: {fileID: 6945481053428615309}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8144917488485877384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106189603239302421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecb3c8ad9a1e4c09a4d785df4c00044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2319967918995230761
 SpriteRenderer:
   m_ObjectHideFlags: 0

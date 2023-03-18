@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(DragController))]
-public class PickerLiner : MonoBehaviour
+public class PicketLiner : MonoBehaviour
 {
     private ModelSelector ModelSelector;
     private SphereOfInfluenceSelector SphereOfInfluenceSelector;
@@ -24,6 +24,6 @@ public class PickerLiner : MonoBehaviour
         ModelSelector = GetComponentInChildren<ModelSelector>();
         SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
 
-        Rank = PicketLinerRank.Basic;
+        Rank = PicketLinerRank.Elite;
     }
 }
