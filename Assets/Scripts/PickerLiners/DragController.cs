@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DragController : MonoBehaviour
 {
-    private static string[] InvalidLayerNames = new string[] { "Factory", "Entrance", "Scab" };
+    private static string[] InvalidLayerNames = new string[] { "Factory", "Entrance" };
 
     private PicketLiner Parent;
     private bool isDragging;

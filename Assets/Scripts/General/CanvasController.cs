@@ -44,12 +44,13 @@ public class CanvasController : MonoBehaviour
 
     public void LevelUpPicketLinerClicked()
     {
-        GameController.Instance.StartLevel();
+        GameController.Instance.LevelUpPicketLiner();
         ButtonsParent.gameObject.SetActive(false);
     }
 
     public void AddPicketLinerClicked()
     {
+        GameController.Instance.SpawnPicketLiner();
         GameController.Instance.StartLevel();
         ButtonsParent.gameObject.SetActive(false);
     }

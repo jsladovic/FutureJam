@@ -21,10 +21,10 @@ public class Scab : MonoBehaviour
         ScabMovement = GetComponent<ScabMovement>();
     }
 
-    public void Initialize(ScabRank rank, MovementCurve curve)
+    public void Initialize(ScabRank rank, MovementCurve curve, float speed)
     {
         Rank = rank;
-        ScabMovement.Initialize(this, curve);
+        ScabMovement.Initialize(this, curve, speed);
         HasEnteredBuilding = false;
         IsLeaving = false;
     }

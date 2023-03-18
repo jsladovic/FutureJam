@@ -7,8 +7,6 @@ public class ScabMovement : MonoBehaviour
     private Scab Parent;
     private MovementCurve Curve;
 
-    [SerializeField]
-    [Range(1, 5)]
     private float Speed;
 
     public MovementState State { get; set; }
@@ -17,12 +15,12 @@ public class ScabMovement : MonoBehaviour
     private Vector3? TargetPosition;
     private const float DistanceToPointThreshold = 0.1f;
 
-    public void Initialize(Scab parent, MovementCurve curve)
+    public void Initialize(Scab parent, MovementCurve curve, float speed)
     {
         Parent = parent;
         State = MovementState.Entering;
         Curve = curve;
-        Speed = 2.0f;
+        Speed = speed;
         transform.position = curve.Points[0].transform.position;
     }
 

@@ -37,6 +37,10 @@ public class GameController : MonoBehaviour
 
     public const int LevelDurationSeconds = 30;
     public int NumberOfScabsEntered { get; private set; }
+    public bool IsWaitingForUpgrade { get; private set; }
+
+    private const float BaseScabSpeed = 1.8f;
+    private const float ScabSpeedIncreasePerLevel = 0.2f;
 
     private int TotalScabsToSpawnRemaining;
     private int BasicScabsToSpawnRemaining;
@@ -81,11 +85,17 @@ public class GameController : MonoBehaviour
 
     public void SpawnPicketLiner()
     {
+        Instantiate(PicketLinerPrefab, PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
+    }
 
+    public void LevelUpPicketLiner()
+    {
+        IsWaitingForUpgrade = true;
     }
 
     public void StartLevel()
     {
+        IsWaitingForUpgrade = false;
         StartCoroutine(SpawnScabCoroutine(true));
         Clock.StartLevel();
     }
@@ -103,7 +113,7 @@ public class GameController : MonoBehaviour
         LastUsedCurveIndex = curveIndex;
         MovementCurve curve = CurrentLevelCurves[curveIndex];
         Scab scab = Instantiate(ScabPrefab, curve.Points.First().transform.position, Quaternion.identity, ScabsParent);
-        scab.Initialize(ScabRank.Basic, curve);
+        scab.Initialize(ScabRank.Basic, curve, BaseScabSpeed + CurrentLevelIndex * ScabSpeedIncreasePerLevel);
         TotalScabsToSpawnRemaining--;
         if (TotalScabsToSpawnRemaining > 0)
             StartCoroutine(SpawnScabCoroutine(false));
