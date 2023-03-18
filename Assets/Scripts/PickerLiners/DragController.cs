@@ -21,7 +21,6 @@ public class DragController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        print("on mouse down");
         DragStartPosition = transform.position;
         MousePositionOffset = transform.position - MouseWorldPosition;
         IsDragging = true;
@@ -34,7 +33,6 @@ public class DragController : MonoBehaviour
             return;
         if (CanBeDropped == false)
             transform.position = DragStartPosition;
-        print("on mouse up");
         IsDragging = false;
     }
 

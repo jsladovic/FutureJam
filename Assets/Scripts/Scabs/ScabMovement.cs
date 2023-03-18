@@ -5,8 +5,7 @@ using System.Linq;
 public class ScabMovement : MonoBehaviour
 {
     private Scab Parent;
-
-    [SerializeField] private MovementCurve Curve;
+    private MovementCurve Curve;
 
     [SerializeField]
     [Range(1, 5)]
@@ -18,15 +17,19 @@ public class ScabMovement : MonoBehaviour
     private Vector3? TargetPosition;
     private const float DistanceToPointThreshold = 0.1f;
 
-    public void Initialize(Scab parent)
+    public void Initialize(Scab parent, MovementCurve curve)
     {
         Parent = parent;
         State = MovementState.Entering;
-        transform.position = Curve.Points[0].transform.position;
+        Curve = curve;
+        Speed = 2.0f;
+        transform.position = curve.Points[0].transform.position;
     }
 
     void Update()
     {
+        if (Curve == null)
+            return;
         switch (State)
         {
             case MovementState.Entering:

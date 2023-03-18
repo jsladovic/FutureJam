@@ -8,11 +8,15 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private LevelDefinition[] Levels;
     [SerializeField] private Scab ScabPrefab;
+    [SerializeField] private Transform ScabsParent;
+    [SerializeField] private Transform PicketLinersParent;
 
     private int CurrentLevelIndex;
     private int ScabsRemainingInLevel;
     private MovementCurve[] CurrentLevelCurves;
+    private int LastUsedCurveIndex;
 
+    private const int StartingNumberOfPicketLiners = 2;
     private const int MaxNumberOfScabsEntered = 5;
     private const int LevelDurationSeconds = 60;
     public int NumberOfScabsEntered { get; private set; }
@@ -42,17 +46,35 @@ public class GameController : MonoBehaviour
         DesperateScabsToSpawnRemaining = level.NumberOfDesperateScabs;
         CriticalScabsToSpawnRemaining = level.NumberOfCriticalScabs;
         SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
+        print($"starting level {CurrentLevelIndex}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}");
+        StartLevel();
         // Display UI options
     }
 
     public void StartLevel()
     {
+        StartCoroutine(SpawnScabCoroutine());
+    }
 
+    private IEnumerator SpawnScabCoroutine()
+    {
+        yield return new WaitForSeconds(SecondsBetweenScabsForLevel);
+        int curveIndex;
+        do
+        {
+            curveIndex = Random.Range(0, CurrentLevelCurves.Length - 1);
+        } while (CurrentLevelCurves.Length == 1 || curveIndex != LastUsedCurveIndex);
+        LastUsedCurveIndex = curveIndex;
+        MovementCurve curve = CurrentLevelCurves[curveIndex];
+        Scab scab = Instantiate(ScabPrefab, curve.Points.First().transform.position, Quaternion.identity, ScabsParent);
+        scab.Initialize(ScabRank.Basic, curve);
+        StartCoroutine(SpawnScabCoroutine());
     }
 
     public void OnScabEntered()
     {
         NumberOfScabsEntered++;
+        ScabsRemainingInLevel--;
         if (NumberOfScabsEntered >= MaxNumberOfScabsEntered)
         {
             print("Game over");
@@ -60,6 +82,11 @@ public class GameController : MonoBehaviour
     }
 
     public void OnScabLeft()
+    {
+        ScabsRemainingInLevel--;
+    }
+
+    private void CheckForLevelOver()
     {
 
     }

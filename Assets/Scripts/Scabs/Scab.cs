@@ -14,15 +14,19 @@ public class Scab : MonoBehaviour
 
     private List<SphereOfInfluence> CollidedSpheresOfInfluence;
 
-    private void Start()
+    private void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
         ScabMovement = GetComponent<ScabMovement>();
-        ScabMovement.Initialize(this);
+    }
+
+    public void Initialize(ScabRank rank, MovementCurve curve)
+    {
+        Rank = rank;
+        ScabMovement.Initialize(this, curve);
         HasEnteredBuilding = false;
         IsLeaving = false;
-        Rank = ScabRank.Desperate;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
