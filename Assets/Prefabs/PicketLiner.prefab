@@ -130,8 +130,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.03, y: -0.09}
+  m_Size: {x: 3.6, y: 1.4}
   m_Direction: 1
 --- !u!1 &3632380596627082040
 GameObject:
@@ -476,8 +476,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0, y: 0.07}
+  m_Size: {x: 7.82, y: 2.87}
   m_Direction: 1
 --- !u!1 &5670021886602537870
 GameObject:
@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 7439260650624262231}
   - component: {fileID: 7689749573185514495}
   - component: {fileID: 772551763}
+  - component: {fileID: 2162039702434807348}
   m_Layer: 6
   m_Name: PicketLiner
   m_TagString: Untagged
@@ -736,6 +737,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!70 &2162039702434807348
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689749573185514492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.65}
+  m_Size: {x: 1.89, y: 3.41}
+  m_Direction: 0
 --- !u!1 &8657093181251277862
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +952,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.03, y: 0}
+  m_Size: {x: 12.58, y: 4.78}
   m_Direction: 1
