@@ -610,9 +610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d5c59dd113742b1a921a87039a8f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicCollider: {fileID: 5814751786769060915}
-  AdvancedCollider: {fileID: 4676490204813419727}
-  EliteCollider: {fileID: 2405339556878685346}
+  BasicCollider: {fileID: 2091462369932338413}
+  AdvancedCollider: {fileID: 2913355850142587616}
+  EliteCollider: {fileID: 8144917488485877384}
 --- !u!1 &7689749573185514492
 GameObject:
   m_ObjectHideFlags: 0

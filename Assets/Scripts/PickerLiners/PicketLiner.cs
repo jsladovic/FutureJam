@@ -24,6 +24,6 @@ public class PicketLiner : MonoBehaviour
         ModelSelector = GetComponentInChildren<ModelSelector>();
         SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
 
-        Rank = PicketLinerRank.Elite;
+        Rank = PicketLinerRank.Basic;
     }
 }
