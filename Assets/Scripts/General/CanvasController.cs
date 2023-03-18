@@ -31,8 +31,8 @@ public class CanvasController : MonoBehaviour
             return;
         }
         ButtonsParent.gameObject.SetActive(true);
-        AddPicketLinerButton.enabled = levelIndex % 3 == 0;
-        KickOutScabButton.enabled = canKickOutScab;
+        AddPicketLinerButton.gameObject.SetActive(levelIndex % 3 == 1);
+        KickOutScabButton.gameObject.SetActive(canKickOutScab);
     }
 
     public void KickOutScabClicked()
