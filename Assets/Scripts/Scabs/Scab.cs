@@ -94,6 +94,7 @@ public class Scab : MonoBehaviour
         Rigidbody = null;
         HasEnteredBuilding = true;
         ScabMovement.OnBuildingEntered(entrance.DoorPosition);
+        GameController.Instance.OnScabEntered();
     }
 
     private void CollidedWithPicketLiner()

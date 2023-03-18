@@ -4,6 +4,7 @@ using System.Collections;
 public class MovementCurve : MonoBehaviour
 {
     public MovementCurvePoint[] Points { get; private set; }
+    public int LevelIndexUnlocked;
 
     private void Awake()
     {
