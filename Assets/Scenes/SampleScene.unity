@@ -879,6 +879,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2449333653680931701, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2449333653944537768, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
       propertyPath: m_Name
       value: Curves
@@ -926,6 +930,26 @@ PrefabInstance:
     - target: {fileID: 2449333653944537769, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565129041833967319, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565129042625324736, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565129043367596446, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565129043414291196, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565129043449928199, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
+      propertyPath: LevelIndexUnlocked
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
