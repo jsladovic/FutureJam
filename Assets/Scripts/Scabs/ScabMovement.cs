@@ -13,7 +13,10 @@ public class ScabMovement : MonoBehaviour
     private float Speed;
 
     public MovementState State { get; set; }
-    private float InterpolateAmount;
+    public object OnBuildingEndtered { get; internal set; }
+
+    private Vector3? TargetPosition;
+    private const float DistanceToPointThreshold = 0.1f;
 
     public void Initialize(Scab parent)
     {
@@ -30,31 +33,35 @@ public class ScabMovement : MonoBehaviour
                 HandleEntering();
                 return;
             case MovementState.Entered:
-                HandleEntered();
-                return;
             case MovementState.Leaving:
-                HandleLeaving();
+                HandleMovementToTargetPosition();
                 return;
         }
     }
 
     private void HandleEntering()
     {
-        InterpolateAmount = (InterpolateAmount + Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, Curve.Points[1].transform.position, Time.deltaTime * Speed);
+        MoveTowardsPoint(Curve.Points[1].transform.position);
     }
 
-    private void HandleEntered()
+    private void HandleMovementToTargetPosition()
     {
-
+        if (TargetPosition.HasValue == false)
+            TargetPosition = ExitPointsController.Instance.GetNearestExitPoint(transform.position);
+        MoveTowardsPoint(TargetPosition.Value);
+        if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
+            Destroy(Parent.gameObject);
     }
 
-    private void HandleLeaving()
+    public void OnBuildingEntered(Vector3 doorPosition)
     {
-
+        State = MovementState.Entered;
+        TargetPosition = doorPosition;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void MoveTowardsPoint(Vector3 point)
     {
+        transform.position = Vector3.MoveTowards(transform.position, point, Time.deltaTime * Speed);
+
     }
 }

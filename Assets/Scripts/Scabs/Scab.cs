@@ -9,12 +9,14 @@ public class Scab : MonoBehaviour
     public bool IsLeaving { get; private set; }
 
     private ScabMovement ScabMovement;
+    private Rigidbody2D Rigidbody;
     private ScabRank Rank;
 
     private List<SphereOfInfluence> CollidedSpheresOfInfluence;
 
     private void Start()
     {
+        Rigidbody = GetComponent<Rigidbody2D>();
         CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
         ScabMovement = GetComponent<ScabMovement>();
         ScabMovement.Initialize(this);
@@ -45,7 +47,7 @@ public class Scab : MonoBehaviour
         Entrance entrance = collision.GetComponent<Entrance>();
         if (entrance != null)
         {
-            EnterBuilding();
+            EnterBuilding(entrance);
             return;
         }
 
@@ -85,11 +87,13 @@ public class Scab : MonoBehaviour
         CollidedSpheresOfInfluence.Remove(sphereOfInfluence);
     }
 
-    private void EnterBuilding()
+    private void EnterBuilding(Entrance entrance)
     {
         print("scab entered building");
+        Destroy(Rigidbody);
+        Rigidbody = null;
         HasEnteredBuilding = true;
-        ScabMovement.State = MovementState.Entered;
+        ScabMovement.OnBuildingEntered(entrance.DoorPosition);
     }
 
     private void CollidedWithPicketLiner()
@@ -100,6 +104,8 @@ public class Scab : MonoBehaviour
     public void Leave()
     {
         print("scab is leaving");
+        Destroy(Rigidbody);
+        Rigidbody = null;
         ScabMovement.State = MovementState.Leaving;
         IsLeaving = true;
     }

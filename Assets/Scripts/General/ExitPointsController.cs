@@ -4,18 +4,20 @@ using System.Linq;
 
 public class ExitPointsController : MonoBehaviour
 {
+    public static ExitPointsController Instance;
     private ExitPoint[] ExitPoints;
 
     private void Awake()
     {
+        Instance = this;
         ExitPoints = GetComponentsInChildren<ExitPoint>();
         if (ExitPoints == null || ExitPoints.Any() == false)
             throw new UnityException("No exit points found");
     }
 
-    public void GetNearestExitPoint(Vector3 currentPosition)
+    public Vector3 GetNearestExitPoint(Vector3 currentPosition)
     {
-
+        return ExitPoints.OrderBy(ep => Vector3.Distance(ep.transform.position, currentPosition)).First().transform.position;
     }
 }
 
