@@ -60,13 +60,13 @@ public class GameController : MonoBehaviour
 
     public void StartLevel()
     {
-        StartCoroutine(SpawnScabCoroutine());
+        StartCoroutine(SpawnScabCoroutine(true));
         Clock.StartLevel();
     }
 
-    private IEnumerator SpawnScabCoroutine()
+    private IEnumerator SpawnScabCoroutine(bool firstScab)
     {
-        yield return new WaitForSeconds(SecondsBetweenScabsForLevel);
+        yield return new WaitForSeconds(firstScab ? SecondsBetweenScabsForLevel / 2 : SecondsBetweenScabsForLevel);
         int curveIndex;
         do
         {
@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
         scab.Initialize(ScabRank.Basic, curve);
         TotalScabsToSpawnRemaining--;
         if (TotalScabsToSpawnRemaining > 0)
-            StartCoroutine(SpawnScabCoroutine());
+            StartCoroutine(SpawnScabCoroutine(false));
     }
 
     public void OnScabEntered()

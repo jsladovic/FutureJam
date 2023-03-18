@@ -6,6 +6,7 @@ public class ClockController : MonoBehaviour
     [SerializeField] private Image ClockHand;
 
     private const int StartingHours = 7;
+    private const int NumberOfWorkHours = 12;
 
     private float currentTime;
     private float CurrentTime
@@ -26,7 +27,7 @@ public class ClockController : MonoBehaviour
         if (IsRunning == false)
             return;
         TimeRemainingInLevel -= Time.deltaTime;
-        CurrentTime = StartingHours + ((GameController.LevelDurationSeconds - TimeRemainingInLevel) / GameController.LevelDurationSeconds) * 12.0f;
+        CurrentTime = StartingHours + ((GameController.LevelDurationSeconds - TimeRemainingInLevel) / GameController.LevelDurationSeconds) * NumberOfWorkHours;
         if (TimeRemainingInLevel <= 0)
         {
             IsRunning = false;
@@ -43,6 +44,6 @@ public class ClockController : MonoBehaviour
     private void DisplayTime()
     {
         print($"current time: {CurrentTime}");
-        ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, -CurrentTime / 12.0f * 360.0f);
+        ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, -CurrentTime / NumberOfWorkHours * 360.0f);
     }
 }
