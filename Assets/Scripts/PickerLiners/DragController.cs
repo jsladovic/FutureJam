@@ -32,6 +32,8 @@ public class DragController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameController.Instance.IsWaitingForUpgrade == true || IsDragging == true)
+            return;
         DragStartPosition = transform.position;
         MousePositionOffset = transform.position - MouseWorldPosition;
         IsDragging = true;

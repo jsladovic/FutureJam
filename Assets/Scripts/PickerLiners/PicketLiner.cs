@@ -28,8 +28,9 @@ public class PicketLiner : MonoBehaviour
         ModelSelector = GetComponentInChildren<ModelSelector>();
         SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
 
-        Rank = PicketLinerRank.Basic;
         SphereOfInfluenceSelector.Initialize(this);
+        ModelSelector.Initialize();
+        Rank = PicketLinerRank.Basic;
         DragController.Initialize(this);
     }
 

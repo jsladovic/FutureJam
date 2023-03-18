@@ -8,7 +8,7 @@ public class PicketLinerModel : MonoBehaviour
     private Sprite DefaultSprite;
     [SerializeField] private Sprite CarriedSprite;
 
-    private void Awake()
+    public void Initialize()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         DefaultSprite = SpriteRenderer.sprite;

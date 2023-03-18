@@ -92,7 +92,6 @@ public class Scab : MonoBehaviour
 
     private void EnterBuilding(Entrance entrance)
     {
-        print("scab entered building");
         Destroy(Rigidbody);
         Rigidbody = null;
         HasEnteredBuilding = true;
@@ -107,7 +106,6 @@ public class Scab : MonoBehaviour
 
     public void Leave()
     {
-        print("scab is leaving");
         Destroy(Rigidbody);
         Rigidbody = null;
         ScabMovement.State = MovementState.Leaving;

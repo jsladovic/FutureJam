@@ -6,6 +6,13 @@ public class ModelSelector : MonoBehaviour
     [SerializeField] private PicketLinerModel AdvancedModel;
     [SerializeField] private PicketLinerModel EliteModel;
 
+    public void Initialize()
+    {
+        BasicModel.Initialize();
+        AdvancedModel.Initialize();
+        EliteModel.Initialize();
+    }
+
     public void SetCarriedSprite(bool isCarried)
     {
         BasicModel.SetCarriedSprite(isCarried);
