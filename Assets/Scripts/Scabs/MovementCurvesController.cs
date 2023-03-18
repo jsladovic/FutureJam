@@ -15,8 +15,8 @@ public class MovementCurvesController : MonoBehaviour
         Curves = GetComponentsInChildren<MovementCurve>();
     }
 
-    public List<MovementCurve> GetCurvesForLevelIndex(int levelIndex)
+    public MovementCurve[] GetCurvesForLevelIndex(int levelIndex)
     {
-        return Curves.Where(c => levelIndex >= c.LevelIndexUnlocked).ToList();
+        return Curves.Where(c => levelIndex >= c.LevelIndexUnlocked).ToArray();
     }
 }

@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8bf1f52e330994102abca22a1619c444, type: 2}
   - {fileID: 11400000, guid: ef416ea4080ce4845a0d14b8fe43f563, type: 2}
   - {fileID: 11400000, guid: 68e72dda8f24a44dba63720a80e12475, type: 2}
+  ScabPrefab: {fileID: 6257164572000450847, guid: d99c39ef63c1f4abfa8ea87a5806e859, type: 3}
