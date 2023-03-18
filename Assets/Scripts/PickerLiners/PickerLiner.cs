@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(DragController))]
 public class PickerLiner : MonoBehaviour
 {
     private ModelSelector ModelSelector;

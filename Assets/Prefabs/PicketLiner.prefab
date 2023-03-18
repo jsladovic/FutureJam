@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 185200964048269888}
   - component: {fileID: 6845376004797304972}
   - component: {fileID: 5814751786769060915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156217992326768475}
   - component: {fileID: 2689489048437457107}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Advanced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4772348741205083684}
   - component: {fileID: 6857420244702839360}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 6720077077081350944}
   - component: {fileID: 1201405159335133498}
   - component: {fileID: 4676490204813419727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Advanced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412584662434801990}
   - component: {fileID: 3826790863046282549}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Elite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6945481053428615309}
   - component: {fileID: 9149786777310095243}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpheresOfInfluence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,8 @@ GameObject:
   - component: {fileID: 7689749573185514465}
   - component: {fileID: 7689749573185514495}
   - component: {fileID: 7689749573185514464}
-  m_Layer: 0
+  - component: {fileID: 7439260650624262231}
+  m_Layer: 6
   m_Name: PicketLiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +550,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -567,6 +568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6889632ba9eb84794bf15a5030f50606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7439260650624262231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689749573185514492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b01a3e2a6d734333b0057a56add4b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8657093181251277862
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3958871179979478305}
   - component: {fileID: 2482277840760696869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Models
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +606,7 @@ Transform:
   m_GameObject: {fileID: 8657093181251277862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4772348741205083684}
@@ -628,7 +641,7 @@ GameObject:
   - component: {fileID: 7832715058547729400}
   - component: {fileID: 2319967918995230761}
   - component: {fileID: 2405339556878685346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Elite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
