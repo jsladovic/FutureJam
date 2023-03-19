@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private ClockController Clock;
     [SerializeField] private HealthBarController HealthBarController;
     [SerializeField] private Transform PicketLinerSpawningLocation;
+    [SerializeField] public Transform TopLeftDraggablePosition;
+    [SerializeField] public Transform BottomRightDraggablePosition;
 
     private int CurrentLevelIndex;
     private int ScabsRemainingInLevel;

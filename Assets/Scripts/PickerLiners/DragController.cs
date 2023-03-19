@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class DragController : MonoBehaviour
 {
-    private static string[] InvalidLayerNames = new string[] { "Factory", "Entrance" };
+    private static string[] ValidLayerNames = new string[] { "PicketLinerDraggable" };
+
+    private float MinX;
+    private float MaxX;
+    private float MinY;
+    private float MaxY;
 
     private PicketLiner Parent;
     private bool isDragging;
@@ -28,6 +33,12 @@ public class DragController : MonoBehaviour
     {
         Parent = parent;
         IsDragging = false;
+        Transform topLeftDraggableLimit = GameController.Instance.TopLeftDraggablePosition;
+        MinX = topLeftDraggableLimit.position.x;
+        MaxY = topLeftDraggableLimit.position.y;
+        Transform bottomRightDraggableLimit = GameController.Instance.BottomRightDraggablePosition;
+        MaxX = bottomRightDraggableLimit.position.x;
+        MinY = bottomRightDraggableLimit.position.y;
     }
 
     private void OnMouseDown()
@@ -44,23 +55,19 @@ public class DragController : MonoBehaviour
     {
         if (IsDragging == false)
             return;
-        if (CanBeDropped == false)
-            transform.position = DragStartPosition;
         IsDragging = false;
     }
 
     private void OnMouseDrag()
     {
         transform.position = MouseWorldPosition + MousePositionOffset;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, MinX, MaxX),
+            Mathf.Clamp(transform.position.y, MinY, MaxY), transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (IsDragging == false)
-            return;
-        if (IsInvalidCollision(collision.gameObject) == false)
-            return;
-        if (InvalidCollisionObjects.Contains(collision.transform) == true)
             return;
         InvalidCollisionObjects.Add(collision.transform);
         print($"entering collision with {collision.name}");
@@ -70,17 +77,10 @@ public class DragController : MonoBehaviour
     {
         if (IsDragging == false)
             return;
-        if (IsInvalidCollision(collision.gameObject) == false)
-            return;
-        if (InvalidCollisionObjects.Contains(collision.transform) == false)
-            return;
+
         InvalidCollisionObjects.Remove(collision.transform);
         print($"exiting collision with {collision.name}");
     }
-
-    private bool CanBeDropped => InvalidCollisionObjects.Any() == false;
-
-    private bool IsInvalidCollision(GameObject otherObject) => InvalidLayerNames.Contains(LayerMask.LayerToName(otherObject.layer));
 
     private Vector3 MouseWorldPosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
 }
