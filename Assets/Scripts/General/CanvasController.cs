@@ -43,9 +43,9 @@ public class CanvasController : MonoBehaviour
         if (canAddPicketLiner || canKickOutScab || canLevelUpPicketLiner)
         {
             ButtonsParent.gameObject.SetActive(true);
-            LevelUpPicketLinerButton.gameObject.SetActive(canLevelUpPicketLiner);
-            AddPicketLinerButton.gameObject.SetActive(canAddPicketLiner);
-            KickOutScabButton.gameObject.SetActive(canKickOutScab);
+            LevelUpPicketLinerButton.interactable = canLevelUpPicketLiner;
+            AddPicketLinerButton.interactable = canAddPicketLiner;
+            KickOutScabButton.interactable = canKickOutScab;
         }
         else
         {
