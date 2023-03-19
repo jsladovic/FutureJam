@@ -14,6 +14,10 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private Button KickOutScabButton;
     [SerializeField] private GameObject EndGameScreen;
     [SerializeField] private TextMeshProUGUI EndGameText;
+    [SerializeField] private GameObject TutorialPanel;
+    [SerializeField] private TextMeshProUGUI TutorialText;
+
+    private const int TutorialTextVisibleSeconds = 10;
 
     private void Awake()
     {
@@ -24,6 +28,7 @@ public class CanvasController : MonoBehaviour
     {
         ButtonsParent.gameObject.SetActive(false);
         EndGameScreen.SetActive(false);
+        TutorialPanel.SetActive(false);
     }
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
@@ -69,5 +74,23 @@ public class CanvasController : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+    }
+
+    public void DisplayLevelOneTutorialText()
+    {
+        StartCoroutine(DisplayTutorialTextCoroutine("Click and drag on the picket liners to move them, use them to block the scabs from entering the building."));
+    }
+
+    public void DisplayLevelTwoTutorialText()
+    {
+        StartCoroutine(DisplayTutorialTextCoroutine("If all the lights in the factory are turned on, the strike will be over."));
+    }
+
+    private IEnumerator DisplayTutorialTextCoroutine(string text)
+    {
+        TutorialPanel.SetActive(true);
+        TutorialText.text = text;
+        yield return new WaitForSeconds(TutorialTextVisibleSeconds);
+        TutorialPanel.SetActive(false);
     }
 }

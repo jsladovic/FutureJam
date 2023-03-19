@@ -101,6 +101,10 @@ public class GameController : MonoBehaviour
         IsWaitingForUpgrade = false;
         StartCoroutine(SpawnScabCoroutine(true));
         Clock.StartLevel();
+        if (CurrentLevel.Index == 1)
+            CanvasController.Instance.DisplayLevelOneTutorialText();
+        else if (CurrentLevel.Index == 2)
+            CanvasController.Instance.DisplayLevelTwoTutorialText();
     }
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)
