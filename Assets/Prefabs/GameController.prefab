@@ -49,6 +49,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8bf1f52e330994102abca22a1619c444, type: 2}
   - {fileID: 11400000, guid: ef416ea4080ce4845a0d14b8fe43f563, type: 2}
   - {fileID: 11400000, guid: 68e72dda8f24a44dba63720a80e12475, type: 2}
+  - {fileID: 11400000, guid: 730b2fb69f44142a58c962e3330abfc8, type: 2}
+  - {fileID: 11400000, guid: 34ce0ed8f13f24cb3b8ec622495269a4, type: 2}
+  - {fileID: 11400000, guid: 7f240888432d94ec3b71d8b456cf3187, type: 2}
+  - {fileID: 11400000, guid: 20f3f964b3abe4b63b6a1b05e8c3e870, type: 2}
+  - {fileID: 11400000, guid: a0334273e2b2d4a1d86acbf58920908a, type: 2}
+  - {fileID: 11400000, guid: 7be662f1299e64de19cb7a69aa4ee00b, type: 2}
+  - {fileID: 11400000, guid: 09bbf4c57c414409eb0d7b357a4b4cc9, type: 2}
+  - {fileID: 11400000, guid: 19875a4248ec04736b0862e0ff750df9, type: 2}
+  - {fileID: 11400000, guid: 0a14670fa612b4e7d8646cb4fc4fab6d, type: 2}
+  - {fileID: 11400000, guid: fe52ebc11084d4a59b0d974992cf9be7, type: 2}
+  - {fileID: 11400000, guid: b62c19c72bff84deeaec258f3aae842f, type: 2}
+  - {fileID: 11400000, guid: f771b7b4337774db4b52e68e1ffe5b83, type: 2}
   ScabPrefab: {fileID: 6257164572000450847, guid: d99c39ef63c1f4abfa8ea87a5806e859, type: 3}
   PicketLinerPrefab: {fileID: 7689749573185514464, guid: cfd008b4f65e140c8b1b83744ebd2ac3, type: 3}
   ScabsParent: {fileID: 0}
@@ -56,3 +68,5 @@ MonoBehaviour:
   Clock: {fileID: 0}
   HealthBarController: {fileID: 0}
   PicketLinerSpawningLocation: {fileID: 0}
+  TopLeftDraggablePosition: {fileID: 0}
+  BottomRightDraggablePosition: {fileID: 0}

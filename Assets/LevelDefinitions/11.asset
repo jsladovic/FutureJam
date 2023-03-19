@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06f6f6c787824461922fed859fd1c1b, type: 3}
-  m_Name: 2
+  m_Name: 11
   m_EditorClassIdentifier: 
-  Index: 2
-  NumberOfDefaultScabs: 6
-  NumberOfDesperateScabs: 1
-  NumberOfCriticalScabs: 0
+  Index: 11
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 11
