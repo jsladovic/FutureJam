@@ -29,12 +29,13 @@ public class Scab : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
         CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
         ScabMovement = GetComponent<ScabMovement>();
-        ModelSelector = GetComponentInChildren<ScabModelSelector>();
     }
 
     public void Initialize(ScabRank rank, MovementCurve curve, float speed)
     {
         Rank = rank;
+        ModelSelector = GetComponentInChildren<ScabModelSelector>();
+        ModelSelector.SetSprite(rank, false);
         ScabMovement.Initialize(this, curve, speed);
         HasEnteredBuilding = false;
         IsLeaving = false;
@@ -121,6 +122,7 @@ public class Scab : MonoBehaviour
         Rigidbody = null;
         ScabMovement.State = MovementState.Leaving;
         IsLeaving = true;
+        ModelSelector.SetSprite(Rank, true);
     }
 
     private int TotalSpheresOfInfluence => CollidedSpheresOfInfluence.Count;
