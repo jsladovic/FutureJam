@@ -76,6 +76,8 @@ public class GameController : MonoBehaviour
     public void KickOutScab()
     {
         HealthBarController.DisplayLifeGained();
+        if (NumberOfScabsEntered > 0)
+            NumberOfScabsEntered--;
     }
 
     public void SpawnPicketLiner()
