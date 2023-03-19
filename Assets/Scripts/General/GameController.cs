@@ -25,20 +25,7 @@ public class GameController : MonoBehaviour
     private bool IsTimeExpired;
     private LevelDefinition CurrentLevel;
     private List<PicketLiner> AllPicketLiners;
-
-    private bool isGameOver;
-    private bool IsGameOver
-    {
-        get { return isGameOver; }
-        set
-        {
-            isGameOver = value;
-            if (value == true)
-            {
-                // TODO display restart button
-            }
-        }
-    }
+    private bool IsGameOver;
 
     public const int LevelDurationSeconds = 30;
     public int NumberOfScabsEntered { get; private set; }
