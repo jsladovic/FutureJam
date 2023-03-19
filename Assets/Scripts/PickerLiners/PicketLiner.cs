@@ -51,9 +51,12 @@ public class PicketLiner : MonoBehaviour
     {
         if (GameController.Instance.IsWaitingForUpgrade == false)
             return;
-        UpgradeRank();
-        GameController.Instance.StartLevel();
-        IsClicked = false;
+        if (UpgradeRank() == true)
+        {
+            GameController.Instance.StartLevel();
+            IsClicked = false;
+            CanvasController.Instance.HideTutorialText();
+        }
     }
 
     private void OnMouseExit()
@@ -63,10 +66,14 @@ public class PicketLiner : MonoBehaviour
         IsClicked = false;
     }
 
-    private void UpgradeRank()
+    private bool UpgradeRank()
     {
         if (Rank == PicketLinerRank.Basic)
+        {
             Rank = PicketLinerRank.Advanced;
+            return true;
+        }
+        return false;
     }
 
     public bool CanBeUpgraded => Rank == PicketLinerRank.Basic;

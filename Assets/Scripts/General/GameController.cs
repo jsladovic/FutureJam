@@ -92,6 +92,7 @@ public class GameController : MonoBehaviour
     public void LevelUpPicketLiner()
     {
         IsWaitingForUpgrade = true;
+        CanvasController.Instance.DisplayLevelUpText();
     }
 
     public void StartLevel()

@@ -28,7 +28,7 @@ public class CanvasController : MonoBehaviour
     {
         ButtonsParent.gameObject.SetActive(false);
         EndGameScreen.SetActive(false);
-        TutorialPanel.SetActive(false);
+        HideTutorialText();
     }
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
@@ -86,11 +86,24 @@ public class CanvasController : MonoBehaviour
         StartCoroutine(DisplayTutorialTextCoroutine("If all the lights in the factory are turned on, the strike will be over."));
     }
 
-    private IEnumerator DisplayTutorialTextCoroutine(string text)
+    public void DisplayLevelUpText()
+    {
+        StartCoroutine(DisplayTutorialTextCoroutine("Click on a basic picket liner to level him up.", hideAfterWait: false));
+    }
+
+    private IEnumerator DisplayTutorialTextCoroutine(string text, bool hideAfterWait = true)
     {
         TutorialPanel.SetActive(true);
         TutorialText.text = text;
-        yield return new WaitForSeconds(TutorialTextVisibleSeconds);
+        if (hideAfterWait == true)
+        {
+            yield return new WaitForSeconds(TutorialTextVisibleSeconds);
+            HideTutorialText();
+        }
+    }
+
+    public void HideTutorialText()
+    {
         TutorialPanel.SetActive(false);
     }
 }
