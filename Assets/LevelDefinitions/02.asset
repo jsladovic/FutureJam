@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: 02
   m_EditorClassIdentifier: 
   Index: 2
-  NumberOfDefaultScabs: 6
-  NumberOfDesperateScabs: 1
-  NumberOfCriticalScabs: 0
+  NumberOfDefaultScabs: 7
+  NumberOfDesperateScabs: 0

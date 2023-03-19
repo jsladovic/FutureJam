@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public bool IsWaitingForUpgrade { get; private set; }
 
     private const float BaseScabSpeed = 1.8f;
-    private const float ScabSpeedIncreasePerLevel = 0.2f;
+    private const float ScabSpeedIncreasePerLevel = 0.1f;
 
     private int TotalScabsToSpawnRemaining;
     private int BasicScabsToSpawnRemaining;
@@ -100,6 +100,8 @@ public class GameController : MonoBehaviour
             CanvasController.Instance.DisplayLevelOneTutorialText();
         else if (CurrentLevel.Index == 2)
             CanvasController.Instance.DisplayLevelTwoTutorialText();
+        else if (CurrentLevel.Index == 3)
+            CanvasController.Instance.DisplayLevelThreeTutorialText();
     }
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)

@@ -95,6 +95,11 @@ public class CanvasController : MonoBehaviour
         StartCoroutine(DisplayTutorialTextCoroutine("If all the lights in the factory are turned on, the strike will be over."));
     }
 
+    public void DisplayLevelThreeTutorialText()
+    {
+        StartCoroutine(DisplayTutorialTextCoroutine("Some scabs are more determined to break the strike, use two picket liners to block their path."));
+    }
+
     public void DisplayLevelUpText()
     {
         StartCoroutine(DisplayTutorialTextCoroutine("Click on a basic picket liner to level him up.", hideAfterWait: false));
