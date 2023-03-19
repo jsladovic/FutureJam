@@ -75,7 +75,7 @@ public class CanvasController : MonoBehaviour
 
     public void DisplayEndGameScreen(int numberOfDays)
     {
-        EndGameText.text = $"The strike lasted {numberOfDays} days";
+        EndGameText.text = $"The strike lasted {numberOfDays} day{(numberOfDays == 1 ? string.Empty : "s")}";
         EndGameScreen.SetActive(true);
     }
 
