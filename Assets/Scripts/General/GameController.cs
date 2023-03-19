@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour
     private int TotalScabsToSpawnRemaining;
     private int BasicScabsToSpawnRemaining;
     private int DesperateScabsToSpawnRemaining;
-    private int CriticalScabsToSpawnRemaining;
     private int SecondsBetweenScabsForLevel;
 
     private void Awake()
@@ -70,12 +69,11 @@ public class GameController : MonoBehaviour
         if (CurrentLevelIndex >= Levels.Length)
             throw new UnityException($"Oh no, level {CurrentLevelIndex + 1} is not yet implemented");
         CurrentLevel = Levels[CurrentLevelIndex];
-        ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfCriticalScabs;
+        ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs;
         TotalScabsToSpawnRemaining = ScabsRemainingInLevel;
         CurrentLevelCurves = MovementCurvesController.Instance.GetCurvesForLevelIndex(CurrentLevel.Index);
         BasicScabsToSpawnRemaining = CurrentLevel.NumberOfDefaultScabs;
         DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
-        CriticalScabsToSpawnRemaining = CurrentLevel.NumberOfCriticalScabs;
         SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
         print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
         CanvasController.Instance.DisplayLevel(CurrentLevel.Index, NumberOfScabsEntered > 0);

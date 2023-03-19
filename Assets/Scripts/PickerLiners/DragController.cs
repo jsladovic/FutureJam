@@ -70,7 +70,6 @@ public class DragController : MonoBehaviour
         if (IsDragging == false)
             return;
         InvalidCollisionObjects.Add(collision.transform);
-        print($"entering collision with {collision.name}");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -79,7 +78,6 @@ public class DragController : MonoBehaviour
             return;
 
         InvalidCollisionObjects.Remove(collision.transform);
-        print($"exiting collision with {collision.name}");
     }
 
     private Vector3 MouseWorldPosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);

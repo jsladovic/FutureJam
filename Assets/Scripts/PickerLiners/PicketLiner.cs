@@ -67,9 +67,9 @@ public class PicketLiner : MonoBehaviour
     {
         if (Rank == PicketLinerRank.Basic)
             Rank = PicketLinerRank.Advanced;
-        else if (Rank == PicketLinerRank.Advanced)
-            Rank = PicketLinerRank.Elite;
     }
+
+    public bool CanBeUpgraded => Rank == PicketLinerRank.Basic;
 
     public bool IsCarried => DragController.IsDragging;
 }
