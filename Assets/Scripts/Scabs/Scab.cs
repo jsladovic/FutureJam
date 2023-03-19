@@ -9,8 +9,18 @@ public class Scab : MonoBehaviour
     public bool IsLeaving { get; private set; }
 
     private ScabMovement ScabMovement;
+    private ScabModelSelector ModelSelector;
     private Rigidbody2D Rigidbody;
-    private ScabRank Rank;
+
+    private ScabRank rank;
+    private ScabRank Rank
+    {
+        get { return rank; }
+        set
+        {
+            rank = value;
+        }
+    }
 
     private List<SphereOfInfluence> CollidedSpheresOfInfluence;
 
@@ -19,6 +29,7 @@ public class Scab : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
         CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
         ScabMovement = GetComponent<ScabMovement>();
+        ModelSelector = GetComponentInChildren<ScabModelSelector>();
     }
 
     public void Initialize(ScabRank rank, MovementCurve curve, float speed)
