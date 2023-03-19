@@ -115,7 +115,12 @@ public class GameController : MonoBehaviour
         LastUsedCurveIndex = curveIndex;
         MovementCurve curve = CurrentLevelCurves[curveIndex];
         Scab scab = Instantiate(ScabPrefab, curve.Points.First().transform.position, Quaternion.identity, ScabsParent);
-        scab.Initialize(ScabRank.Basic, curve, BaseScabSpeed + CurrentLevelIndex * ScabSpeedIncreasePerLevel);
+        ScabRank rank = BasicScabsToSpawnRemaining > 0 ? ScabRank.Basic : ScabRank.Desperate;
+        if (rank == ScabRank.Basic)
+            BasicScabsToSpawnRemaining--;
+        else
+            DesperateScabsToSpawnRemaining--;
+        scab.Initialize(rank, curve, BaseScabSpeed + CurrentLevelIndex * ScabSpeedIncreasePerLevel);
         TotalScabsToSpawnRemaining--;
         if (TotalScabsToSpawnRemaining > 0)
             StartCoroutine(SpawnScabCoroutine(false));
