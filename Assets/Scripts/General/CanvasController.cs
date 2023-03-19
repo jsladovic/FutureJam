@@ -28,7 +28,7 @@ public class CanvasController : MonoBehaviour
 
     public void DisplayLevel(int levelIndex, bool canKickOutScab)
     {
-        LevelText.text = $"Day {levelIndex}";
+        LevelText.text = $"Factory strike, day {levelIndex}";
         if (levelIndex == 1)
         {
             GameController.Instance.StartLevel();
