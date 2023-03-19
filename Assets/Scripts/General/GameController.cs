@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)
     {
-        yield return new WaitForSeconds(firstScab ? SecondsBetweenScabsForLevel / 2 : SecondsBetweenScabsForLevel);
+        yield return new WaitForSeconds(firstScab ? 0 : SecondsBetweenScabsForLevel);
         if (IsGameOver == true)
             yield break;
         int curveIndex;

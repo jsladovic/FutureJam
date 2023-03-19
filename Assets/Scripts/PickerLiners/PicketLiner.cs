@@ -53,9 +53,9 @@ public class PicketLiner : MonoBehaviour
             return;
         if (UpgradeRank() == true)
         {
+            CanvasController.Instance.HideTutorialText();
             GameController.Instance.StartLevel();
             IsClicked = false;
-            CanvasController.Instance.HideTutorialText();
         }
     }
 
