@@ -11,6 +11,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private GameObject ButtonsParent;
     [SerializeField] private TextMeshProUGUI LevelText;
     [SerializeField] private Button AddPicketLinerButton;
+    [SerializeField] private Button LevelUpPicketLinerButton;
     [SerializeField] private Button KickOutScabButton;
     [SerializeField] private GameObject EndGameScreen;
     [SerializeField] private TextMeshProUGUI EndGameText;
@@ -31,7 +32,7 @@ public class CanvasController : MonoBehaviour
         HideTutorialText();
     }
 
-    public void DisplayLevel(int levelIndex, bool canKickOutScab)
+    public void DisplayLevel(int levelIndex, bool canAddPicketLiner, bool canKickOutScab, bool canLevelUpPicketLiner)
     {
         LevelText.text = $"Factory strike, day {levelIndex}";
         if (levelIndex == 1)
@@ -39,9 +40,17 @@ public class CanvasController : MonoBehaviour
             GameController.Instance.StartLevel();
             return;
         }
-        ButtonsParent.gameObject.SetActive(true);
-        AddPicketLinerButton.gameObject.SetActive(levelIndex % 3 == 1);
-        KickOutScabButton.gameObject.SetActive(canKickOutScab);
+        if (canAddPicketLiner || canKickOutScab || canLevelUpPicketLiner)
+        {
+            ButtonsParent.gameObject.SetActive(true);
+            LevelUpPicketLinerButton.gameObject.SetActive(canLevelUpPicketLiner);
+            AddPicketLinerButton.gameObject.SetActive(canAddPicketLiner);
+            KickOutScabButton.gameObject.SetActive(canKickOutScab);
+        }
+        else
+        {
+            GameController.Instance.StartLevel();
+        }
     }
 
     public void KickOutScabClicked()

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour
     private int LastUsedCurveIndex;
     private bool IsTimeExpired;
     private LevelDefinition CurrentLevel;
+    private List<PicketLiner> AllPicketLiners;
 
     private bool isGameOver;
     private bool IsGameOver
@@ -56,6 +58,11 @@ public class GameController : MonoBehaviour
         NumberOfScabsEntered = 0;
         Levels = Levels.OrderBy(ld => ld.Index).ToArray();
         CurrentLevelIndex = 0;
+        AllPicketLiners = PicketLinersParent.GetComponentsInChildren<PicketLiner>().ToList();
+        foreach (PicketLiner picketLiner in AllPicketLiners)
+        {
+            picketLiner.Initialize();
+        }
     }
 
     private void Start()
@@ -76,7 +83,7 @@ public class GameController : MonoBehaviour
         DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
         SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
         print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
-        CanvasController.Instance.DisplayLevel(CurrentLevel.Index, NumberOfScabsEntered > 0);
+        CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0, AllPicketLiners.Any(pl => pl.Rank == PicketLinerRank.Basic));
     }
 
     public void KickOutScab()
@@ -86,7 +93,9 @@ public class GameController : MonoBehaviour
 
     public void SpawnPicketLiner()
     {
-        Instantiate(PicketLinerPrefab, PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
+        PicketLiner picketLiner = Instantiate(PicketLinerPrefab, PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
+        picketLiner.Initialize();
+        AllPicketLiners.Add(picketLiner);
     }
 
     public void LevelUpPicketLiner()

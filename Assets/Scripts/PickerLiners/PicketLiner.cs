@@ -9,10 +9,10 @@ public class PicketLiner : MonoBehaviour
     private SphereOfInfluenceSelector SphereOfInfluenceSelector;
 
     private PicketLinerRank rank;
-    private PicketLinerRank Rank
+    public PicketLinerRank Rank
     {
         get { return rank; }
-        set
+        private set
         {
             rank = value;
             ModelSelector.SetRank(value);
@@ -22,7 +22,7 @@ public class PicketLiner : MonoBehaviour
 
     private bool IsClicked;
 
-    private void Awake()
+    public void Initialize()
     {
         DragController = GetComponent<DragController>();
         ModelSelector = GetComponentInChildren<ModelSelector>();
