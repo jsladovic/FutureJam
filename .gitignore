@@ -59,3 +59,8 @@ sysinfo.txt
 crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
 
+#FMOD Stuff
+fmod_editor.log
+Assets/Plugins/FMOD/Cache/
+/[Aa]ssets/StreamingAssets/**/*.bank
+/[Aa]ssets/StreamingAssets/**/*.bank.meta
