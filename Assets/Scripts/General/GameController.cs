@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     private List<PicketLiner> AllPicketLiners;
     private bool IsGameOver;
 
-    public const int LevelDurationSeconds = 30;
+    public const int LevelDurationSeconds = 20;
     public int NumberOfScabsEntered { get; private set; }
     public bool IsWaitingForUpgrade { get; private set; }
 
@@ -104,12 +104,7 @@ public class GameController : MonoBehaviour
         IsWaitingForUpgrade = false;
         StartCoroutine(SpawnScabCoroutine(true));
         Clock.StartLevel();
-        if (CurrentLevel.Index == 1)
-            CanvasController.Instance.DisplayLevelOneTutorialText();
-        else if (CurrentLevel.Index == 2)
-            CanvasController.Instance.DisplayLevelTwoTutorialText();
-        else if (CurrentLevel.Index == 3)
-            CanvasController.Instance.DisplayLevelThreeTutorialText();
+        CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
     }
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)

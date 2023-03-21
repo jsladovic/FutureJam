@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: 03
   m_EditorClassIdentifier: 
   Index: 3
+  LevelText: Some scabs are more determined to break the strike, use two picket liners
+    to block their path.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 2

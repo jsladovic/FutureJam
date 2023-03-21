@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 01
   m_EditorClassIdentifier: 
   Index: 1
+  LevelText: Click and drag on the picket liners to move them, use them to block
+    the scabs from entering the building.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 0
-  NumberOfCriticalScabs: 0

@@ -53,6 +53,11 @@ public class CanvasController : MonoBehaviour
         }
     }
 
+    public void DisplayLevelText(string text)
+	{
+        StartCoroutine(DisplayTutorialTextCoroutine(text));
+	}
+
     public void KickOutScabClicked()
     {
         GameController.Instance.KickOutScab();
@@ -83,21 +88,6 @@ public class CanvasController : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
-    }
-
-    public void DisplayLevelOneTutorialText()
-    {
-        StartCoroutine(DisplayTutorialTextCoroutine("Click and drag on the picket liners to move them, use them to block the scabs from entering the building."));
-    }
-
-    public void DisplayLevelTwoTutorialText()
-    {
-        StartCoroutine(DisplayTutorialTextCoroutine("If all the lights in the factory are turned on, the strike will be over."));
-    }
-
-    public void DisplayLevelThreeTutorialText()
-    {
-        StartCoroutine(DisplayTutorialTextCoroutine("Some scabs are more determined to break the strike, use two picket liners to block their path."));
     }
 
     public void DisplayLevelUpText()

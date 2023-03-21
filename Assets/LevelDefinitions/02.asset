@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 02
   m_EditorClassIdentifier: 
   Index: 2
+  LevelText: If all the lights in the factory are turned on, the strike will be over.
   NumberOfDefaultScabs: 7
   NumberOfDesperateScabs: 0
