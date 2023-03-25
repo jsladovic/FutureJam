@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using Assets.Scripts.General;
 
 public class GameController : MonoBehaviour
 {
@@ -105,6 +106,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnScabCoroutine(true));
         Clock.StartLevel();
         CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
+        CursorController.Instance.SetCursorSprite();
     }
 
     private IEnumerator SpawnScabCoroutine(bool firstScab)

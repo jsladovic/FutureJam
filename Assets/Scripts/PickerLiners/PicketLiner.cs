@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.General;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(DragController))]
@@ -59,8 +60,14 @@ public class PicketLiner : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+	private void OnMouseEnter()
+	{
+        CursorController.Instance.RegisterPicketLinerHovered(this);
+	}
+
+	private void OnMouseExit()
     {
+        CursorController.Instance.UnregisterPicketLinerHovered(this);
         if (IsClicked == true)
             return;
         IsClicked = false;
