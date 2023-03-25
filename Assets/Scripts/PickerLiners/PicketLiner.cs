@@ -73,6 +73,11 @@ public class PicketLiner : MonoBehaviour
             Rank = PicketLinerRank.Advanced;
             return true;
         }
+        if (Rank == PicketLinerRank.Advanced)
+        {
+            Rank = PicketLinerRank.Elite;
+            return true;
+        }
         return false;
     }
 
