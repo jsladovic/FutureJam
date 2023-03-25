@@ -406,8 +406,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicModelEntering: {fileID: 1062001271312278890}
   DesperateModelEntering: {fileID: 4240610115769017943}
+  EliteModelEntering: {fileID: 4684686165203923080}
   BasicModelLeaving: {fileID: 714464664306885733}
   DesperateModelLeaving: {fileID: 8961681038007005444}
+  EliteModelLeaving: {fileID: 1230057079444322706}
 --- !u!1 &5633317342596565159
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +423,7 @@ GameObject:
   - component: {fileID: 6427277107087809661}
   - component: {fileID: 1434799986771178233}
   m_Layer: 7
-  m_Name: ExtraModelEntering
+  m_Name: EliteModelEntering
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +541,7 @@ GameObject:
   - component: {fileID: 7756991545613999766}
   - component: {fileID: 7189910569533895506}
   m_Layer: 7
-  m_Name: ExtraModelLeaving
+  m_Name: EliteModelLeaving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
