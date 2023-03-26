@@ -1,131 +1,135 @@
-﻿using System;
+﻿using Assets.Scripts.General;
+using Assets.Scripts.PicketLiners;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ScabMovement))]
-public class Scab : MonoBehaviour
+namespace Assets.Scripts.Scabs
 {
-    public bool HasEnteredBuilding { get; private set; }
-    public bool IsLeaving { get; private set; }
-
-    private ScabMovement ScabMovement;
-    private ScabModelSelector ModelSelector;
-    private Rigidbody2D Rigidbody;
-
-    private ScabRank rank;
-    private ScabRank Rank
+	[RequireComponent(typeof(ScabMovement))]
+    public class Scab : MonoBehaviour
     {
-        get { return rank; }
-        set
+        public bool HasEnteredBuilding { get; private set; }
+        public bool IsLeaving { get; private set; }
+
+        private ScabMovement ScabMovement;
+        private ScabModelSelector ModelSelector;
+        private Rigidbody2D Rigidbody;
+
+        private ScabRank rank;
+        private ScabRank Rank
         {
-            rank = value;
-        }
-    }
-
-    private List<SphereOfInfluence> CollidedSpheresOfInfluence;
-
-    private void Awake()
-    {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
-        ScabMovement = GetComponent<ScabMovement>();
-    }
-
-    public void Initialize(ScabRank rank, MovementCurve curve, float speed)
-    {
-        Rank = rank;
-        ModelSelector = GetComponentInChildren<ScabModelSelector>();
-        ModelSelector.SetSprite(rank, false);
-        ScabMovement.Initialize(this, curve, speed);
-        HasEnteredBuilding = false;
-        IsLeaving = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (CheckForTriggers == false)
-            return;
-
-        PicketLiner picketLiner = collision.transform.GetComponent<PicketLiner>();
-        if (picketLiner != null && picketLiner.IsCarried == false)
-        {
-            CollidedWithPicketLiner();
-            return;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (CheckForTriggers == false)
-            return;
-
-        Entrance entrance = collision.GetComponent<Entrance>();
-        if (entrance != null)
-        {
-            EnterBuilding(entrance);
-            return;
+            get { return rank; }
+            set
+            {
+                rank = value;
+            }
         }
 
-        SphereOfInfluence sphereOfInfluence = collision.GetComponent<SphereOfInfluence>();
-        if (sphereOfInfluence != null)
-        {
-            HandleSphereOfInfulenceCollisionEntered(sphereOfInfluence);
-            return;
-        }
-    }
+        private List<SphereOfInfluence> CollidedSpheresOfInfluence;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        SphereOfInfluence sphereOfInfluence = collision.GetComponent<SphereOfInfluence>();
-        if (sphereOfInfluence != null)
+        private void Awake()
         {
-            HandleSphereOfInfulenceCollisionExited(sphereOfInfluence);
-            return;
+            Rigidbody = GetComponent<Rigidbody2D>();
+            CollidedSpheresOfInfluence = new List<SphereOfInfluence>();
+            ScabMovement = GetComponent<ScabMovement>();
         }
-    }
 
-    private void HandleSphereOfInfulenceCollisionEntered(SphereOfInfluence sphereOfInfluence)
-    {
-        if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == true)
-            return;
-        if (sphereOfInfluence.IsCarried == true)
-            return;
-        CollidedSpheresOfInfluence.Add(sphereOfInfluence);
-        if (TotalSpheresOfInfluence >= Rank.SpheresOfInfulenceNeededToLeave())
+        public void Initialize(ScabRank rank, MovementCurve curve, float speed)
+        {
+            Rank = rank;
+            ModelSelector = GetComponentInChildren<ScabModelSelector>();
+            ModelSelector.SetSprite(rank, false);
+            ScabMovement.Initialize(this, curve, speed);
+            HasEnteredBuilding = false;
+            IsLeaving = false;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (CheckForTriggers == false)
+                return;
+
+            PicketLiner picketLiner = collision.transform.GetComponent<PicketLiner>();
+            if (picketLiner != null && picketLiner.IsCarried == false)
+            {
+                CollidedWithPicketLiner();
+                return;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (CheckForTriggers == false)
+                return;
+
+            Entrance entrance = collision.GetComponent<Entrance>();
+            if (entrance != null)
+            {
+                EnterBuilding(entrance);
+                return;
+            }
+
+            SphereOfInfluence sphereOfInfluence = collision.GetComponent<SphereOfInfluence>();
+            if (sphereOfInfluence != null)
+            {
+                HandleSphereOfInfulenceCollisionEntered(sphereOfInfluence);
+                return;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            SphereOfInfluence sphereOfInfluence = collision.GetComponent<SphereOfInfluence>();
+            if (sphereOfInfluence != null)
+            {
+                HandleSphereOfInfulenceCollisionExited(sphereOfInfluence);
+                return;
+            }
+        }
+
+        private void HandleSphereOfInfulenceCollisionEntered(SphereOfInfluence sphereOfInfluence)
+        {
+            if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == true)
+                return;
+            if (sphereOfInfluence.IsCarried == true)
+                return;
+            CollidedSpheresOfInfluence.Add(sphereOfInfluence);
+            if (TotalSpheresOfInfluence >= Rank.SpheresOfInfulenceNeededToLeave())
+                Leave();
+        }
+
+        private void HandleSphereOfInfulenceCollisionExited(SphereOfInfluence sphereOfInfluence)
+        {
+            if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == false)
+                return;
+            CollidedSpheresOfInfluence.Remove(sphereOfInfluence);
+        }
+
+        private void EnterBuilding(Entrance entrance)
+        {
+            Destroy(Rigidbody);
+            Rigidbody = null;
+            HasEnteredBuilding = true;
+            ScabMovement.OnBuildingEntered(entrance.DoorPosition);
+            GameController.Instance.OnScabEntered();
+        }
+
+        private void CollidedWithPicketLiner()
+        {
             Leave();
+        }
+
+        public void Leave()
+        {
+            Destroy(Rigidbody);
+            Rigidbody = null;
+            ScabMovement.State = MovementState.Leaving;
+            IsLeaving = true;
+            ModelSelector.SetSprite(Rank, true);
+        }
+
+        private int TotalSpheresOfInfluence => CollidedSpheresOfInfluence.Count;
+
+        private bool CheckForTriggers => HasEnteredBuilding == false && IsLeaving == false;
     }
-
-    private void HandleSphereOfInfulenceCollisionExited(SphereOfInfluence sphereOfInfluence)
-    {
-        if (CollidedSpheresOfInfluence.Contains(sphereOfInfluence) == false)
-            return;
-        CollidedSpheresOfInfluence.Remove(sphereOfInfluence);
-    }
-
-    private void EnterBuilding(Entrance entrance)
-    {
-        Destroy(Rigidbody);
-        Rigidbody = null;
-        HasEnteredBuilding = true;
-        ScabMovement.OnBuildingEntered(entrance.DoorPosition);
-        GameController.Instance.OnScabEntered();
-    }
-
-    private void CollidedWithPicketLiner()
-    {
-        Leave();
-    }
-
-    public void Leave()
-    {
-        Destroy(Rigidbody);
-        Rigidbody = null;
-        ScabMovement.State = MovementState.Leaving;
-        IsLeaving = true;
-        ModelSelector.SetSprite(Rank, true);
-    }
-
-    private int TotalSpheresOfInfluence => CollidedSpheresOfInfluence.Count;
-
-    private bool CheckForTriggers => HasEnteredBuilding == false && IsLeaving == false;
 }

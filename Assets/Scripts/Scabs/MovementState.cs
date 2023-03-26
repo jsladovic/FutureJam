@@ -1,6 +1,9 @@
-﻿public enum MovementState
+﻿namespace Assets.Scripts.Scabs
 {
-    Entering = 0,
-    Entered = 1,
-    Leaving = 2,
+    public enum MovementState
+    {
+        Entering = 0,
+        Entered = 1,
+        Leaving = 2,
+    }
 }

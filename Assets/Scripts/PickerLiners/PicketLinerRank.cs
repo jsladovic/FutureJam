@@ -1,6 +1,9 @@
-﻿public enum PicketLinerRank
+﻿namespace Assets.Scripts.PicketLiners
 {
-	Basic = 0,
-	Advanced = 1,
-	Elite = 2,
+	public enum PicketLinerRank
+	{
+		Basic = 0,
+		Advanced = 1,
+		Elite = 2,
+	}
 }

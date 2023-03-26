@@ -1,29 +1,32 @@
 ﻿using UnityEngine;
 
-public class SphereOfInfluenceSelector : MonoBehaviour
+namespace Assets.Scripts.PicketLiners
 {
-    [SerializeField] private SphereOfInfluence BasicCollider;
-    [SerializeField] private SphereOfInfluence AdvancedCollider;
-    [SerializeField] private SphereOfInfluence EliteCollider;
-
-    public void Initialize(PicketLiner picketLiner)
+	public class SphereOfInfluenceSelector : MonoBehaviour
     {
-        BasicCollider.Initialize(picketLiner);
-        AdvancedCollider.Initialize(picketLiner);
-        EliteCollider.Initialize(picketLiner);
-    }
+        [SerializeField] private SphereOfInfluence BasicCollider;
+        [SerializeField] private SphereOfInfluence AdvancedCollider;
+        [SerializeField] private SphereOfInfluence EliteCollider;
 
-    public void SetRank(PicketLinerRank rank)
-    {
-        BasicCollider.gameObject.SetActive(rank == PicketLinerRank.Basic);
-        AdvancedCollider.gameObject.SetActive(rank == PicketLinerRank.Advanced);
-        EliteCollider.gameObject.SetActive(rank == PicketLinerRank.Elite);
-    }
+        public void Initialize(PicketLiner picketLiner)
+        {
+            BasicCollider.Initialize(picketLiner);
+            AdvancedCollider.Initialize(picketLiner);
+            EliteCollider.Initialize(picketLiner);
+        }
 
-    public void SetCarriedSprite(bool isCarried)
-    {
-        BasicCollider.SetCarriedSprite(isCarried);
-        AdvancedCollider.SetCarriedSprite(isCarried);
-        EliteCollider.SetCarriedSprite(isCarried);
+        public void SetRank(PicketLinerRank rank)
+        {
+            BasicCollider.gameObject.SetActive(rank == PicketLinerRank.Basic);
+            AdvancedCollider.gameObject.SetActive(rank == PicketLinerRank.Advanced);
+            EliteCollider.gameObject.SetActive(rank == PicketLinerRank.Elite);
+        }
+
+        public void SetCarriedSprite(bool isCarried)
+        {
+            BasicCollider.SetCarriedSprite(isCarried);
+            AdvancedCollider.SetCarriedSprite(isCarried);
+            EliteCollider.SetCarriedSprite(isCarried);
+        }
     }
 }

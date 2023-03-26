@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ScabModel : MonoBehaviour
+namespace Assets.Scripts.Scabs
 {
+	public class ScabModel : MonoBehaviour
+	{
+	}
 }
 

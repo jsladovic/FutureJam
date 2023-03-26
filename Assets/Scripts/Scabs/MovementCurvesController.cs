@@ -1,22 +1,23 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Linq;
+using UnityEngine;
 
-public class MovementCurvesController : MonoBehaviour
+namespace Assets.Scripts.Scabs
 {
-    public static MovementCurvesController Instance;
-
-    private MovementCurve[] Curves;
-
-    private void Awake()
+	public class MovementCurvesController : MonoBehaviour
     {
-        Instance = this;
-        Curves = GetComponentsInChildren<MovementCurve>();
-    }
+        public static MovementCurvesController Instance;
 
-    public MovementCurve[] GetCurvesForLevelIndex(int levelIndex)
-    {
-        return Curves.Where(c => levelIndex >= c.LevelIndexUnlocked).ToArray();
+        private MovementCurve[] Curves;
+
+        private void Awake()
+        {
+            Instance = this;
+            Curves = GetComponentsInChildren<MovementCurve>();
+        }
+
+        public MovementCurve[] GetCurvesForLevelIndex(int levelIndex)
+        {
+            return Curves.Where(c => levelIndex >= c.LevelIndexUnlocked).ToArray();
+        }
     }
 }

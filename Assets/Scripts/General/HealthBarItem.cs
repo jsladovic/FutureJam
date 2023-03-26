@@ -1,32 +1,35 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class HealthBarItem : MonoBehaviour
+namespace Assets.Scripts.General
 {
-    private SpriteRenderer SpriteRenderer;
-    [SerializeField] private Sprite WindowWorkingSprite;
-    private Sprite WindowNotWorkingSprite;
-
-    public bool IsWorking { get; private set; }
-
-    private void Awake()
+	[RequireComponent(typeof(SpriteRenderer))]
+    public class HealthBarItem : MonoBehaviour
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        WindowNotWorkingSprite = SpriteRenderer.sprite;
-        DisplayWindowWorking(false);
-    }
+        private SpriteRenderer SpriteRenderer;
+        [SerializeField] private Sprite WindowWorkingSprite;
+        private Sprite WindowNotWorkingSprite;
 
-    public void DisplayWindowWorking(bool isWorking)
-    {
-        IsWorking = isWorking;
-        StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
-    }
+        public bool IsWorking { get; private set; }
 
-    private IEnumerator DisplayWindowWorkingCoroutine(bool isWorking)
-    {
-        if (isWorking == true)
-            yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
-        SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
+        private void Awake()
+        {
+            SpriteRenderer = GetComponent<SpriteRenderer>();
+            WindowNotWorkingSprite = SpriteRenderer.sprite;
+            DisplayWindowWorking(false);
+        }
+
+        public void DisplayWindowWorking(bool isWorking)
+        {
+            IsWorking = isWorking;
+            StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
+        }
+
+        private IEnumerator DisplayWindowWorkingCoroutine(bool isWorking)
+        {
+            if (isWorking == true)
+                yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
+            SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
+        }
     }
 }

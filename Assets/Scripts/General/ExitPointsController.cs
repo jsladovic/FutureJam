@@ -1,23 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
+﻿using System.Linq;
+using UnityEngine;
 
-public class ExitPointsController : MonoBehaviour
+namespace Assets.Scripts.General
 {
-    public static ExitPointsController Instance;
-    private ExitPoint[] ExitPoints;
+	public class ExitPointsController : MonoBehaviour
+	{
+		public static ExitPointsController Instance;
+		private ExitPoint[] ExitPoints;
 
-    private void Awake()
-    {
-        Instance = this;
-        ExitPoints = GetComponentsInChildren<ExitPoint>();
-        if (ExitPoints == null || ExitPoints.Any() == false)
-            throw new UnityException("No exit points found");
-    }
+		private void Awake()
+		{
+			Instance = this;
+			ExitPoints = GetComponentsInChildren<ExitPoint>();
+			if (ExitPoints == null || ExitPoints.Any() == false)
+				throw new UnityException("No exit points found");
+		}
 
-    public Vector3 GetNearestExitPoint(Vector3 currentPosition)
-    {
-        return ExitPoints.OrderBy(ep => Vector3.Distance(ep.transform.position, currentPosition)).First().transform.position;
-    }
+		public Vector3 GetNearestExitPoint(Vector3 currentPosition)
+		{
+			return ExitPoints.OrderBy(ep => Vector3.Distance(ep.transform.position, currentPosition)).First().transform.position;
+		}
+	}
 }
-

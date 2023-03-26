@@ -1,29 +1,32 @@
 ﻿using UnityEngine;
 
-public class ModelSelector : MonoBehaviour
+namespace Assets.Scripts.PicketLiners
 {
-    [SerializeField] private PicketLinerModel BasicModel;
-    [SerializeField] private PicketLinerModel AdvancedModel;
-    [SerializeField] private PicketLinerModel EliteModel;
-
-    public void Initialize()
+	public class ModelSelector : MonoBehaviour
     {
-        BasicModel.Initialize();
-        AdvancedModel.Initialize();
-        EliteModel.Initialize();
-    }
+        [SerializeField] private PicketLinerModel BasicModel;
+        [SerializeField] private PicketLinerModel AdvancedModel;
+        [SerializeField] private PicketLinerModel EliteModel;
 
-    public void SetCarriedSprite(bool isCarried)
-    {
-        BasicModel.SetCarriedSprite(isCarried);
-        AdvancedModel.SetCarriedSprite(isCarried);
-        EliteModel.SetCarriedSprite(isCarried);
-    }
+        public void Initialize()
+        {
+            BasicModel.Initialize();
+            AdvancedModel.Initialize();
+            EliteModel.Initialize();
+        }
 
-    public void SetRank(PicketLinerRank rank)
-    {
-        BasicModel.gameObject.SetActive(rank == PicketLinerRank.Basic);
-        AdvancedModel.gameObject.SetActive(rank == PicketLinerRank.Advanced);
-        EliteModel.gameObject.SetActive(rank == PicketLinerRank.Elite);
+        public void SetCarriedSprite(bool isCarried)
+        {
+            BasicModel.SetCarriedSprite(isCarried);
+            AdvancedModel.SetCarriedSprite(isCarried);
+            EliteModel.SetCarriedSprite(isCarried);
+        }
+
+        public void SetRank(PicketLinerRank rank)
+        {
+            BasicModel.gameObject.SetActive(rank == PicketLinerRank.Basic);
+            AdvancedModel.gameObject.SetActive(rank == PicketLinerRank.Advanced);
+            EliteModel.gameObject.SetActive(rank == PicketLinerRank.Elite);
+        }
     }
 }

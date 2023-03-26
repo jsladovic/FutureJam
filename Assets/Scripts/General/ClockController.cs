@@ -1,49 +1,52 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ClockController : MonoBehaviour
+namespace Assets.Scripts.General
 {
-    [SerializeField] private Image ClockHand;
-
-    private const int StartingHours = 7;
-    private const int NumberOfWorkHours = 12;
-
-    private float currentTime;
-    private float CurrentTime
+    public class ClockController : MonoBehaviour
     {
-        get { return currentTime; }
-        set
+        [SerializeField] private Image ClockHand;
+
+        private const int StartingHours = 7;
+        private const int NumberOfWorkHours = 12;
+
+        private float currentTime;
+        private float CurrentTime
         {
-            currentTime = value;
-            DisplayTime();
+            get { return currentTime; }
+            set
+            {
+                currentTime = value;
+                DisplayTime();
+            }
         }
-    }
 
-    private float TimeRemainingInLevel;
-    private bool IsRunning;
+        private float TimeRemainingInLevel;
+        private bool IsRunning;
 
-    private void Update()
-    {
-        if (IsRunning == false)
-            return;
-        TimeRemainingInLevel -= Time.deltaTime;
-        CurrentTime = StartingHours + ((GameController.LevelDurationSeconds - TimeRemainingInLevel) / GameController.LevelDurationSeconds) * NumberOfWorkHours;
-        if (TimeRemainingInLevel <= 0)
+        private void Update()
         {
-            IsRunning = false;
-            GameController.Instance.OnTimeExpired();
+            if (IsRunning == false)
+                return;
+            TimeRemainingInLevel -= Time.deltaTime;
+            CurrentTime = StartingHours + ((GameController.LevelDurationSeconds - TimeRemainingInLevel) / GameController.LevelDurationSeconds) * NumberOfWorkHours;
+            if (TimeRemainingInLevel <= 0)
+            {
+                IsRunning = false;
+                GameController.Instance.OnTimeExpired();
+            }
         }
-    }
 
-    public void StartLevel()
-    {
-        CurrentTime = StartingHours;
-        TimeRemainingInLevel = GameController.LevelDurationSeconds;
-        IsRunning = true;
-    }
+        public void StartLevel()
+        {
+            CurrentTime = StartingHours;
+            TimeRemainingInLevel = GameController.LevelDurationSeconds;
+            IsRunning = true;
+        }
 
-    private void DisplayTime()
-    {
-        ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f - CurrentTime / NumberOfWorkHours * 360.0f);
+        private void DisplayTime()
+        {
+            ClockHand.rectTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f - CurrentTime / NumberOfWorkHours * 360.0f);
+        }
     }
 }

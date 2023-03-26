@@ -1,70 +1,72 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
+﻿using Assets.Scripts.General;
+using UnityEngine;
 
-public class ScabMovement : MonoBehaviour
+namespace Assets.Scripts.Scabs
 {
-    private Scab Parent;
-    private MovementCurve Curve;
-
-    private float Speed;
-
-    public MovementState State { get; set; }
-    public object OnBuildingEndtered { get; internal set; }
-
-    private Vector3? TargetPosition;
-    private const float DistanceToPointThreshold = 0.1f;
-
-    public void Initialize(Scab parent, MovementCurve curve, float speed)
+	public class ScabMovement : MonoBehaviour
     {
-        Parent = parent;
-        State = MovementState.Entering;
-        Curve = curve;
-        Speed = speed;
-        transform.position = curve.Points[0].transform.position;
-    }
+        private Scab Parent;
+        private MovementCurve Curve;
 
-    void Update()
-    {
-        if (Curve == null)
-            return;
-        switch (State)
+        private float Speed;
+
+        public MovementState State { get; set; }
+        public object OnBuildingEndtered { get; internal set; }
+
+        private Vector3? TargetPosition;
+        private const float DistanceToPointThreshold = 0.1f;
+
+        public void Initialize(Scab parent, MovementCurve curve, float speed)
         {
-            case MovementState.Entering:
-                HandleEntering();
-                return;
-            case MovementState.Entered:
-            case MovementState.Leaving:
-                HandleMovementToTargetPosition();
-                return;
+            Parent = parent;
+            State = MovementState.Entering;
+            Curve = curve;
+            Speed = speed;
+            transform.position = curve.Points[0].transform.position;
         }
-    }
 
-    private void HandleEntering()
-    {
-        MoveTowardsPoint(Curve.Points[1].transform.position);
-    }
-
-    private void HandleMovementToTargetPosition()
-    {
-        if (TargetPosition.HasValue == false)
-            TargetPosition = ExitPointsController.Instance.GetNearestExitPoint(transform.position);
-        MoveTowardsPoint(TargetPosition.Value);
-        if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
+        void Update()
         {
-            Destroy(Parent.gameObject);
-            GameController.Instance.OnScabDestroyed();
+            if (Curve == null)
+                return;
+            switch (State)
+            {
+                case MovementState.Entering:
+                    HandleEntering();
+                    return;
+                case MovementState.Entered:
+                case MovementState.Leaving:
+                    HandleMovementToTargetPosition();
+                    return;
+            }
         }
-    }
 
-    public void OnBuildingEntered(Vector3 doorPosition)
-    {
-        State = MovementState.Entered;
-        TargetPosition = doorPosition;
-    }
+        private void HandleEntering()
+        {
+            MoveTowardsPoint(Curve.Points[1].transform.position);
+        }
 
-    private void MoveTowardsPoint(Vector3 point)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, point, Time.deltaTime * Speed);
+        private void HandleMovementToTargetPosition()
+        {
+            if (TargetPosition.HasValue == false)
+                TargetPosition = ExitPointsController.Instance.GetNearestExitPoint(transform.position);
+            MoveTowardsPoint(TargetPosition.Value);
+            if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
+            {
+                Destroy(Parent.gameObject);
+                GameController.Instance.OnScabDestroyed();
+            }
+        }
+
+        public void OnBuildingEntered(Vector3 doorPosition)
+        {
+            State = MovementState.Entered;
+            TargetPosition = doorPosition;
+        }
+
+        private void MoveTowardsPoint(Vector3 point)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, point, Time.deltaTime * Speed);
+        }
     }
 }

@@ -1,38 +1,40 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
+﻿using System.Linq;
+using UnityEngine;
 
-public class HealthBarController : MonoBehaviour
+namespace Assets.Scripts.General
 {
-    private HealthBarItem[] Items;
-
-    private void Awake()
+	public class HealthBarController : MonoBehaviour
     {
-        Items = GetComponentsInChildren<HealthBarItem>();
-    }
+        private HealthBarItem[] Items;
 
-    public bool DisplayLifeLost()
-    {
-        if (Items.Any(i => i.IsWorking == false) == false)
-            return true;
-        HealthBarItem healthBarItem;
-        do
+        private void Awake()
         {
-            healthBarItem = Items[Random.Range(0, Items.Length)];
-        } while (healthBarItem.IsWorking == true);
-        healthBarItem.DisplayWindowWorking(true);
-        return !Items.Any(i => i.IsWorking == false);
-    }
+            Items = GetComponentsInChildren<HealthBarItem>();
+        }
 
-    public void DisplayLifeGained()
-    {
-        if (Items.Any(i => i.IsWorking == true) == false)
-            throw new UnityException("No available items found for gaining a life");
-        HealthBarItem healthBarItem;
-        do
+        public bool DisplayLifeLost()
         {
-            healthBarItem = Items[Random.Range(0, Items.Length)];
-        } while (healthBarItem.IsWorking == false);
-        healthBarItem.DisplayWindowWorking(false);
+            if (Items.Any(i => i.IsWorking == false) == false)
+                return true;
+            HealthBarItem healthBarItem;
+            do
+            {
+                healthBarItem = Items[Random.Range(0, Items.Length)];
+            } while (healthBarItem.IsWorking == true);
+            healthBarItem.DisplayWindowWorking(true);
+            return !Items.Any(i => i.IsWorking == false);
+        }
+
+        public void DisplayLifeGained()
+        {
+            if (Items.Any(i => i.IsWorking == true) == false)
+                throw new UnityException("No available items found for gaining a life");
+            HealthBarItem healthBarItem;
+            do
+            {
+                healthBarItem = Items[Random.Range(0, Items.Length)];
+            } while (healthBarItem.IsWorking == false);
+            healthBarItem.DisplayWindowWorking(false);
+        }
     }
 }
