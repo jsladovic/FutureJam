@@ -4,32 +4,37 @@ using UnityEngine;
 namespace Assets.Scripts.General
 {
 	[RequireComponent(typeof(SpriteRenderer))]
-    public class HealthBarItem : MonoBehaviour
-    {
-        private SpriteRenderer SpriteRenderer;
-        [SerializeField] private Sprite WindowWorkingSprite;
-        private Sprite WindowNotWorkingSprite;
+	public class HealthBarItem : MonoBehaviour
+	{
+		private SpriteRenderer SpriteRenderer;
+		[SerializeField] private Sprite WindowWorkingSprite;
+		private Sprite WindowNotWorkingSprite;
 
-        public bool IsWorking { get; private set; }
+		private Coroutine CurrentLightsCoroutine;
 
-        private void Awake()
-        {
-            SpriteRenderer = GetComponent<SpriteRenderer>();
-            WindowNotWorkingSprite = SpriteRenderer.sprite;
-            DisplayWindowWorking(false);
-        }
+		public bool IsWorking { get; private set; }
 
-        public void DisplayWindowWorking(bool isWorking)
-        {
-            IsWorking = isWorking;
-            StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
-        }
+		private void Awake()
+		{
+			SpriteRenderer = GetComponent<SpriteRenderer>();
+			WindowNotWorkingSprite = SpriteRenderer.sprite;
+			DisplayWindowWorking(false);
+		}
 
-        private IEnumerator DisplayWindowWorkingCoroutine(bool isWorking)
-        {
-            if (isWorking == true)
-                yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
-            SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
-        }
-    }
+		public void DisplayWindowWorking(bool isWorking)
+		{
+			IsWorking = isWorking;
+			CurrentLightsCoroutine = StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
+		}
+
+		private IEnumerator DisplayWindowWorkingCoroutine(bool isWorking)
+		{
+			if (isWorking == true)
+				yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
+			SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
+			if (CurrentLightsCoroutine != null)
+				StopCoroutine(CurrentLightsCoroutine);
+			CurrentLightsCoroutine = null;
+		}
+	}
 }
