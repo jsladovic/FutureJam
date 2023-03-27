@@ -344,7 +344,7 @@ namespace FMODUnity
                     }
                 }
                 else
-                { 
+                {
                     if (string.IsNullOrEmpty(TargetBankFolder))
                     {
                         return Application.streamingAssetsPath;
@@ -377,7 +377,7 @@ namespace FMODUnity
                     TargetAssetPath = value;
                 }
                 else
-                { 
+                {
                     TargetBankFolder = value;
                 }
             }
@@ -619,7 +619,7 @@ namespace FMODUnity
             Platforms.ForEach(LinkPlatform);
 
 #if UNITY_EDITOR
-            EditorSettings.CheckActiveBuildTarget();
+            //EditorSettings.CheckActiveBuildTarget();
 #endif
         }
 
