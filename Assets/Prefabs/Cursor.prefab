@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1183263927
-  m_SortingLayer: -1
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 721fce55f3ade724fad457dc5d963396, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 400b887e6a53eb249a16a8aa34e4f625, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2657f2ec3a37c274d9d6042888b5e46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoveredCursorSprite: {fileID: 21300000, guid: f352c40172f7e9246806d6807a2e33d5, type: 3}
-  UpgradeCursorSprite: {fileID: 21300000, guid: f61dfac1f0c3d2f4790d6463859a9b0a, type: 3}
+  HoveredCursorSprite: {fileID: 21300000, guid: 9a719dcd0d8524f498d1dad3c04eb307, type: 3}
+  UpgradeCursorSprite: {fileID: 21300000, guid: 9979b3957d85ff4418e683a2d9c59973, type: 3}
