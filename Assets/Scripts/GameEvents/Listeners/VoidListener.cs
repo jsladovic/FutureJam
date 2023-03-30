@@ -3,5 +3,5 @@ using Assets.Scripts.GameEvents.UnityEvents;
 
 namespace Assets.Scripts.GameEvents.Listeners
 {
-	public class VoidListener : BaseGameEventListener<Events.Void, VoidEvent, UnityVoidEvent> { }
+	public class VoidListener : BaseGameEventListener<Void, VoidEvent, UnityVoidEvent> { }
 }
