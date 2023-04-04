@@ -70,3 +70,4 @@ MonoBehaviour:
   PicketLinerSpawningLocation: {fileID: 0}
   TopLeftDraggablePosition: {fileID: 0}
   BottomRightDraggablePosition: {fileID: 0}
+  OnPausedChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}

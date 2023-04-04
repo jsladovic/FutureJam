@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.PicketLiners;
+﻿using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.PicketLiners;
 using Assets.Scripts.Scabs;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace Assets.Scripts.General
         [SerializeField] private Transform PicketLinerSpawningLocation;
         [SerializeField] public Transform TopLeftDraggablePosition;
         [SerializeField] public Transform BottomRightDraggablePosition;
+
+        [SerializeField] private BoolEvent OnPausedChanged;
 
         private int CurrentLevelIndex;
         private int ScabsRemainingInLevel;
@@ -65,7 +68,7 @@ namespace Assets.Scripts.General
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
-                Application.Quit();
+                OnPausedChanged.Raise(true);
         }
 
         private void PrepareLevel()
