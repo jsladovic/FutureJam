@@ -61,6 +61,8 @@ namespace Assets.Scripts.PicketLiners
 
         private void OnMouseDrag()
         {
+            if (IsDragging == false)
+                return;
             transform.position = MouseWorldPosition + MousePositionOffset;
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, MinX, MaxX),
                 Mathf.Clamp(transform.position.y, MinY, MaxY), transform.position.z);
@@ -80,6 +82,11 @@ namespace Assets.Scripts.PicketLiners
 
             InvalidCollisionObjects.Remove(collision.transform);
         }
+
+        public void OnLevelComplete()
+		{
+            OnMouseUp();
+		}
 
         private Vector3 MouseWorldPosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }

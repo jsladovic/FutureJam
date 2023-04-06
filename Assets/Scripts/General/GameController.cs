@@ -24,6 +24,7 @@ namespace Assets.Scripts.General
         [SerializeField] public Transform BottomRightDraggablePosition;
 
         [SerializeField] private BoolEvent OnPausedChanged;
+        [SerializeField] private VoidEvent OnLevelComplete;
 
         private int CurrentLevelIndex;
         private int ScabsRemainingInLevel;
@@ -167,6 +168,7 @@ namespace Assets.Scripts.General
         {
             if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true)
                 return;
+            OnLevelComplete.Raise();
             CurrentLevelIndex++;
             PrepareLevel();
         }
