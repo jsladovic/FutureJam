@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ namespace Assets.Scripts.PauseMenu
 	public class PauseMenuController : MonoBehaviour
 	{
 		private CanvasGroup Canvas;
+
+		[SerializeField] private BoolEvent OnPauseChanged;
 
 		private bool isPaused;
 		private bool IsPaused
@@ -41,6 +44,7 @@ namespace Assets.Scripts.PauseMenu
 		public void OnResumeClicked()
 		{
 			IsPaused = false;
+			OnPauseChanged.Raise(false);
 		}
 
 		public void OnMainMenuClicked()
