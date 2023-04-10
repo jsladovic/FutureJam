@@ -24,6 +24,7 @@ namespace Assets.Scripts.General
         [SerializeField] public Transform BottomRightDraggablePosition;
 
         [SerializeField] private BoolEvent OnPausedChanged;
+        [SerializeField] private BoolEvent CanUseMouseChanged;
         [SerializeField] private VoidEvent OnLevelComplete;
 
         private int CurrentLevelIndex;
@@ -69,7 +70,10 @@ namespace Assets.Scripts.General
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 OnPausedChanged.Raise(true);
+                CanUseMouseChanged.Raise(false);
+            }
         }
 
         private void PrepareLevel()
@@ -114,6 +118,7 @@ namespace Assets.Scripts.General
             Clock.StartLevel();
             CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
             CursorController.Instance.SetCursorSprite();
+            CanUseMouseChanged.Raise(true);
         }
 
         private IEnumerator SpawnScabCoroutine(bool firstScab)
@@ -169,6 +174,7 @@ namespace Assets.Scripts.General
             if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true)
                 return;
             OnLevelComplete.Raise();
+            CanUseMouseChanged.Raise(false);
             CurrentLevelIndex++;
             PrepareLevel();
         }

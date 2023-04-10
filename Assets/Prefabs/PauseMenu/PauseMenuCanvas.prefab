@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnPauseChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}
+  OnCanUseMouseChanged: {fileID: 11400000, guid: a42232d05ad07394381d33378b4f8959, type: 2}
 --- !u!225 &7778299328618591668
 CanvasGroup:
   m_ObjectHideFlags: 0

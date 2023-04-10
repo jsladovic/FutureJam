@@ -12,6 +12,7 @@ namespace Assets.Scripts.PauseMenu
 		private CanvasGroup Canvas;
 
 		[SerializeField] private BoolEvent OnPauseChanged;
+		[SerializeField] private BoolEvent OnCanUseMouseChanged;
 
 		private bool isPaused;
 		private bool IsPaused
@@ -45,6 +46,8 @@ namespace Assets.Scripts.PauseMenu
 		{
 			IsPaused = false;
 			OnPauseChanged.Raise(false);
+			OnCanUseMouseChanged.Raise(true);
+
 		}
 
 		public void OnMainMenuClicked()
