@@ -7,11 +7,15 @@ namespace Assets.Scripts.Audio
 	public class MusicPlayer : MonoBehaviour
 	{
 		public EventInstance Music;
-        public EventReference Drek;
 		private bool DisableAudio;
 		private void Start()
 		{
-            try
+            if (RuntimeManager.HasBankLoaded("Master") == false)
+            {
+                RuntimeUtils.DebugLogWarning("Master audio bank not loaded");
+                return;
+            }
+                try
             {
                 Music = RuntimeManager.CreateInstance("event:/Music/music");
                 Music.start();
@@ -24,10 +28,10 @@ namespace Assets.Scripts.Audio
             }
 		}
 
-		public void OnLevelChanged() //add level numbers
+		public void OnAudioIndexChanged(int audioLevel) //add level numbers
         {
 			if (DisableAudio == false)
-				Music.setParameterByName("Level", 0.0f);
+				Music.setParameterByName("Level", audioLevel);
 		}
 
         private void OnDisable()
