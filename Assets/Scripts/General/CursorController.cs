@@ -5,25 +5,26 @@ using UnityEngine;
 
 namespace Assets.Scripts.General
 {
-	[RequireComponent(typeof(SpriteRenderer))]
 	public class CursorController : MonoBehaviour
 	{
 		public static CursorController Instance;
 
-		private SpriteRenderer SpriteRenderer;
-		private Sprite DefaultCursorSprite;
-		[SerializeField] private Sprite HoveredCursorSprite;
-		[SerializeField] private Sprite UpgradeCursorSprite;
+		[SerializeField] private Texture2D DefaultCursorSprite;
+		[SerializeField] private Texture2D HoveredCursorSprite;
+		[SerializeField] private Texture2D UpgradeCursorSprite;
 
 		private List<PicketLiner> HoveredPicketLiners;
 
 		private void Awake()
 		{
 			Instance = this;
-			SpriteRenderer = GetComponent<SpriteRenderer>();
-			DefaultCursorSprite = SpriteRenderer.sprite;
 			HoveredPicketLiners = new List<PicketLiner>();
-			Cursor.visible = false;
+			Cursor.SetCursor(DefaultCursorSprite, Vector2.zero, CursorMode.Auto);
+		}
+
+		public void OnPauseChanged(bool paused)
+		{
+			Cursor.visible = paused;
 		}
 
 		private void Update()
@@ -51,11 +52,11 @@ namespace Assets.Scripts.General
 		public void SetCursorSprite()
 		{
 			if (HoveredPicketLiners.Any() == false)
-				SpriteRenderer.sprite = DefaultCursorSprite;
+				Cursor.SetCursor(DefaultCursorSprite, Vector2.zero, CursorMode.Auto);
 			else if (GameController.Instance.IsWaitingForUpgrade == true)
-				SpriteRenderer.sprite = UpgradeCursorSprite;
+				Cursor.SetCursor(UpgradeCursorSprite, Vector2.zero, CursorMode.Auto);
 			else
-				SpriteRenderer.sprite = HoveredCursorSprite;
+				Cursor.SetCursor(HoveredCursorSprite, Vector2.zero, CursorMode.Auto);
 		}
 	}
 }
