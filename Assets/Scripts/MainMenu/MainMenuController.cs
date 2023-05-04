@@ -10,14 +10,12 @@ namespace Assets.Scripts.MainMenu
 	{
 		private CanvasGroup MainMenu;
 		[SerializeField] private CanvasGroup OptionsMenu;
-		[SerializeField] private CanvasGroup CreditsMenu;
 
 		private void Awake()
 		{
 			MainMenu = GetComponent<CanvasGroup>();
 			MainMenu.Enable();
 			OptionsMenu.Disable();
-			CreditsMenu.Disable();
 		}
 
 		public void StartClicked()
@@ -34,13 +32,11 @@ namespace Assets.Scripts.MainMenu
 		public void CreditsCLicked()
 		{
 			MainMenu.Disable();
-			CreditsMenu.Enable();
 		}
 
 		public void BackClicked()
 		{
 			MainMenu.Enable();
-			CreditsMenu.Disable();
 			OptionsMenu.Disable();
 		}
 
