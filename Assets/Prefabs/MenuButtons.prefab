@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 3102102858441334058}
   - component: {fileID: 3862700740582368668}
   - component: {fileID: 87979087363896156}
+  - component: {fileID: 5000034348134147233}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -513,6 +514,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bd3741f3b594937b4e7d3eeaef911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5000034348134147233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102102858441334060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  PressSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &3102102858466182478
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +555,7 @@ GameObject:
   - component: {fileID: 4470994185218011594}
   - component: {fileID: 3135817070401809197}
   - component: {fileID: 4654508804544108791}
+  - component: {fileID: 3349250824089512282}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -708,6 +736,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3349250824089512282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102102858466182478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  PressSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &3102102858810948842
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +912,7 @@ GameObject:
   - component: {fileID: 9126402888753046527}
   - component: {fileID: 7173283134142030079}
   - component: {fileID: 5299967084068382848}
+  - component: {fileID: 1427998244023748330}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1038,6 +1093,32 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1427998244023748330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102102859295450188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  PressSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &3079714796911832731
 PrefabInstance:
   m_ObjectHideFlags: 0
