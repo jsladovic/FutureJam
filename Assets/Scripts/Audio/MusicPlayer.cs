@@ -6,16 +6,26 @@ namespace Assets.Scripts.Audio
 {
 	public class MusicPlayer : MonoBehaviour
 	{
+        private static MusicPlayer Instance;
 		public EventInstance Music;
 		private bool DisableAudio;
-		private void Start()
+		private void Awake()
 		{
+            if (Instance == null)
+                Instance = this;
+            else
+            {
+                Object.Destroy(gameObject);
+                return;
+            }
+            DontDestroyOnLoad(gameObject);
+
             if (RuntimeManager.HasBankLoaded("Master") == false)
             {
                 RuntimeUtils.DebugLogWarning("Master audio bank not loaded");
                 return;
             }
-                try
+            try
             {
                 Music = RuntimeManager.CreateInstance("event:/Music/music");
                 Music.start();
