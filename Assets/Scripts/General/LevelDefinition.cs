@@ -9,5 +9,6 @@ namespace Assets.Scripts.General
         public string LevelText;
         public int NumberOfDefaultScabs;
         public int NumberOfDesperateScabs;
+        public int AudioIndex;
     }
 }

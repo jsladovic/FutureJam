@@ -45,7 +45,6 @@ namespace Assets.Scripts.PicketLiners
 
 		private void OnMouseDown()
 		{
-			print($"mouse down, can use mouse {CanUseMouse}, waiting for upgrade {GameController.Instance.IsWaitingForUpgrade}, is dragging {IsDragging}");
 			if (CanUseMouse == false || GameController.Instance.IsWaitingForUpgrade == true || IsDragging == true)
 				return;
 			DragStartPosition = transform.position;

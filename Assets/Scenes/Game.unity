@@ -1928,10 +1928,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1410443988}
     - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
-      propertyPath: OnLevelStarted
-      value: 
-      objectReference: {fileID: 11400000, guid: 19810562116464c48951eba541925a89, type: 2}
-    - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
       propertyPath: PicketLinersParent
       value: 
       objectReference: {fileID: 29263412}

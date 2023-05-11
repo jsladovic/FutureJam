@@ -26,7 +26,7 @@ namespace Assets.Scripts.General
         [SerializeField] private BoolEvent OnPausedChanged;
         [SerializeField] private BoolEvent CanUseMouseChanged;
         [SerializeField] private VoidEvent OnLevelComplete;
-        [SerializeField] private IntEvent OnLevelStarted;
+        [SerializeField] private LevelDefinitionEvent OnLevelStarted;
 
         private int CurrentLevelIndex;
         private int ScabsRemainingInLevel;
@@ -120,7 +120,7 @@ namespace Assets.Scripts.General
             CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
             CursorController.Instance.SetCursorSprite();
             CanUseMouseChanged.Raise(true);
-            OnLevelStarted.Raise(CurrentLevel.Index);
+            OnLevelStarted.Raise(CurrentLevel);
         }
 
         private IEnumerator SpawnScabCoroutine(bool firstScab)
