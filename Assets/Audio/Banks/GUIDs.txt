@@ -1,0 +1,13 @@
+{f20e3a2f-503f-43bd-8cf3-a05623cf795d} bank:/Master
+{6a131afb-2144-0fff-0aba-2aa8d23c7fc5} bank:/Master.strings
+{2bee61c6-a637-4884-bad2-9c14ca696b4b} bus:/
+{4f198035-b220-4b27-bdb3-1190ebaa8297} bus:/Music
+{c483f76b-1e0b-40f9-addf-0c6dfef8ca4e} bus:/Reverb
+{a335a395-4738-44b2-a311-95a32ce76f9a} bus:/SFX
+{2640d97e-b777-46f2-a9ed-b8216d36b28d} bus:/UI
+{7eecf29b-d9a3-4673-b640-ef31feda1ea0} event:/Music/music
+{a32cf955-dcb2-4453-875d-0dce5be84b51} event:/SFX/light_off
+{c5743f4c-7840-4cf2-b9a7-2b9adaf9cc41} event:/SFX/light_on
+{c032d766-d446-4b8f-9711-614d6dfee334} event:/SFX/liner_drop
+{52309014-3fb2-4f08-a43c-cfda0aadd4c9} event:/SFX/liner_pickup
+{1cc1aba7-dff3-4e34-8a72-0226d2709c94} parameter:/Level

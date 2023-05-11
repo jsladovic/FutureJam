@@ -52,14 +52,16 @@ namespace Assets.Scripts.PicketLiners
 			MousePositionOffset = transform.position - MouseWorldPosition;
 			IsDragging = true;
 			InvalidCollisionObjects = new List<Transform>();
-		}
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_pickup");
+        }
 
 		private void OnMouseUp()
 		{
 			if (IsDragging == false)
 				return;
 			IsDragging = false;
-		}
+			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
+        }
 
 		private void OnMouseDrag()
 		{
@@ -68,7 +70,7 @@ namespace Assets.Scripts.PicketLiners
 			transform.position = MouseWorldPosition + MousePositionOffset;
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, MinX, MaxX),
 				Mathf.Clamp(transform.position.y, MinY, MaxY), transform.position.z);
-		}
+        }
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
