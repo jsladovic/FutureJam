@@ -35,6 +35,7 @@ namespace Assets.Scripts.General
                 healthBarItem = Items[Random.Range(0, Items.Length)];
             } while (healthBarItem.IsWorking == false);
             healthBarItem.DisplayWindowWorking(false);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/light_off");
         }
     }
 }

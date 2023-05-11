@@ -32,6 +32,8 @@ namespace Assets.Scripts.General
 			if (isWorking == true)
 				yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
 			SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
+			if (isWorking == true)
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/light_on");
 			if (CurrentLightsCoroutine != null)
 				StopCoroutine(CurrentLightsCoroutine);
 			CurrentLightsCoroutine = null;
