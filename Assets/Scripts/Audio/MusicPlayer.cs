@@ -40,9 +40,16 @@ namespace Assets.Scripts.Audio
 
 		public void OnAudioIndexChanged(int audioLevel) //add level numbers
         {
-			if (DisableAudio == false)
-				Music.setParameterByName("Level", audioLevel);
-		}
+            if (DisableAudio == true)
+                return;
+
+            if (audioLevel >= 1 && audioLevel < 6)
+				Music.setParameterByName("Level", 1);
+            else if (audioLevel >= 6 && audioLevel < 11)
+                Music.setParameterByName("Level", 2);
+            else if (audioLevel >= 11)
+                Music.setParameterByName("Level", 3);
+        }
 
         private void OnDisable()
         {

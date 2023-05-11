@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554421946}
   - component: {fileID: 554421945}
+  - component: {fileID: 554421947}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -172,6 +173,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &554421947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554421944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02834b0f32f35e4458dab545b11cf7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 19810562116464c48951eba541925a89, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 554421945}
+        m_TargetAssemblyTypeName: Assets.Scripts.Audio.MusicPlayer, Assembly-CSharp
+        m_MethodName: OnAudioIndexChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &972935907 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1514279542054766549, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
