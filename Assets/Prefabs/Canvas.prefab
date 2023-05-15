@@ -2251,6 +2251,7 @@ MonoBehaviour:
   EndGameText: {fileID: 4926126817915785010}
   TutorialPanel: {fileID: 0}
   TutorialText: {fileID: 0}
+  OnTutorialStarted: {fileID: 11400000, guid: 55d702f0d9a25834a806fa1d9c275dc4, type: 2}
 --- !u!223 &7224370241188892428
 Canvas:
   m_ObjectHideFlags: 0

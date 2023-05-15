@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
 
 namespace Assets.Scripts.General
 {
@@ -21,6 +22,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private TextMeshProUGUI EndGameText;
 		[SerializeField] private GameObject TutorialPanel;
 		[SerializeField] private TextMeshProUGUI TutorialText;
+		[SerializeField] private VoidEvent OnTutorialStarted;
 
 		private CanvasGroup CanvasGroup;
 
@@ -44,7 +46,7 @@ namespace Assets.Scripts.General
 			LevelText.text = $"Factory strike, day {levelIndex}";
 			if (levelIndex == 1)
 			{
-				GameController.Instance.StartLevel();
+				OnTutorialStarted.Raise();
 				return;
 			}
 			if (canAddPicketLiner || canKickOutScab || canLevelUpPicketLiner)
