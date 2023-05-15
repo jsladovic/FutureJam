@@ -714,6 +714,10 @@ PrefabInstance:
       propertyPath: OptionsMenu
       value: 
       objectReference: {fileID: 1514279541485969628}
+    - target: {fileID: 3385882708750975460, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
+      propertyPath: OnMainMenuLoaded
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fc413851282d53488fd8cb0c1cef060, type: 2}
     - target: {fileID: 3385882708750975481, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
       propertyPath: m_Name
       value: MainMenu

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,12 +11,14 @@ namespace Assets.Scripts.MainMenu
 	{
 		private CanvasGroup MainMenu;
 		[SerializeField] private CanvasGroup OptionsMenu;
+		[SerializeField] private VoidEvent OnMainMenuLoaded;
 
 		private void Awake()
 		{
 			MainMenu = GetComponent<CanvasGroup>();
 			MainMenu.Enable();
 			OptionsMenu.Disable();
+			OnMainMenuLoaded.Raise();
 		}
 
 		public void StartClicked()
