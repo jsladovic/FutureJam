@@ -17,3 +17,4 @@ MonoBehaviour:
     to block their path.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 2
+  AudioIndex: 1

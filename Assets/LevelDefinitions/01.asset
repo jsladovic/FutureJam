@@ -17,3 +17,4 @@ MonoBehaviour:
     the scabs from entering the building.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 0
+  AudioIndex: 1

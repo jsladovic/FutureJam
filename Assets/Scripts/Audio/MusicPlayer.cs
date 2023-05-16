@@ -1,6 +1,10 @@
 ﻿using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.General;
+using Unity.VisualScripting;
+using Unity.Mathematics;
 
 namespace Assets.Scripts.Audio
 {
@@ -38,17 +42,18 @@ namespace Assets.Scripts.Audio
             }
 		}
 
-		public void OnAudioIndexChanged(int audioLevel) //add level numbers
+		public void OnAudioIndexChanged(LevelDefinition levelDef)
         {
             if (DisableAudio == true)
                 return;
-
-            if (audioLevel >= 1 && audioLevel < 6)
-				Music.setParameterByName("Level", 1);
-            else if (audioLevel >= 6 && audioLevel < 11)
-                Music.setParameterByName("Level", 2);
-            else if (audioLevel >= 11)
-                Music.setParameterByName("Level", 3);
+            Music.setParameterByName("Level", levelDef.AudioIndex);
+            print($"starting level {levelDef.AudioIndex}");
+        }
+        public void OnMenuLoaded()
+        {
+            if (DisableAudio == true)
+                return;
+            Music.setParameterByName("Level", 0);
         }
 
         private void OnDisable()

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: 09
   m_EditorClassIdentifier: 
   Index: 9
+  LevelText: 
   NumberOfDefaultScabs: 3
   NumberOfDesperateScabs: 9
+  AudioIndex: 2
