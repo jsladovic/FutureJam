@@ -454,15 +454,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5260176648254229729, guid: f28f31754e0dc5f499bceb6cda660dbd, type: 3}
-      propertyPath: m_text
-      value: "\rPicket Line was created by Quarc Games:\n\tJanko Sladovic (Programming)\n\tMihaela
-        Sladovic (Visuals)\n\tLuka Ilic (Audio)\n\nWhat started as a game for Future
-        Jam 2023 later developed into a finished game for PC & Android.\n\nSpecial
-        thanks to Future Jam mentors:\n\tGeorg Hobmeier (Causa Creations)\n\tAleksandar
-        Gavrilovic (Gamechuck)\n\tDominik Cvetkovski (Hu-Iz-Vi)\n& The Tresnjevka
-        Neighborhood Museum \nfor providing us with history of our city."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5260176648254229729, guid: f28f31754e0dc5f499bceb6cda660dbd, type: 3}
       propertyPath: m_fontSize
       value: 40
       objectReference: {fileID: 0}

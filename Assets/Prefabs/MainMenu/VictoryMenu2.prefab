@@ -1396,12 +1396,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_text
-      value: "\rPicket Line was created by Quarc Games:\n\tJanko Sladovi\u0107 (Programming)\n\tMihaela
-        Sladovi\u0107 (Visuals)\n\tLuka Ili\u0107 (Audio)\n\nWhat started as a game
-        for Future Jam 2023 later developed into a finished game for PC & Android.\n\nSpecial
-        thanks to Future Jam mentors:\n\tGeorg Hobmeier (Causa Creations)\n\tAleksandar
-        Gavrilovi\u0107 (Gamechuck)\n\tDominik Cvetkovski (Hu-Iz-Vi)\n& The Tresnjevka
-        Neighborhood Museum \nfor providing us with history of our city."
+      value: "\rPicket Line was created by Quarc Games:\n\tJanko Sladovic (Programming)\n\tMihaela
+        Sladovic (Visuals)\n\tLuka Ilic (Audio)\n\nWhat started as a game for Future
+        Jam 2023 later developed into a finished game for PC.\n\nSpecial thanks to
+        Future Jam mentors:\n\tGeorg Hobmeier (Causa Creations)\n\tAleksandar Gavrilovic
+        (Gamechuck)\n\tDominik Cvetkovski (Hu-Iz-Vi)\n& The Tresnjevka Neighborhood
+        Museum \nfor providing us with history of our city."
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontSize
