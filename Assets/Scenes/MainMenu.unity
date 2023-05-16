@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514279540694720408, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 28.55
       objectReference: {fileID: 0}
     - target: {fileID: 1514279540694720409, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -767,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514279540809784712, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 28.55
       objectReference: {fileID: 0}
     - target: {fileID: 1514279540809784713, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -863,7 +863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514279541914875890, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 28.55
       objectReference: {fileID: 0}
     - target: {fileID: 1514279541914875891, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1011,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1765567925641060480, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 25.45
       objectReference: {fileID: 0}
     - target: {fileID: 1765567925641060480, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSizeMax
@@ -1327,7 +1327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099005932273247015, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 24.95
       objectReference: {fileID: 0}
     - target: {fileID: 6099005932273247015, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_fontSizeMax
@@ -1740,10 +1740,6 @@ PrefabInstance:
     - target: {fileID: 8343249414721228592, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8343249414721228592, guid: f29f8f277a359834b920d4dadc5f9edf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
