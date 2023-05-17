@@ -74,3 +74,4 @@ MonoBehaviour:
   CanUseMouseChanged: {fileID: 11400000, guid: a42232d05ad07394381d33378b4f8959, type: 2}
   OnLevelComplete: {fileID: 11400000, guid: 8e9dfc1c672bfcc4fbccb793ff76879e, type: 2}
   OnLevelStarted: {fileID: 11400000, guid: e00bc51b36856034b9ef0000dd571101, type: 2}
+  OnGameOver: {fileID: 11400000, guid: ab881658395e57b47ad4b657b1a03eeb, type: 2}

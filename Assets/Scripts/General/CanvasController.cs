@@ -18,8 +18,6 @@ namespace Assets.Scripts.General
 		[SerializeField] private Button AddPicketLinerButton;
 		[SerializeField] private Button LevelUpPicketLinerButton;
 		[SerializeField] private Button KickOutScabButton;
-		[SerializeField] private GameObject EndGameScreen;
-		[SerializeField] private TextMeshProUGUI EndGameText;
 		[SerializeField] private GameObject TutorialPanel;
 		[SerializeField] private TextMeshProUGUI TutorialText;
 		[SerializeField] private VoidEvent OnTutorialStarted;
@@ -37,7 +35,6 @@ namespace Assets.Scripts.General
 		public void Initialize()
 		{
 			ButtonsParent.gameObject.SetActive(false);
-			EndGameScreen.SetActive(false);
 			HideTutorialText();
 		}
 
@@ -85,12 +82,6 @@ namespace Assets.Scripts.General
 			GameController.Instance.SpawnPicketLiner();
 			GameController.Instance.StartLevel();
 			ButtonsParent.gameObject.SetActive(false);
-		}
-
-		public void DisplayEndGameScreen(int numberOfDays)
-		{
-			EndGameText.text = $"The strike lasted {numberOfDays} day{(numberOfDays == 1 ? string.Empty : "s")}";
-			EndGameScreen.SetActive(true);
 		}
 
 		public void RestartClicked()

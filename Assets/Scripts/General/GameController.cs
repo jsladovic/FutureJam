@@ -27,6 +27,7 @@ namespace Assets.Scripts.General
         [SerializeField] private BoolEvent CanUseMouseChanged;
         [SerializeField] private VoidEvent OnLevelComplete;
         [SerializeField] private LevelDefinitionEvent OnLevelStarted;
+        [SerializeField] private IntEvent OnGameOver;
 
         private int CurrentLevelIndex;
         private int ScabsRemainingInLevel;
@@ -153,9 +154,8 @@ namespace Assets.Scripts.General
             bool allLivesLost = HealthBarController.DisplayLifeLost();
             if (allLivesLost == true)
             {
-                print("Game over");
                 IsGameOver = true;
-                CanvasController.Instance.DisplayEndGameScreen(CurrentLevel.Index);
+                OnGameOver.Raise(CurrentLevel.Index);
             }
         }
 

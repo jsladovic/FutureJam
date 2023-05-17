@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2179883178121931413}
   - component: {fileID: 2179883178121931412}
+  - component: {fileID: 1329164699}
   m_Layer: 5
   m_Name: DefeatMenu
   m_TagString: Untagged
@@ -51,6 +52,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1329164699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179883178121931418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607ab2994c3370440b8107ba3d244d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameText: {fileID: 6910572005238679919}
 --- !u!1001 &1122414228557876132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 30.9
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontStyle
@@ -192,6 +206,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5979135202744750145, guid: c070453c163b2f347b88179739a0161a, type: 3}
   m_PrefabInstance: {fileID: 1122414228557876132}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6910572005238679919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
+  m_PrefabInstance: {fileID: 1122414228557876132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4499492216849004311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 21.65
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857661043843, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y
@@ -467,8 +492,16 @@ PrefabInstance:
       value: MusicToggle
       objectReference: {fileID: 0}
     - target: {fileID: 3102102858466182476, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329164699}
+    - target: {fileID: 3102102858466182476, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackClicked
+      value: OnRestartClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102858466182476, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Scripts.General.GameOverController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3102102858466182477, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y
