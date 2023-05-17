@@ -47,7 +47,6 @@ namespace Assets.Scripts.Audio
             if (DisableAudio == true)
                 return;
             Music.setParameterByName("Level", levelDef.AudioIndex);
-            print($"starting level {levelDef.AudioIndex}");
         }
         public void OnMenuLoaded()
         {
