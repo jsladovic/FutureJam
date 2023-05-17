@@ -90,6 +90,7 @@ namespace Assets.Scripts.General
             SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
             print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
             CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0, AllPicketLiners.Any(pl => pl.Rank == PicketLinerRank.Basic));
+            OnLevelStarted.Raise(CurrentLevel);
         }
 
         public void KickOutScab()
@@ -120,7 +121,6 @@ namespace Assets.Scripts.General
             CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
             CursorController.Instance.SetCursorSprite();
             CanUseMouseChanged.Raise(true);
-            OnLevelStarted.Raise(CurrentLevel);
         }
 
         private IEnumerator SpawnScabCoroutine(bool firstScab)
