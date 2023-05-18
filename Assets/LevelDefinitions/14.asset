@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 14
   m_EditorClassIdentifier: 
   Index: 14
-  LevelText: 
+  LevelText: The company lost so much money from our absence, they are considering
+    negotiations.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 14
   AudioIndex: 3

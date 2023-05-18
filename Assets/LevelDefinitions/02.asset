@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 02
   m_EditorClassIdentifier: 
   Index: 2
-  LevelText: If all the lights in the factory are turned on, the strike will be over.
+  LevelText: It is the 20th century, and yet we are treated like we are in the Middle
+    Ages.
   NumberOfDefaultScabs: 7
   NumberOfDesperateScabs: 0
   AudioIndex: 1

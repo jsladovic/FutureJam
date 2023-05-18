@@ -92,7 +92,7 @@ namespace Assets.Scripts.General
 
 		public void DisplayLevelUpText()
 		{
-			StartCoroutine(DisplayTutorialTextCoroutine("Click on a basic picket liner to level him up.", hideAfterWait: false));
+			StartCoroutine(DisplayTutorialTextCoroutine("Click on a picket liner to level them up.", hideAfterWait: false));
 		}
 
 		private IEnumerator DisplayTutorialTextCoroutine(string text, bool hideAfterWait = true)

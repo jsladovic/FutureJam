@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 06
   m_EditorClassIdentifier: 
   Index: 6
-  LevelText: 
+  LevelText: As long as we are not working, there is no business. And the factory
+    cannot afford that.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 6
   AudioIndex: 2

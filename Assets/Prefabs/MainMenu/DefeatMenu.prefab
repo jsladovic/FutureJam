@@ -75,18 +75,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_text
-      value: 'The strike last for XX days, but we work the same as ever before.
+      value: 'The strike lasted for XX days, but we work the same as ever before.
 
 
         We
         cannot give up!
 
-
 '
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontSize
-      value: 30.9
+      value: 23.25
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontStyle
@@ -98,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_fontSizeMin
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5797493180157649611, guid: c070453c163b2f347b88179739a0161a, type: 3}
       propertyPath: m_overflowMode
@@ -365,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_fontSize
-      value: 21.65
+      value: 14.25
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857661043843, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y
@@ -426,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 3102102857890621969, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_Spacing
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857890621969, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857890621970, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_RootOrder

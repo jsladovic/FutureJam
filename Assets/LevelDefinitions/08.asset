@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 08
   m_EditorClassIdentifier: 
   Index: 8
-  LevelText: 
+  LevelText: Scabs are often paid extra to make the factory work again - and the
+    strike to break.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 8
   AudioIndex: 2

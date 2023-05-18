@@ -21,8 +21,9 @@ namespace Assets.Scripts.General
 
 		public void OnGameOver(int numberOfDays)
 		{
-			EndGameText.text = $"The strike lasted {numberOfDays} day{(numberOfDays == 1 ? string.Empty : "s")}, but we work the same as before" +
-				$"" +
+			EndGameText.text = $"The strike lasted {numberOfDays} day{(numberOfDays == 1 ? string.Empty : "s")}, but we work the same as before." +
+				$"\r\n" +
+				$"\r\n" +
 				$"We cannot give up!";
 			Canvas.Enable();
 		}

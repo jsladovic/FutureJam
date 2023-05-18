@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 13
   m_EditorClassIdentifier: 
   Index: 13
-  LevelText: 
+  LevelText: Police manages to get past weaker parts of the picket line, but as long
+    as we stay strong, we can fight back.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 13
   AudioIndex: 3

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 12
   m_EditorClassIdentifier: 
   Index: 12
-  LevelText: 
+  LevelText: The police are often paid to keep order for those who have money and
+    power.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 12
   AudioIndex: 3

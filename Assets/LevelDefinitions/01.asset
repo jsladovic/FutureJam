@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: 01
   m_EditorClassIdentifier: 
   Index: 1
-  LevelText: Click and drag on the picket liners to move them, use them to block
-    the scabs from entering the building.
+  LevelText: The Union formed a strike so we could get a living wage and 8-hour shifts.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 0
   AudioIndex: 1
