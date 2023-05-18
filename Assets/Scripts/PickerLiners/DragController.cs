@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.General;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.PicketLiners
@@ -29,6 +30,7 @@ namespace Assets.Scripts.PicketLiners
 		private Vector3 DragStartPosition;
 
 		private List<Transform> InvalidCollisionObjects;
+		private List<PicketLiner> CollidingPicketLiners;
 		private bool CanUseMouse;
 
 		public void Initialize(PicketLiner parent)
@@ -51,16 +53,24 @@ namespace Assets.Scripts.PicketLiners
 			MousePositionOffset = transform.position - MouseWorldPosition;
 			IsDragging = true;
 			InvalidCollisionObjects = new List<Transform>();
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_pickup");
-        }
+			CollidingPicketLiners = new List<PicketLiner>();
+			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_pickup");
+		}
 
 		private void OnMouseUp()
 		{
 			if (IsDragging == false)
 				return;
 			IsDragging = false;
+
+			PicketLiner targetPicketLiner = CollidingPicketLiners.FirstOrDefault(pl => pl.CanBeUpgraded == true);
+			if (targetPicketLiner != null)
+			{
+				targetPicketLiner.UpgradeRank();
+				DestroyPicketLiner();
+			}
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
-        }
+		}
 
 		private void OnMouseDrag()
 		{
@@ -69,13 +79,26 @@ namespace Assets.Scripts.PicketLiners
 			transform.position = MouseWorldPosition + MousePositionOffset;
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, MinX, MaxX),
 				Mathf.Clamp(transform.position.y, MinY, MaxY), transform.position.z);
-        }
+		}
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if (IsDragging == false)
 				return;
-			InvalidCollisionObjects.Add(collision.transform);
+			PicketLiner collidingPicketLiner = collision.GetComponent<PicketLiner>();
+			if (collidingPicketLiner != null)
+			{
+				if (CollidingPicketLiners.Contains(collidingPicketLiner) == false)
+				{
+					print($"{name} entering collision with {collision.name}");
+					CollidingPicketLiners.Add(collidingPicketLiner);
+				}
+			}
+			else
+			{
+				if (InvalidCollisionObjects.Contains(collision.transform) == false)
+					InvalidCollisionObjects.Add(collision.transform);
+			}
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
@@ -83,7 +106,20 @@ namespace Assets.Scripts.PicketLiners
 			if (IsDragging == false)
 				return;
 
-			InvalidCollisionObjects.Remove(collision.transform);
+			PicketLiner collidingPicketLiner = collision.GetComponent<PicketLiner>();
+			if (collidingPicketLiner != null)
+			{
+				if (CollidingPicketLiners.Contains(collidingPicketLiner) == true)
+				{
+					print($"{name} exiting collision with {collision.name}");
+					CollidingPicketLiners.Remove(collidingPicketLiner);
+				}
+			}
+			else
+			{
+				if (InvalidCollisionObjects.Contains(collision.transform) == true)
+					InvalidCollisionObjects.Remove(collision.transform);
+			}
 		}
 
 		public void OnCanUseMouseChanged(bool canUseMouse)
@@ -91,6 +127,11 @@ namespace Assets.Scripts.PicketLiners
 			if (canUseMouse == false)
 				OnMouseUp();
 			CanUseMouse = canUseMouse;
+		}
+
+		private void DestroyPicketLiner()
+		{
+			Destroy(gameObject);
 		}
 
 		private Vector3 MouseWorldPosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);

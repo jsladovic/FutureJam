@@ -74,7 +74,7 @@ namespace Assets.Scripts.PicketLiners
             IsClicked = false;
         }
 
-        private bool UpgradeRank()
+        public bool UpgradeRank()
         {
             if (Rank == PicketLinerRank.Basic)
             {
