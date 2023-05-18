@@ -53,8 +53,6 @@ namespace Assets.Scripts.General
 		{
 			if (HoveredPicketLiners.Any() == false)
 				Cursor.SetCursor(DefaultCursorSprite, Vector2.zero, CursorMode.Auto);
-			else if (GameController.Instance.IsWaitingForUpgrade == true)
-				Cursor.SetCursor(UpgradeCursorSprite, Vector2.zero, CursorMode.Auto);
 			else
 				Cursor.SetCursor(HoveredCursorSprite, Vector2.zero, CursorMode.Auto);
 		}

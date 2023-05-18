@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.General;
+﻿using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.General;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +10,8 @@ namespace Assets.Scripts.PicketLiners
 	public class DragController : MonoBehaviour
 	{
 		private static string[] ValidLayerNames = new string[] { "PicketLinerDraggable" };
+
+		[SerializeField] private PicketLinerEvent SpawnDemotedPicketLiner;
 
 		private float MinX;
 		private float MaxX;
@@ -45,12 +49,19 @@ namespace Assets.Scripts.PicketLiners
 			MinY = bottomRightDraggableLimit.position.y;
 		}
 
-		private void OnMouseDown()
+		public void OnMouseDown()
 		{
-			if (CanUseMouse == false || GameController.Instance.IsWaitingForUpgrade == true || IsDragging == true)
+			print($"on mouse down {name}");
+			if (CanUseMouse == false || IsDragging == true)
 				return;
+			if (Parent.CanBeDemoted == true)
+			{
+				SpawnDemotedPicketLiner.Raise(Parent);
+				Parent.Rank = PicketLinerRank.Basic;
+			}
+
 			DragStartPosition = transform.position;
-			MousePositionOffset = transform.position - MouseWorldPosition;
+			MousePositionOffset = transform.position - Camera.main.MouseWorldPosition();
 			IsDragging = true;
 			InvalidCollisionObjects = new List<Transform>();
 			CollidingPicketLiners = new List<PicketLiner>();
@@ -59,6 +70,7 @@ namespace Assets.Scripts.PicketLiners
 
 		private void OnMouseUp()
 		{
+			print($"on mouse up {name}");
 			if (IsDragging == false)
 				return;
 			IsDragging = false;
@@ -74,9 +86,10 @@ namespace Assets.Scripts.PicketLiners
 
 		private void OnMouseDrag()
 		{
+			print($"on mouse drag {name}");
 			if (IsDragging == false || CanUseMouse == false)
 				return;
-			transform.position = MouseWorldPosition + MousePositionOffset;
+			transform.position = Camera.main.MouseWorldPosition() + MousePositionOffset;
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, MinX, MaxX),
 				Mathf.Clamp(transform.position.y, MinY, MaxY), transform.position.z);
 		}
@@ -133,7 +146,5 @@ namespace Assets.Scripts.PicketLiners
 		{
 			Destroy(gameObject);
 		}
-
-		private Vector3 MouseWorldPosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	}
 }

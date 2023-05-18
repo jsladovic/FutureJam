@@ -71,12 +71,6 @@ namespace Assets.Scripts.General
 			ButtonsParent.gameObject.SetActive(false);
 		}
 
-		public void LevelUpPicketLinerClicked()
-		{
-			GameController.Instance.LevelUpPicketLiner();
-			ButtonsParent.gameObject.SetActive(false);
-		}
-
 		public void AddPicketLinerClicked()
 		{
 			GameController.Instance.SpawnPicketLiner();

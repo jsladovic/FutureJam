@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.GameEvents.Events;
+﻿using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.PicketLiners;
 using Assets.Scripts.Scabs;
 using System.Collections;
@@ -40,7 +41,6 @@ namespace Assets.Scripts.General
 
         public const int LevelDurationSeconds = 20;
         public int NumberOfScabsEntered { get; private set; }
-        public bool IsWaitingForUpgrade { get; private set; }
 
         private const float BaseScabSpeed = 1.8f;
         private const float ScabSpeedIncreasePerLevel = 0.1f;
@@ -101,22 +101,16 @@ namespace Assets.Scripts.General
                 NumberOfScabsEntered--;
         }
 
-        public void SpawnPicketLiner()
+        public PicketLiner SpawnPicketLiner(Vector3? position = null, PicketLinerRank? rank = null)
         {
-            PicketLiner picketLiner = Instantiate(PicketLinerPrefab, PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
+            PicketLiner picketLiner = Instantiate(PicketLinerPrefab, position ?? PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
             picketLiner.Initialize();
             AllPicketLiners.Add(picketLiner);
-        }
-
-        public void LevelUpPicketLiner()
-        {
-            IsWaitingForUpgrade = true;
-            CanvasController.Instance.DisplayLevelUpText();
+            return picketLiner;
         }
 
         public void StartLevel()
         {
-            IsWaitingForUpgrade = false;
             StartCoroutine(SpawnScabCoroutine(true));
             Clock.StartLevel();
             CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
@@ -180,5 +174,17 @@ namespace Assets.Scripts.General
             CurrentLevelIndex++;
             PrepareLevel();
         }
+
+        public void SpawnDemotedPicketLiner(PicketLiner picketLiner)
+        {
+            PicketLinerRank demotedRank = picketLiner.Rank == PicketLinerRank.Advanced ? PicketLinerRank.Basic : PicketLinerRank.Advanced;
+            PicketLiner spawnedPicketLiner = SpawnPicketLiner(picketLiner.transform.position, rank: demotedRank);
+            spawnedPicketLiner.DragController.OnCanUseMouseChanged(true);
+        }
+
+        public void OnPicketLinerDestroyed(PicketLiner picketLiner)
+		{
+            AllPicketLiners.Remove(picketLiner);
+		}
     }
 }
