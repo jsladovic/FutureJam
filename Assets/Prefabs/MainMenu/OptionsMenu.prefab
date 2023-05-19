@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 6022886516537359474}
   - component: {fileID: 7415791368950377816}
   - component: {fileID: 5318039783293762586}
+  - component: {fileID: 4991205311719257186}
   m_Layer: 5
   m_Name: MusicToggle
   m_TagString: Untagged
@@ -358,6 +359,25 @@ MonoBehaviour:
       Data3: 1456031674
       Data4: -646380150
     Path: event:/UI/click
+--- !u!114 &4991205311719257186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131632279192820246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7838814ee783b074ba7d727e1fe3e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MuteSnapshot:
+    Guid:
+      Data1: -601000417
+      Data2: 1266943701
+      Data3: -1110425459
+      Data4: 109457289
+    Path: snapshot:/OnMusicMuted
 --- !u!1 &6764478078609155675
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +528,7 @@ GameObject:
   - component: {fileID: 6384053455817750343}
   - component: {fileID: 3515020836994854646}
   - component: {fileID: 7264865072847912602}
+  - component: {fileID: 1373380874889614990}
   m_Layer: 5
   m_Name: AudioToggle
   m_TagString: Untagged
@@ -688,6 +709,25 @@ MonoBehaviour:
       Data3: 1456031674
       Data4: -646380150
     Path: event:/UI/click
+--- !u!114 &1373380874889614990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114845998816535291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7838814ee783b074ba7d727e1fe3e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MuteSnapshot:
+    Guid:
+      Data1: -108309599
+      Data2: 1155242477
+      Data3: 937203609
+      Data4: -1183754283
+    Path: snapshot:/OnSFXMuted
 --- !u!1 &8157439090148758061
 GameObject:
   m_ObjectHideFlags: 0

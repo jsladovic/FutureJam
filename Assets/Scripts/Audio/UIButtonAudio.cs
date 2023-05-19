@@ -13,7 +13,10 @@ namespace Assets.Scripts.Audio
 		private void Start()
 		{
             if (RuntimeManager.HasBankLoaded("Master") == false)
+			{
                 RuntimeUtils.DebugLogWarning("Master audio bank not loaded");
+                DisableAudio = true;
+			}
         }
 
 		public void OnPointerEnter(PointerEventData eventData)
