@@ -90,7 +90,7 @@ namespace Assets.Scripts.General
             DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
             SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
             print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
-            CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0, AllPicketLiners.Any(pl => pl.Rank == PicketLinerRank.Basic));
+            CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0);
         }
 
         public void KickOutScab()

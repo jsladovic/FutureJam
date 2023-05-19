@@ -15,8 +15,6 @@ namespace Assets.Scripts.General
 
 		[SerializeField] private GameObject ButtonsParent;
 		[SerializeField] private TextMeshProUGUI LevelText;
-		[SerializeField] private Button AddPicketLinerButton;
-		[SerializeField] private Button LevelUpPicketLinerButton;
 		[SerializeField] private Button KickOutScabButton;
 		[SerializeField] private GameObject TutorialPanel;
 		[SerializeField] private TextMeshProUGUI TutorialText;
@@ -38,7 +36,7 @@ namespace Assets.Scripts.General
 			HideTutorialText();
 		}
 
-		public void DisplayLevel(int levelIndex, bool canAddPicketLiner, bool canKickOutScab, bool canLevelUpPicketLiner)
+		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)
 		{
 			LevelText.text = $"Factory strike, day {levelIndex}";
 			if (levelIndex == 1)
@@ -46,11 +44,9 @@ namespace Assets.Scripts.General
 				OnTutorialStarted.Raise();
 				return;
 			}
-			if (canAddPicketLiner || canKickOutScab || canLevelUpPicketLiner)
+			if (displayOptions)
 			{
 				ButtonsParent.gameObject.SetActive(true);
-				LevelUpPicketLinerButton.interactable = canLevelUpPicketLiner;
-				AddPicketLinerButton.interactable = canAddPicketLiner;
 				KickOutScabButton.interactable = canKickOutScab;
 			}
 			else
