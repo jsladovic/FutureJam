@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4435881503620349232}
   - component: {fileID: 845838573743712059}
   - component: {fileID: 6888635115353908039}
+  - component: {fileID: 3148316894424908534}
   m_Layer: 5
   m_Name: PrevButton
   m_TagString: Untagged
@@ -195,6 +196,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3148316894424908534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599481149877251184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &1168756845327249938
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,18 +567,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
   PressSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &1168756846575708841
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,18 +1014,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
   PressSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &1168756847060681309
 GameObject:
   m_ObjectHideFlags: 0

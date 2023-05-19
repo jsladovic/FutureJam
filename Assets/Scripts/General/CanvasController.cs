@@ -62,7 +62,8 @@ namespace Assets.Scripts.General
 		public void DisplayLevelText(string text)
 		{
 			StartCoroutine(DisplayTutorialTextCoroutine(text));
-		}
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/ping");
+        }
 
 		public void KickOutScabClicked()
 		{

@@ -79,7 +79,8 @@ namespace Assets.Scripts.PicketLiners
 			if (targetPicketLiner != null)
 			{
 				targetPicketLiner.UpgradeRank();
-				DestroyPicketLiner();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
+                DestroyPicketLiner();
 			}
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
 		}

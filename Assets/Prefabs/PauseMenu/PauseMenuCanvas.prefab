@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 7778299327896365603}
   - component: {fileID: 7778299327896365604}
   - component: {fileID: 7778299327896365605}
+  - component: {fileID: 6517373656539379689}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -330,6 +331,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &6517373656539379689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778299327896365607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &7778299328141940455
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +597,7 @@ GameObject:
   - component: {fileID: 7778299328631115283}
   - component: {fileID: 7778299328631115284}
   - component: {fileID: 7778299328631115285}
+  - component: {fileID: 1467341152402286985}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -750,6 +778,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1467341152402286985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778299328631115287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &7778299328764296723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1089,7 @@ GameObject:
   - component: {fileID: 5063517773837631870}
   - component: {fileID: 8104040184241003381}
   - component: {fileID: 2617445755770609417}
+  - component: {fileID: 2482784501122980232}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -1215,3 +1270,29 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2482784501122980232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330419895775121470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click

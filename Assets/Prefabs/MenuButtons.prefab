@@ -528,18 +528,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
   PressSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &3102102858466182478
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,18 +750,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
   PressSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &3102102858810948842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,18 +1107,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
   PressSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1001 &3079714796911832731
 PrefabInstance:
   m_ObjectHideFlags: 0

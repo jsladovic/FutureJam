@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 8483630752328204464}
   - component: {fileID: 6022886516537359474}
   - component: {fileID: 7415791368950377816}
+  - component: {fileID: 5318039783293762586}
   m_Layer: 5
   m_Name: MusicToggle
   m_TagString: Untagged
@@ -331,6 +332,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5318039783293762586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131632279192820246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &6764478078609155675
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +507,7 @@ GameObject:
   - component: {fileID: 7466204083380529277}
   - component: {fileID: 6384053455817750343}
   - component: {fileID: 3515020836994854646}
+  - component: {fileID: 7264865072847912602}
   m_Layer: 5
   m_Name: AudioToggle
   m_TagString: Untagged
@@ -634,6 +662,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7264865072847912602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114845998816535291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &8157439090148758061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1069,7 @@ GameObject:
   - component: {fileID: 8833368561680464941}
   - component: {fileID: 3634409182075543627}
   - component: {fileID: 7772769003179167815}
+  - component: {fileID: 4229338835110962653}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1169,6 +1224,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &4229338835110962653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833368561680464979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cd0018c2fe81f4e99c0049a3982f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSound:
+    Guid:
+      Data1: 1093976189
+      Data2: 1078454002
+      Data3: 1884366495
+      Data4: -1195759313
+    Path: event:/UI/hover
+  PressSound:
+    Guid:
+      Data1: -155660615
+      Data2: 1239285326
+      Data3: 1456031674
+      Data4: -646380150
+    Path: event:/UI/click
 --- !u!1 &8833368562013016794
 GameObject:
   m_ObjectHideFlags: 0
