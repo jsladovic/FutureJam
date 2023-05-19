@@ -13,6 +13,7 @@ namespace Assets.Scripts.General
 	{
 		public static CanvasController Instance;
 
+		[SerializeField] private GameObject ContinueButtonsParent;
 		[SerializeField] private GameObject ButtonsParent;
 		[SerializeField] private TextMeshProUGUI LevelText;
 		[SerializeField] private Button KickOutScabButton;
@@ -32,7 +33,8 @@ namespace Assets.Scripts.General
 
 		public void Initialize()
 		{
-			ButtonsParent.gameObject.SetActive(false);
+			ButtonsParent.SetActive(false);
+			ContinueButtonsParent.SetActive(false);
 			HideTutorialText();
 		}
 
@@ -46,13 +48,25 @@ namespace Assets.Scripts.General
 			}
 			if (displayOptions)
 			{
-				ButtonsParent.gameObject.SetActive(true);
+				DisplayEndOfLevelCanvas(true);
 				KickOutScabButton.interactable = canKickOutScab;
 			}
 			else
 			{
-				GameController.Instance.StartLevel();
+				DisplayEndOfLevelCanvas(false);
 			}
+		}
+
+		private void DisplayEndOfLevelCanvas(bool allowOptions)
+		{
+			ButtonsParent.SetActive(allowOptions);
+			ContinueButtonsParent.SetActive(!allowOptions);
+		}
+
+		public void ContinueClicked()
+		{
+			ContinueButtonsParent.SetActive(false);
+			GameController.Instance.StartLevel();
 		}
 
 		public void DisplayLevelText(string text)
