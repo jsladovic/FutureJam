@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8758044748067246267}
   - component: {fileID: 1637756323474879254}
+  - component: {fileID: 5848011405944610882}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -47,3 +48,31 @@ MonoBehaviour:
   DefaultCursorSprite: {fileID: 2800000, guid: 400b887e6a53eb249a16a8aa34e4f625, type: 3}
   HoveredCursorSprite: {fileID: 2800000, guid: 9a719dcd0d8524f498d1dad3c04eb307, type: 3}
   UpgradeCursorSprite: {fileID: 2800000, guid: 9979b3957d85ff4418e683a2d9c59973, type: 3}
+--- !u!114 &5848011405944610882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635808309869199466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a93757124840e41ae3f80dc2f072fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: b95c3f7a8e566bb4688a05160a7e7498, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1637756323474879254}
+        m_TargetAssemblyTypeName: Assets.Scripts.General.CursorController, Assembly-CSharp
+        m_MethodName: UnregisterPicketLinerHovered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

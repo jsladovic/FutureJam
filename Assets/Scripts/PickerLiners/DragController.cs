@@ -12,6 +12,7 @@ namespace Assets.Scripts.PicketLiners
 		private static string[] ValidLayerNames = new string[] { "PicketLinerDraggable" };
 
 		[SerializeField] private PicketLinerEvent SpawnDemotedPicketLiner;
+		[SerializeField] private PicketLinerEvent OnPicketLinerDestroyed;
 
 		private float MinX;
 		private float MaxX;
@@ -51,7 +52,6 @@ namespace Assets.Scripts.PicketLiners
 
 		public void OnMouseDown()
 		{
-			print($"on mouse down {name}");
 			if (CanUseMouse == false || IsDragging == true)
 				return;
 			if (Parent.CanBeDemoted == true)
@@ -70,7 +70,6 @@ namespace Assets.Scripts.PicketLiners
 
 		private void OnMouseUp()
 		{
-			print($"on mouse up {name}");
 			if (IsDragging == false)
 				return;
 			IsDragging = false;
@@ -87,7 +86,6 @@ namespace Assets.Scripts.PicketLiners
 
 		private void OnMouseDrag()
 		{
-			print($"on mouse drag {name}");
 			if (IsDragging == false || CanUseMouse == false)
 				return;
 			transform.position = Camera.main.MouseWorldPosition() + MousePositionOffset;
@@ -125,7 +123,6 @@ namespace Assets.Scripts.PicketLiners
 			{
 				if (CollidingPicketLiners.Contains(collidingPicketLiner) == true)
 				{
-					print($"{name} exiting collision with {collision.name}");
 					CollidingPicketLiners.Remove(collidingPicketLiner);
 				}
 			}
@@ -145,6 +142,7 @@ namespace Assets.Scripts.PicketLiners
 
 		private void DestroyPicketLiner()
 		{
+			OnPicketLinerDestroyed.Raise(Parent);
 			Destroy(gameObject);
 		}
 	}

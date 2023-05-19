@@ -806,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnDemotedPicketLiner: {fileID: 11400000, guid: 1003f408da9725244a0cc056dc991303, type: 2}
+  OnPicketLinerDestroyed: {fileID: 11400000, guid: b95c3f7a8e566bb4688a05160a7e7498, type: 2}
 --- !u!70 &2162039702434807348
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
