@@ -5,7 +5,7 @@ namespace Assets.Scripts.PicketLiners
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class SphereOfInfluence : MonoBehaviour
 	{
-		private PicketLiner Parent;
+		public PicketLiner Parent { get; private set; }
 		private SpriteRenderer SpriteRenderer;
 
 		public void Initialize(PicketLiner picketLiner)
