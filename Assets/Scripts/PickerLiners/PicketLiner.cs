@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.General;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.PicketLiners
@@ -71,5 +72,10 @@ namespace Assets.Scripts.PicketLiners
 		public bool CanBeDemoted => Rank > PicketLinerRank.Basic;
 
 		public bool IsCarried => DragController.IsDragging;
+
+		internal void DisplayMergeSprite(bool isVisible)
+		{
+			ModelSelector.DisplayMergeSprite(isVisible);
+		}
 	}
 }

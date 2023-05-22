@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.PicketLiners
 {
@@ -27,6 +28,14 @@ namespace Assets.Scripts.PicketLiners
             BasicModel.gameObject.SetActive(rank == PicketLinerRank.Basic);
             AdvancedModel.gameObject.SetActive(rank == PicketLinerRank.Advanced);
             EliteModel.gameObject.SetActive(rank == PicketLinerRank.Elite);
+            DisplayMergeSprite(false);
         }
-    }
+
+		internal void DisplayMergeSprite(bool isVisible)
+        {
+            BasicModel.DisplayMergeSprite(isVisible);
+            AdvancedModel.DisplayMergeSprite(isVisible);
+            EliteModel.DisplayMergeSprite(isVisible);
+        }
+	}
 }

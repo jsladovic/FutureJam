@@ -13,12 +13,17 @@ public class PicketLinerModel : MonoBehaviour
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         DefaultSprite = SpriteRenderer.sprite;
-        MergeSpriteRenderer.gameObject.SetActive(false);
+        DisplayMergeSprite(false);
     }
 
     public void SetCarriedSprite(bool isCarried)
     {
         SpriteRenderer.sprite = isCarried ? CarriedSprite : DefaultSprite;
     }
+
+    public void DisplayMergeSprite(bool isVisible)
+	{
+        MergeSpriteRenderer.gameObject.SetActive(isVisible);
+	}
 }
 

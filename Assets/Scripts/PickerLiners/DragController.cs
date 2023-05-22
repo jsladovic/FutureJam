@@ -98,12 +98,12 @@ namespace Assets.Scripts.PicketLiners
 			if (IsDragging == false)
 				return;
 			PicketLiner collidingPicketLiner = collision.GetComponent<PicketLiner>();
-			if (collidingPicketLiner != null)
+			if (collidingPicketLiner != null && collidingPicketLiner.CanBeUpgraded == true)
 			{
 				if (CollidingPicketLiners.Contains(collidingPicketLiner) == false)
 				{
-					print($"{name} entering collision with {collision.name}");
 					CollidingPicketLiners.Add(collidingPicketLiner);
+					DisplayMergeSprite();
 				}
 			}
 			else
@@ -123,6 +123,7 @@ namespace Assets.Scripts.PicketLiners
 			{
 				if (CollidingPicketLiners.Contains(collidingPicketLiner) == true)
 				{
+					collidingPicketLiner.DisplayMergeSprite(false);
 					CollidingPicketLiners.Remove(collidingPicketLiner);
 				}
 			}
@@ -130,6 +131,16 @@ namespace Assets.Scripts.PicketLiners
 			{
 				if (InvalidCollisionObjects.Contains(collision.transform) == true)
 					InvalidCollisionObjects.Remove(collision.transform);
+			}
+		}
+
+		private void DisplayMergeSprite()
+		{
+			if (CollidingPicketLiners.Any() == false)
+				return;
+			for (int i = 0; i < CollidingPicketLiners.Count; i++)
+			{
+				CollidingPicketLiners[i].DisplayMergeSprite(i == 0);
 			}
 		}
 
