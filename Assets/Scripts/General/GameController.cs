@@ -103,7 +103,7 @@ namespace Assets.Scripts.General
         public PicketLiner SpawnPicketLiner(Vector3? position = null, PicketLinerRank? rank = null)
         {
             PicketLiner picketLiner = Instantiate(PicketLinerPrefab, position ?? PicketLinerSpawningLocation.position, Quaternion.identity, PicketLinersParent);
-            picketLiner.Initialize();
+            picketLiner.Initialize(rank: rank);
             AllPicketLiners.Add(picketLiner);
             return picketLiner;
         }

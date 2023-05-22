@@ -22,15 +22,16 @@ namespace Assets.Scripts.PicketLiners
 			}
 		}
 
-		public void Initialize(PicketLinerRank rank = PicketLinerRank.Basic)
+		public void Initialize(PicketLinerRank? rank = null)
 		{
+			rank ??= PicketLinerRank.Basic;
 			DragController = GetComponent<DragController>();
 			ModelSelector = GetComponentInChildren<ModelSelector>();
 			SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
 
 			SphereOfInfluenceSelector.Initialize(this);
 			ModelSelector.Initialize();
-			Rank = rank;
+			Rank = rank.Value;
 			DragController.Initialize(this);
 		}
 
