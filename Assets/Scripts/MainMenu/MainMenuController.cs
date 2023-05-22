@@ -10,14 +10,13 @@ namespace Assets.Scripts.MainMenu
 	public class MainMenuController : MonoBehaviour
 	{
 		private CanvasGroup MainMenu;
-		[SerializeField] private CanvasGroup OptionsMenu;
+		[SerializeField] private OptionsMenuController OptionsMenu;
 		[SerializeField] private VoidEvent OnMainMenuLoaded;
 
 		private void Awake()
 		{
 			MainMenu = GetComponent<CanvasGroup>();
 			MainMenu.Enable();
-			OptionsMenu.Disable();
 			OnMainMenuLoaded.Raise();
 		}
 
