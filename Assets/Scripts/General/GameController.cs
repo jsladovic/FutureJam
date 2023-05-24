@@ -42,8 +42,8 @@ namespace Assets.Scripts.General
         public const int LevelDurationSeconds = 20;
         public int NumberOfScabsEntered { get; private set; }
 
-        private const float BaseScabSpeed = 1.8f;
-        private const float ScabSpeedIncreasePerLevel = 0.1f;
+        private const float BaseScabSpeed = 1.5f;
+        private const float ScabSpeedIncreasePerLevel = 0.075f;
 
         private int TotalScabsToSpawnRemaining;
         private int BasicScabsToSpawnRemaining;

@@ -7,7 +7,6 @@ namespace Assets.Scripts.Audio
 {
 	public class VolumeController : MonoBehaviour
 	{
-
         private bool DisableAudio = false;
         [SerializeField] private EventReference MuteSnapshot;
         private EventInstance SnapshotEvent;
