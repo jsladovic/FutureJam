@@ -71,7 +71,7 @@ namespace Assets.Scripts.General
 
 		public void DisplayLevelText(string text)
 		{
-			StartCoroutine(DisplayTutorialTextCoroutine(text));
+			DisplayTutorialTextCoroutine(text);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/ping");
         }
 
@@ -95,20 +95,10 @@ namespace Assets.Scripts.General
 			SceneManager.LoadScene(scene.buildIndex);
 		}
 
-		public void DisplayLevelUpText()
-		{
-			StartCoroutine(DisplayTutorialTextCoroutine("Click on a picket liner to level them up.", hideAfterWait: false));
-		}
-
-		private IEnumerator DisplayTutorialTextCoroutine(string text, bool hideAfterWait = true)
+		private void DisplayTutorialTextCoroutine(string text)
 		{
 			TutorialPanel.SetActive(true);
 			TutorialText.text = text;
-			if (hideAfterWait == true)
-			{
-				yield return new WaitForSeconds(TutorialTextVisibleSeconds);
-				HideTutorialText();
-			}
 		}
 
 		public void HideTutorialText()
