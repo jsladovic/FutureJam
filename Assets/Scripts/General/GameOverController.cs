@@ -1,7 +1,10 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents;
+using Assets.Scripts.GameEvents.Events;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.General
@@ -10,6 +13,7 @@ namespace Assets.Scripts.General
 	public class GameOverController : MonoBehaviour
 	{
 		[SerializeField] private TextMeshProUGUI EndGameText;
+		[SerializeField] private IntEvent GameOver;
 
 		private CanvasGroup Canvas;
 
@@ -26,6 +30,8 @@ namespace Assets.Scripts.General
 				$"\r\n" +
 				$"We cannot give up!";
 			Canvas.Enable();
+			if (GameOver != null)
+				GameOver.Raise(numberOfDays);
 		}
 
 		public void OnRestartClicked()

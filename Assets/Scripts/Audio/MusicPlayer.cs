@@ -46,8 +46,11 @@ namespace Assets.Scripts.Audio
         {
             if (DisableAudio == true)
                 return;
+            if (PlaybackState(Music) != PLAYBACK_STATE.PLAYING)
+                Music.start();
             Music.setParameterByName("Level", levelDef.AudioIndex);
         }
+
         public void OnMenuLoaded()
         {
             if (DisableAudio == true)
@@ -55,10 +58,26 @@ namespace Assets.Scripts.Audio
             Music.setParameterByName("Level", 0);
         }
 
+        public void OnGameOver()
+        {
+            if (DisableAudio == true)
+                return;
+
+            Music.setParameterByName("LevelResult", -1);
+        }
+
+       /* public static PLAYBACK_STATE PlaybackState(EventInstance Event)
+        {
+            PLAYBACK_STATE pState;
+            Event.getPlaybackState(out pState);
+            return pState;
+        }*/
+
         private void OnDisable()
         {
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Music.release();
         }
+
 	}
 }
