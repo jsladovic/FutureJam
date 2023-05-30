@@ -516,6 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPauseChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}
   OnCanUseMouseChanged: {fileID: 11400000, guid: a42232d05ad07394381d33378b4f8959, type: 2}
+  OnTutorialStarted: {fileID: 11400000, guid: 1033ad613de3bf043b2f0dc40f68ee13, type: 2}
 --- !u!225 &7778299328618591668
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1202,7 +1203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7778299328618591670}
         m_TargetAssemblyTypeName: Assets.Scripts.PauseMenu.PauseMenuController, Assembly-CSharp
-        m_MethodName: OnResumeClicked
+        m_MethodName: OnTutorialClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

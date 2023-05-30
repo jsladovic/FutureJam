@@ -13,6 +13,7 @@ namespace Assets.Scripts.PauseMenu
 
 		[SerializeField] private BoolEvent OnPauseChanged;
 		[SerializeField] private BoolEvent OnCanUseMouseChanged;
+		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private bool isPaused;
 		private bool IsPaused
@@ -37,8 +38,6 @@ namespace Assets.Scripts.PauseMenu
 
 		public void OnPausedChanged(bool paused)
 		{
-			if (IsPaused == paused)
-				return;
 			IsPaused = paused;
 		}
 
@@ -53,6 +52,12 @@ namespace Assets.Scripts.PauseMenu
 		public void OnMainMenuClicked()
 		{
 			SceneManager.LoadScene((int)SceneBuildIndex.MainMenu);
+		}
+
+		public void OnTutorialClicked()
+		{
+			Canvas.Disable();
+			OnTutorialStarted.Raise(true);
 		}
 	}
 }

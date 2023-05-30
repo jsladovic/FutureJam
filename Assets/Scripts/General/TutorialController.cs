@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Extensions;
+using Assets.Scripts.GameEvents.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,11 @@ namespace Assets.Scripts.General
 	public class TutorialController : MonoBehaviour
 	{
 		[SerializeField] private Transform ImagesParent;
+		[SerializeField] private BoolEvent OnPauseChanged;
 
 		private CanvasGroup Canvas;
 		private Image[] Images;
+		private bool ResumeOnEnd;
 
 		private int currentImageIndex;
 		private int CurrentImageIndex
@@ -32,8 +35,9 @@ namespace Assets.Scripts.General
 				throw new UnityException("Missing tutorial images");
 		}
 
-		public void OnTutorialStarted()
+		public void OnTutorialStarted(bool resumeOnEnd)
 		{
+			ResumeOnEnd = resumeOnEnd;
 			CurrentImageIndex = 0;
 			Canvas.Enable();
 		}
@@ -41,7 +45,14 @@ namespace Assets.Scripts.General
 		public void OnEndClicked()
 		{
 			Canvas.Disable();
-			GameController.Instance.StartLevel();
+			if (ResumeOnEnd == true)
+			{
+				OnPauseChanged.Raise(true);
+			}
+			else
+			{
+				GameController.Instance.StartLevel();
+			}
 		}
 
 		public void OnNextClicked()

@@ -19,7 +19,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private Button KickOutScabButton;
 		[SerializeField] private GameObject TutorialPanel;
 		[SerializeField] private TextMeshProUGUI TutorialText;
-		[SerializeField] private VoidEvent OnTutorialStarted;
+		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private CanvasGroup CanvasGroup;
 
@@ -43,7 +43,7 @@ namespace Assets.Scripts.General
 			LevelText.text = $"Factory strike, day {levelIndex}";
 			if (levelIndex == 1)
 			{
-				OnTutorialStarted.Raise();
+				OnTutorialStarted.Raise(false);
 				return;
 			}
 			if (displayOptions)
