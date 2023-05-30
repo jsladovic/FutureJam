@@ -1,15 +1,17 @@
 ﻿using Assets.Scripts.General;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.PicketLiners
 {
 	[RequireComponent(typeof(DragController))]
+	[RequireComponent(typeof(CapsuleCollider2D))]
 	public class PicketLiner : MonoBehaviour
 	{
 		public DragController DragController { get; private set; }
 		private ModelSelector ModelSelector;
 		private SphereOfInfluenceSelector SphereOfInfluenceSelector;
+		private DragColliderParent DragColliderParent;
+		private CapsuleCollider2D Collider;
 
 		private PicketLinerRank rank;
 		public PicketLinerRank Rank
@@ -20,6 +22,9 @@ namespace Assets.Scripts.PicketLiners
 				rank = value;
 				ModelSelector.SetRank(value);
 				SphereOfInfluenceSelector.SetRank(value);
+				CapsuleCollider2D collider = DragColliderParent.GetCollider(value);
+				Collider.size = collider.size;
+				Collider.offset = collider.offset;
 			}
 		}
 
@@ -29,6 +34,8 @@ namespace Assets.Scripts.PicketLiners
 			DragController = GetComponent<DragController>();
 			ModelSelector = GetComponentInChildren<ModelSelector>();
 			SphereOfInfluenceSelector = GetComponentInChildren<SphereOfInfluenceSelector>();
+			DragColliderParent = GetComponentInChildren<DragColliderParent>();
+			Collider = GetComponent<CapsuleCollider2D>();
 
 			SphereOfInfluenceSelector.Initialize(this);
 			ModelSelector.Initialize();
