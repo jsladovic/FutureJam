@@ -46,8 +46,8 @@ namespace Assets.Scripts.Audio
         {
             if (DisableAudio == true)
                 return;
-            if (PlaybackState(Music) != PLAYBACK_STATE.PLAYING)
-                Music.start();
+            //if (PlaybackState(Music) != PLAYBACK_STATE.PLAYING)
+            //    Music.start();
             Music.setParameterByName("Level", levelDef.AudioIndex);
         }
 
