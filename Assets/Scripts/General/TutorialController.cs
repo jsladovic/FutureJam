@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,7 @@ namespace Assets.Scripts.General
 
 		public void OnTutorialStarted(bool resumeOnEnd)
 		{
+			PlayerPrefsHelpers.SetTutorialDisplayed();
 			ResumeOnEnd = resumeOnEnd;
 			CurrentImageIndex = 0;
 			Canvas.Enable();

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.Helpers;
 
 namespace Assets.Scripts.General
 {
@@ -43,7 +44,14 @@ namespace Assets.Scripts.General
 			LevelText.text = $"Factory strike, day {levelIndex}";
 			if (levelIndex == 1)
 			{
-				OnTutorialStarted.Raise(false);
+				if (PlayerPrefsHelpers.WasTutorialDisplayed() == false)
+				{
+					OnTutorialStarted.Raise(false);
+				}
+				else
+				{
+					StartLevel();
+				}
 				return;
 			}
 			if (displayOptions)
@@ -65,8 +73,7 @@ namespace Assets.Scripts.General
 
 		public void ContinueClicked()
 		{
-			ContinueButtonsParent.SetActive(false);
-			GameController.Instance.StartLevel();
+			StartLevel();
 		}
 
 		public void DisplayLevelText(string text)
@@ -78,15 +85,13 @@ namespace Assets.Scripts.General
 		public void KickOutScabClicked()
 		{
 			GameController.Instance.KickOutScab();
-			GameController.Instance.StartLevel();
-			ButtonsParent.gameObject.SetActive(false);
+			StartLevel();
 		}
 
 		public void AddPicketLinerClicked()
 		{
 			GameController.Instance.SpawnPicketLiner();
-			GameController.Instance.StartLevel();
-			ButtonsParent.gameObject.SetActive(false);
+			StartLevel();
 		}
 
 		public void RestartClicked()
@@ -112,6 +117,12 @@ namespace Assets.Scripts.General
 				CanvasGroup.Disable();
 			else
 				CanvasGroup.Enable();
+		}
+
+		private void StartLevel()
+		{
+			GameController.Instance.StartLevel();
+			ButtonsParent.gameObject.SetActive(false);
 		}
 	}
 }
