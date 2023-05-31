@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.General;
+﻿using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.General;
 using Assets.Scripts.PicketLiners;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Assets.Scripts.Scabs
 	[RequireComponent(typeof(ScabMovement))]
 	public class Scab : MonoBehaviour
 	{
+		[SerializeField] private VoidEvent OnScabEntered;
+
 		public bool HasEnteredBuilding { get; private set; }
 		public bool IsLeaving { get; private set; }
 
@@ -86,7 +89,7 @@ namespace Assets.Scripts.Scabs
 			Rigidbody = null;
 			HasEnteredBuilding = true;
 			ScabMovement.OnBuildingEntered(entrance.DoorPosition);
-			GameController.Instance.OnScabEntered();
+			OnScabEntered.Raise();
 		}
 
 		private void CollidedWithPicketLiner(PicketLiner picketLiner)

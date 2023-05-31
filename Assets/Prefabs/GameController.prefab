@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 676952468101039128}
   - component: {fileID: 7125862224910741634}
   - component: {fileID: 5173623250295768798}
+  - component: {fileID: 5761194278935022158}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &676952468101039128
 MonoBehaviour:
@@ -125,6 +126,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Assets.Scripts.General.GameController, Assembly-CSharp
         m_MethodName: OnPicketLinerDestroyed
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5761194278935022158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676952468101039111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5a327ce82950841a699b6d2e91914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 58a307a9fc130024eaf03aa4d177d99c, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 676952468101039128}
+        m_TargetAssemblyTypeName: Assets.Scripts.General.GameController, Assembly-CSharp
+        m_MethodName: OnScabEntered
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

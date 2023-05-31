@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 2057208587, guid: 701d058c39579194eba7c705063f41d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,7 +203,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 834810494, guid: 701d058c39579194eba7c705063f41d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 2057208587, guid: 701d058c39579194eba7c705063f41d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -495,7 +495,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 1398285569, guid: 8375a827b4b0cb543873af084b2cb814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -613,7 +613,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 1674713458, guid: 8375a827b4b0cb543873af084b2cb814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6d93c95a16043f8b601b3de1300c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScabEntered: {fileID: 11400000, guid: 58a307a9fc130024eaf03aa4d177d99c, type: 2}
 --- !u!114 &5151856017670284691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,7 +854,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811655203
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -460072914, guid: 701d058c39579194eba7c705063f41d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
