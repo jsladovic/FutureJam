@@ -1,10 +1,13 @@
-﻿using Assets.Scripts.General;
+﻿using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.General;
 using UnityEngine;
 
 namespace Assets.Scripts.Scabs
 {
 	public class ScabMovement : MonoBehaviour
 	{
+		[SerializeField] private VoidEvent OnScabEntered;
+
 		private Scab Parent;
 		private MovementCurve Curve;
 
@@ -59,8 +62,8 @@ namespace Assets.Scripts.Scabs
 			MoveTowardsPoint(TargetPosition.Value);
 			if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
 			{
+				OnScabEntered.Raise();
 				Destroy(Parent.gameObject);
-				GameController.Instance.OnScabDestroyed();
 			}
 		}
 

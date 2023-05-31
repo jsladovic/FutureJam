@@ -30,6 +30,8 @@ namespace Assets.Scripts.General
         [SerializeField] private LevelDefinitionEvent OnLevelStarted;
         [SerializeField] private IntEvent OnGameOver;
 
+        private int NumberOfScabsEntering;
+
         private int CurrentLevelIndex;
         private int ScabsRemainingInLevel;
         private MovementCurve[] CurrentLevelCurves;
@@ -142,7 +144,7 @@ namespace Assets.Scripts.General
                 StartCoroutine(SpawnScabCoroutine(false));
         }
 
-        public void OnScabEntered()
+        public void OnScabEntering()
         {
             NumberOfScabsEntered++;
             bool allLivesLost = HealthBarController.DisplayLifeLost();
@@ -153,11 +155,11 @@ namespace Assets.Scripts.General
             }
         }
 
-        public void OnScabDestroyed()
-        {
+        public void OnScabEntered()
+		{
             ScabsRemainingInLevel--;
             CheckForLevelOver();
-        }
+		}
 
         public void OnTimeExpired()
         {

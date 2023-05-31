@@ -34,8 +34,7 @@ namespace Assets.Scripts.General
 
 		public void Initialize()
 		{
-			ButtonsParent.SetActive(false);
-			ContinueButtonsParent.SetActive(false);
+			DisplayButtons(null);
 			HideTutorialText();
 		}
 
@@ -67,8 +66,7 @@ namespace Assets.Scripts.General
 
 		private void DisplayEndOfLevelCanvas(bool allowOptions)
 		{
-			ButtonsParent.SetActive(allowOptions);
-			ContinueButtonsParent.SetActive(!allowOptions);
+			DisplayButtons(allowOptions ? ButtonsParent : ContinueButtonsParent);
 		}
 
 		public void ContinueClicked()
@@ -122,7 +120,13 @@ namespace Assets.Scripts.General
 		private void StartLevel()
 		{
 			GameController.Instance.StartLevel();
-			ButtonsParent.gameObject.SetActive(false);
+			DisplayButtons(null);
+		}
+
+		private void DisplayButtons(GameObject buttonsObject)
+		{
+			ButtonsParent.gameObject.SetActive(buttonsObject == ButtonsParent);
+			ContinueButtonsParent.gameObject.SetActive(buttonsObject == ContinueButtonsParent);
 		}
 	}
 }

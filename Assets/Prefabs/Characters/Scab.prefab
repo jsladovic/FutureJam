@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6d93c95a16043f8b601b3de1300c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnScabEntered: {fileID: 11400000, guid: 58a307a9fc130024eaf03aa4d177d99c, type: 2}
+  OnScabEntering: {fileID: 11400000, guid: 58a307a9fc130024eaf03aa4d177d99c, type: 2}
 --- !u!114 &5151856017670284691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0eba8559bd9c48e39be8e369d0a5000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScabEntered: {fileID: 11400000, guid: 42c6836c5cc969a4996171bbdcba778c, type: 2}
 --- !u!58 &2551139773756277104
 CircleCollider2D:
   m_ObjectHideFlags: 0
