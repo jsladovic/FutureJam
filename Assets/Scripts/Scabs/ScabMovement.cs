@@ -6,6 +6,7 @@ namespace Assets.Scripts.Scabs
 {
 	public class ScabMovement : MonoBehaviour
 	{
+		[SerializeField] private VoidEvent OnScabDestroyed;
 		[SerializeField] private VoidEvent OnScabEntered;
 
 		private Scab Parent;
@@ -44,7 +45,7 @@ namespace Assets.Scripts.Scabs
 					return;
 				case MovementState.Entered:
 				case MovementState.Leaving:
-					HandleMovementToTargetPosition();
+					HandleMovementToTargetPosition(State == MovementState.Entered);
 					return;
 			}
 		}
@@ -54,7 +55,7 @@ namespace Assets.Scripts.Scabs
 			MoveTowardsPoint(Curve.Points[1].transform.position);
 		}
 
-		private void HandleMovementToTargetPosition()
+		private void HandleMovementToTargetPosition(bool entering)
 		{
 			UseLeavingSpeed = true;
 			if (TargetPosition.HasValue == false)
@@ -62,7 +63,9 @@ namespace Assets.Scripts.Scabs
 			MoveTowardsPoint(TargetPosition.Value);
 			if (Vector3.Distance(transform.position, TargetPosition.Value) <= DistanceToPointThreshold)
 			{
-				OnScabEntered.Raise();
+				if (entering == true)
+					OnScabEntered.Raise();
+				OnScabDestroyed.Raise();
 				Destroy(Parent.gameObject);
 			}
 		}

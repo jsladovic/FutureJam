@@ -707,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0eba8559bd9c48e39be8e369d0a5000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScabDestroyed: {fileID: 11400000, guid: 292e047981c742a49b220023f7871484, type: 2}
   OnScabEntered: {fileID: 11400000, guid: 42c6836c5cc969a4996171bbdcba778c, type: 2}
 --- !u!58 &2551139773756277104
 CircleCollider2D:

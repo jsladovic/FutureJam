@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.General
 {
@@ -9,8 +8,6 @@ namespace Assets.Scripts.General
 		private SpriteRenderer SpriteRenderer;
 		[SerializeField] private Sprite WindowWorkingSprite;
 		private Sprite WindowNotWorkingSprite;
-
-		private Coroutine CurrentLightsCoroutine;
 
 		public bool IsWorking { get; private set; }
 
@@ -24,19 +21,9 @@ namespace Assets.Scripts.General
 		public void DisplayWindowWorking(bool isWorking)
 		{
 			IsWorking = isWorking;
-			CurrentLightsCoroutine = StartCoroutine(DisplayWindowWorkingCoroutine(isWorking));
-		}
-
-		private IEnumerator DisplayWindowWorkingCoroutine(bool isWorking)
-		{
-			if (isWorking == true)
-				yield return new WaitForSeconds(isWorking ? 5.0f : 0.0f);
 			SpriteRenderer.sprite = isWorking ? WindowWorkingSprite : WindowNotWorkingSprite;
 			if (isWorking == true)
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/light_on");
-			if (CurrentLightsCoroutine != null)
-				StopCoroutine(CurrentLightsCoroutine);
-			CurrentLightsCoroutine = null;
 		}
 	}
 }

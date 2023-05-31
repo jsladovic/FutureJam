@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630778466460480257}
   - component: {fileID: 6795944191603525377}
+  - component: {fileID: 1832291789377144722}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -49,6 +50,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5698904549b4b3ca61ef0dee8802e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1832291789377144722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498410032488704631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5a327ce82950841a699b6d2e91914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 42c6836c5cc969a4996171bbdcba778c, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6795944191603525377}
+        m_TargetAssemblyTypeName: Assets.Scripts.General.HealthBarController, Assembly-CSharp
+        m_MethodName: OnScabEntered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1687092901719552832
 PrefabInstance:
   m_ObjectHideFlags: 0

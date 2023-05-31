@@ -42,6 +42,7 @@ namespace Assets.Scripts.General
         private bool IsGameOver;
 
         public const int LevelDurationSeconds = 20;
+        private const float AfterLevelWaitSeconds = 1.0f;
         public int NumberOfScabsEntered { get; private set; }
 
         private const float BaseScabSpeed = 1.5f;
@@ -144,19 +145,20 @@ namespace Assets.Scripts.General
                 StartCoroutine(SpawnScabCoroutine(false));
         }
 
-        public void OnScabEntering()
+        public void OnScabEntered()
         {
             NumberOfScabsEntered++;
-            bool allLivesLost = HealthBarController.DisplayLifeLost();
+        }
+
+        public void OnScabDestroyed()
+        {
+            bool allLivesLost = HealthBarController.AreAllLivesLost();
             if (allLivesLost == true)
             {
                 IsGameOver = true;
                 OnGameOver.Raise(CurrentLevel.Index);
+                return;
             }
-        }
-
-        public void OnScabEntered()
-		{
             ScabsRemainingInLevel--;
             CheckForLevelOver();
 		}
@@ -174,6 +176,12 @@ namespace Assets.Scripts.General
             OnLevelComplete.Raise();
             CanUseMouseChanged.Raise(false);
             CurrentLevelIndex++;
+            StartCoroutine(StartNewLevelCoroutine());
+        }
+
+        private IEnumerator StartNewLevelCoroutine()
+		{
+            yield return new WaitForSeconds(AfterLevelWaitSeconds);
             PrepareLevel();
         }
 

@@ -12,17 +12,21 @@ namespace Assets.Scripts.General
             Items = GetComponentsInChildren<HealthBarItem>();
         }
 
-        public bool DisplayLifeLost()
+        public bool AreAllLivesLost()
+        {
+            return Items.Any(i => i.IsWorking == false) == false;
+        }
+
+        public void OnScabEntered()
         {
             if (Items.Any(i => i.IsWorking == false) == false)
-                return true;
+                return;
             HealthBarItem healthBarItem;
             do
             {
                 healthBarItem = Items[Random.Range(0, Items.Length)];
             } while (healthBarItem.IsWorking == true);
             healthBarItem.DisplayWindowWorking(true);
-            return !Items.Any(i => i.IsWorking == false);
         }
 
         public void DisplayLifeGained()
