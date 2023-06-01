@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 15
   m_EditorClassIdentifier: 
   Index: 15
-  LevelText: We only need to make it through this day. The boss is waiting for us
-    inside.
+  LevelText: Stay strong - the company is breaking apart without us and they know
+    it!
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 15
   AudioIndex: 3
