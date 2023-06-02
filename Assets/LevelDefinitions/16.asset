@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 16
   LevelText: We only need to make it through this day. The boss is waiting for us
     inside.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 16
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 8
+  NumberOfEliteScabs: 9
   AudioIndex: 3

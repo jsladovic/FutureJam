@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 13
   LevelText: Police manages to get past weaker parts of the picket line, but as long
     as we stay strong, we can fight back.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 13
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 7
+  NumberOfEliteScabs: 7
   AudioIndex: 3

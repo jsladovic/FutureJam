@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Index: 7
   LevelText: We grow stronger with more people forming the picket line.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 7
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 5
+  NumberOfEliteScabs: 2
   AudioIndex: 2

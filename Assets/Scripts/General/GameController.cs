@@ -52,6 +52,7 @@ namespace Assets.Scripts.General
         private int TotalScabsToSpawnRemaining;
         private int BasicScabsToSpawnRemaining;
         private int DesperateScabsToSpawnRemaining;
+        private int EliteScabsToSpawnRemaining;
         private int SecondsBetweenScabsForLevel;
 
         private void Awake()
@@ -87,11 +88,12 @@ namespace Assets.Scripts.General
             if (CurrentLevelIndex >= Levels.Length)
                 throw new UnityException($"Oh no, level {CurrentLevelIndex + 1} is not yet implemented");
             CurrentLevel = Levels[CurrentLevelIndex];
-            ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs;
+            ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfEliteScabs;
             TotalScabsToSpawnRemaining = ScabsRemainingInLevel;
             CurrentLevelCurves = MovementCurvesController.Instance.GetCurvesForLevelIndex(CurrentLevel.Index);
             BasicScabsToSpawnRemaining = CurrentLevel.NumberOfDefaultScabs;
             DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
+            EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs;
             SecondsBetweenScabsForLevel = Mathf.CeilToInt(LevelDurationSeconds / (float)ScabsRemainingInLevel);
             print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
             CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0);
@@ -135,11 +137,15 @@ namespace Assets.Scripts.General
             LastUsedCurveIndex = curveIndex;
             MovementCurve curve = CurrentLevelCurves[curveIndex];
             Scab scab = Instantiate(ScabPrefab, curve.Points.First().transform.position, Quaternion.identity, ScabsParent);
-            ScabRank rank = BasicScabsToSpawnRemaining > 0 ? ScabRank.Basic : ScabRank.Desperate;
+            ScabRank rank = BasicScabsToSpawnRemaining > 0 
+                ? ScabRank.Basic 
+                : (DesperateScabsToSpawnRemaining > 0 ? ScabRank.Desperate : ScabRank.Elite);
             if (rank == ScabRank.Basic)
                 BasicScabsToSpawnRemaining--;
-            else
+            else if (rank == ScabRank.Desperate)
                 DesperateScabsToSpawnRemaining--;
+            else
+                EliteScabsToSpawnRemaining--;
             scab.Initialize(rank, curve, BaseScabSpeed + CurrentLevelIndex * ScabSpeedIncreasePerLevel);
             TotalScabsToSpawnRemaining--;
             if (TotalScabsToSpawnRemaining > 0)

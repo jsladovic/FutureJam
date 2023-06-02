@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 8
   LevelText: Scabs are often paid extra to make the factory work again - and the
     strike to break.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 8
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 7
+  NumberOfEliteScabs: 3
   AudioIndex: 2

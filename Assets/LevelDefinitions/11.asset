@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 11
   LevelText: The strike has gone so long, but the factory won't quit - so they called
     the police.
-  NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 11
+  NumberOfDefaultScabs: 2
+  NumberOfDesperateScabs: 7
+  NumberOfEliteScabs: 5
   AudioIndex: 2

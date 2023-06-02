@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 14
   LevelText: The company lost so much money from our absence, they are considering
     negotiations.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 14
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 6
+  NumberOfEliteScabs: 9
   AudioIndex: 3

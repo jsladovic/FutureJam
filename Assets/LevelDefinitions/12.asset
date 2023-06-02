@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 12
   LevelText: The police are often paid to keep order for those who have money and
     power.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 12
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 7
+  NumberOfEliteScabs: 6
   AudioIndex: 3
