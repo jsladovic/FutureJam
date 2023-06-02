@@ -16,4 +16,5 @@ MonoBehaviour:
   LevelText: The Union formed a strike so we could get a living wage and 8-hour shifts.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 0
+  NumberOfEliteScabs: 0
   AudioIndex: 1
