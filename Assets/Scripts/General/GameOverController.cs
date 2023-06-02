@@ -25,7 +25,7 @@ namespace Assets.Scripts.General
 				$"\r\n" +
 				$"\r\n" +
 				$"We cannot give up!";
-			Canvas.Enable();
+			Canvas.FadeIn(1.0f);
 		}
 
 		public void OnRestartClicked()
