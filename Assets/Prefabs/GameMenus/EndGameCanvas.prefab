@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 1779679537872038711}
   - component: {fileID: 1779679537872038710}
   - component: {fileID: 1779679537872038713}
-  - component: {fileID: 2114050691839185847}
+  - component: {fileID: 4702943661709207844}
+  - component: {fileID: 6746037429271792117}
+  - component: {fileID: 2678068974796338947}
   m_Layer: 5
   m_Name: EndGameCanvas
   m_TagString: Untagged
@@ -105,7 +107,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 1015
---- !u!225 &2114050691839185847
+--- !u!225 &4702943661709207844
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +119,47 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6746037429271792117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779679537872038712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607ab2994c3370440b8107ba3d244d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameText: {fileID: 5140288893120788662}
+--- !u!114 &2678068974796338947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779679537872038712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02834b0f32f35e4458dab545b11cf7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: ab881658395e57b47ad4b657b1a03eeb, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6746037429271792117}
+        m_TargetAssemblyTypeName: Assets.Scripts.General.GameOverController, Assembly-CSharp
+        m_MethodName: OnGameOver
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5762000159587847446
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779679537611825218}
+      - m_Target: {fileID: 6746037429271792117}
         m_TargetAssemblyTypeName: Assets.Scripts.General.GameOverController, Assembly-CSharp
         m_MethodName: OnMainMenuClicked
         m_Mode: 1
@@ -727,6 +770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RestartButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5753928832543849042, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6746037429271792117}
     - target: {fileID: 5753928832543849043, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -799,64 +846,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1329164699, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
+    - {fileID: 2179883178121931412, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5753928833043911948, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5816390403543024281}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2179883178121931418, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1779679538500538835}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
---- !u!1 &500516586551360323 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2179883178121931418, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
-  m_PrefabInstance: {fileID: 1779679538500538841}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1779679538500538835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500516586551360323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02834b0f32f35e4458dab545b11cf7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameEvent: {fileID: 11400000, guid: ab881658395e57b47ad4b657b1a03eeb, type: 2}
-  UnityEventReponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1779679537611825218}
-        m_TargetAssemblyTypeName: Assets.Scripts.General.GameOverController, Assembly-CSharp
-        m_MethodName: OnGameOver
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &500516586551360332 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2179883178121931413, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
   m_PrefabInstance: {fileID: 1779679538500538841}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1779679537611825218 stripped
+--- !u!114 &5140288893120788662 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1329164699, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6910572005238679919, guid: 2802536a31d7cf14681a35c572298ae9, type: 3}
   m_PrefabInstance: {fileID: 1779679538500538841}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500516586551360323}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607ab2994c3370440b8107ba3d244d1a, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6298493904374121685 stripped
