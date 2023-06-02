@@ -29,7 +29,7 @@ namespace Assets.Scripts.General
             if (IsRunning == false)
                 return;
             TimeRemainingInLevel -= Time.deltaTime;
-            CurrentTime = StartingHours + ((GameController.LevelDurationSeconds - TimeRemainingInLevel) / GameController.LevelDurationSeconds) * NumberOfWorkHours;
+            CurrentTime = StartingHours + ((GameController.TotalLevelDuration - TimeRemainingInLevel) / GameController.TotalLevelDuration) * NumberOfWorkHours;
             if (TimeRemainingInLevel <= 0)
             {
                 IsRunning = false;
@@ -40,7 +40,7 @@ namespace Assets.Scripts.General
         public void StartLevel()
         {
             CurrentTime = StartingHours;
-            TimeRemainingInLevel = GameController.LevelDurationSeconds;
+            TimeRemainingInLevel = GameController.TotalLevelDuration;
             IsRunning = true;
         }
 
