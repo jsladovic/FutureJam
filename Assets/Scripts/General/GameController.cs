@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Extensions;
-using Assets.Scripts.GameEvents.Events;
+﻿using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.PicketLiners;
 using Assets.Scripts.Scabs;
 using System.Collections;
@@ -203,7 +202,8 @@ namespace Assets.Scripts.General
 		public void SpawnDemotedPicketLiner(PicketLiner picketLiner)
 		{
 			PicketLinerRank demotedRank = picketLiner.Rank == PicketLinerRank.Advanced ? PicketLinerRank.Basic : PicketLinerRank.Advanced;
-			PicketLiner spawnedPicketLiner = SpawnPicketLiner(picketLiner.transform.position, rank: demotedRank);
+			Vector3 spawnPosition = picketLiner.GetClosestClickingPoint();
+			PicketLiner spawnedPicketLiner = SpawnPicketLiner(spawnPosition, rank: demotedRank);
 			spawnedPicketLiner.DragController.OnCanUseMouseChanged(true);
 		}
 

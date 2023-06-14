@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.PicketLiners;
+﻿using Assets.Scripts.Extensions;
+using Assets.Scripts.PicketLiners;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace Assets.Scripts.General
 
 		private void Update()
 		{
-			Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector2 cursorPosition = Camera.main.MouseWorldPosition();
 			transform.position = cursorPosition;
 		}
 

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.PicketLiners
 {
@@ -25,9 +24,10 @@ namespace Assets.Scripts.PicketLiners
 
         public void SetRank(PicketLinerRank rank)
         {
-            BasicModel.gameObject.SetActive(rank == PicketLinerRank.Basic);
-            AdvancedModel.gameObject.SetActive(rank == PicketLinerRank.Advanced);
-            EliteModel.gameObject.SetActive(rank == PicketLinerRank.Elite);
+            PicketLinerModel currentModel = GetCurrentModel(rank);
+            BasicModel.gameObject.SetActive(currentModel == BasicModel);
+            AdvancedModel.gameObject.SetActive(currentModel == AdvancedModel);
+            EliteModel.gameObject.SetActive(currentModel == EliteModel);
             DisplayMergeSprite(false);
         }
 
@@ -37,5 +37,26 @@ namespace Assets.Scripts.PicketLiners
             AdvancedModel.DisplayMergeSprite(isVisible);
             EliteModel.DisplayMergeSprite(isVisible);
         }
+
+        public Vector3 GetClosestClickingPoint(PicketLinerRank rank)
+		{
+            PicketLinerModel currentModel = GetCurrentModel(rank);
+            return currentModel.GetClosestClickingPoint();
+		}
+
+        private PicketLinerModel GetCurrentModel(PicketLinerRank rank)
+		{
+            switch (rank)
+			{
+                case PicketLinerRank.Basic:
+                    return BasicModel;
+                case PicketLinerRank.Advanced:
+                    return AdvancedModel;
+                case PicketLinerRank.Elite:
+                    return EliteModel;
+                default:
+                    throw new UnityException($"Unknown model for rank {rank}");
+			}
+		}
 	}
 }

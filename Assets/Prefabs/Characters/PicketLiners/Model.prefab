@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 9092383134514738708}
   - component: {fileID: 4657332247120634919}
   m_Layer: 2
-  m_Name: Basic
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ Transform:
   - {fileID: 332636319493041556}
   - {fileID: 1151089640520996487}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9092383134514738708
 SpriteRenderer:
@@ -248,3 +248,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CarriedSprite: {fileID: -646144388, guid: 701d058c39579194eba7c705063f41d5, type: 3}
   MergeSpriteRenderer: {fileID: 514636952808400230}
+  ClickingPointsParent: {fileID: 1151089640520996487}

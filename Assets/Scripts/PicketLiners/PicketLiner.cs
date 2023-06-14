@@ -74,6 +74,11 @@ namespace Assets.Scripts.PicketLiners
 			}
 		}
 
+		public Vector3 GetClosestClickingPoint()
+		{
+			return ModelSelector.GetClosestClickingPoint(Rank);
+		}
+
 		public bool CanBeUpgraded => Rank == PicketLinerRank.Basic || Rank == PicketLinerRank.Advanced;
 
 		public bool CanBeDemoted => Rank > PicketLinerRank.Basic;
