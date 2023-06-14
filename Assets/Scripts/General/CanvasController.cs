@@ -40,7 +40,7 @@ namespace Assets.Scripts.General
 
 		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)
 		{
-			LevelText.text = $"Day {levelIndex - 1} of strike is over.";
+			LevelText.text = $"Day {levelIndex - 1} of the strike is over.";
 			if (levelIndex == 1)
 			{
 				if (PlayerPrefsHelpers.WasTutorialDisplayed() == false)
