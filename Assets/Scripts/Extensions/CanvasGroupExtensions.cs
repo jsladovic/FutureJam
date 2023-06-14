@@ -9,8 +9,7 @@ namespace Assets.Scripts.Extensions
 		public static void Enable(this CanvasGroup canvasGroup)
 		{
 			canvasGroup.alpha = 1.0f;
-			canvasGroup.interactable = true;
-			canvasGroup.blocksRaycasts = true;
+			canvasGroup.EnableInteractivity();
 		}
 
 		public static void Disable(this CanvasGroup canvasGroup)
@@ -27,8 +26,10 @@ namespace Assets.Scripts.Extensions
 				canvasGroup.Enable();
 		}
 
-		public static void FadeIn(this CanvasGroup canvasGroup, float fadeInDuration)
+		public static void FadeIn(this CanvasGroup canvasGroup, float fadeInDuration, bool immediatelyInteractible = false)
 		{
+			if (immediatelyInteractible == true)
+				canvasGroup.EnableInteractivity();
 			LeanTween.value(canvasGroup.gameObject, 0.0f, 1.0f, fadeInDuration).setOnUpdate((float value) =>
 			{
 				canvasGroup.alpha = value;
@@ -45,6 +46,12 @@ namespace Assets.Scripts.Extensions
 			{
 				canvasGroup.alpha = value;
 			});
+		}
+
+		private static void EnableInteractivity(this CanvasGroup canvasGroup)
+		{
+			canvasGroup.interactable = true;
+			canvasGroup.blocksRaycasts = true;
 		}
 
 		private static void DisableInteractivity(this CanvasGroup canvasGroup)

@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using Assets.Scripts.Extensions;
+﻿using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.Helpers;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.General
 {
@@ -14,8 +13,8 @@ namespace Assets.Scripts.General
 	{
 		public static CanvasController Instance;
 
-		[SerializeField] private GameObject ContinueButtonsParent;
-		[SerializeField] private GameObject ButtonsParent;
+		[SerializeField] private CanvasGroup ContinueButtonsParent;
+		[SerializeField] private CanvasGroup ButtonsParent;
 		[SerializeField] private TextMeshProUGUI LevelText;
 		[SerializeField] private Button KickOutScabButton;
 		[SerializeField] private GameObject TutorialPanel;
@@ -23,8 +22,6 @@ namespace Assets.Scripts.General
 		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private CanvasGroup CanvasGroup;
-
-		private const int TutorialTextVisibleSeconds = 10;
 
 		private void Awake()
 		{
@@ -34,7 +31,6 @@ namespace Assets.Scripts.General
 
 		public void Initialize()
 		{
-			DisplayButtons(null);
 			HideTutorialText();
 		}
 
@@ -49,7 +45,7 @@ namespace Assets.Scripts.General
 				}
 				else
 				{
-					StartLevel();
+					StartLevel(fadeOut: false);
 				}
 				return;
 			}
@@ -112,21 +108,32 @@ namespace Assets.Scripts.General
 		public void OnPausedChanged(bool isPaused)
 		{
 			if (isPaused == true)
-				CanvasGroup.Disable();
+				CanvasGroup.FadeIn(1.0f);
 			else
-				CanvasGroup.Enable();
+				CanvasGroup.FadeOut(1.0f);
 		}
 
-		private void StartLevel()
+		private void StartLevel(bool fadeOut = true)
 		{
 			GameController.Instance.StartLevel();
-			DisplayButtons(null);
+			if (fadeOut == true)
+				DisplayButtons(null);
+			else
+				CanvasGroup.Disable();
 		}
 
-		private void DisplayButtons(GameObject buttonsObject)
+		private void DisplayButtons(CanvasGroup canvasGroup)
 		{
-			ButtonsParent.gameObject.SetActive(buttonsObject == ButtonsParent);
-			ContinueButtonsParent.gameObject.SetActive(buttonsObject == ContinueButtonsParent);
+			if (canvasGroup == null)
+			{
+				CanvasGroup.FadeOut(1.0f);
+			}
+			else
+			{
+				CanvasGroup.FadeIn(1.0f, immediatelyInteractible: true);
+				ButtonsParent.gameObject.SetActive(canvasGroup == ButtonsParent);
+				ContinueButtonsParent.gameObject.SetActive(canvasGroup == ContinueButtonsParent);
+			}
 		}
 	}
 }
