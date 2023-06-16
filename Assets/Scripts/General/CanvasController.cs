@@ -42,6 +42,7 @@ namespace Assets.Scripts.General
 				if (PlayerPrefsHelpers.WasTutorialDisplayed() == false)
 				{
 					OnTutorialStarted.Raise(false);
+					CanvasGroup.Disable();
 				}
 				else
 				{
