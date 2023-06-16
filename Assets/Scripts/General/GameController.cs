@@ -84,9 +84,15 @@ namespace Assets.Scripts.General
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				OnPausedChanged.Raise(true);
-				CanUseMouseChanged.Raise(false);
+				StartCoroutine(OnPauseCoroutine());
 			}
+		}
+
+		private IEnumerator OnPauseCoroutine()
+		{
+			yield return new WaitForEndOfFrame();
+			OnPausedChanged.Raise(true);
+			CanUseMouseChanged.Raise(false);
 		}
 
 		private void PrepareLevel()

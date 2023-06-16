@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,17 +24,36 @@ namespace Assets.Scripts.PauseMenu
 			{
 				Time.timeScale = value ? 0.0f : 1.0f;
 				if (value == true)
+				{
+					IsDisplayed = true;
 					Canvas.Enable();
+				}
 				else
+				{
 					Canvas.Disable();
+				}
 				isPaused = value;
 			}
 		}
+
+		private bool IsDisplayed;
 
 		private void Awake()
 		{
 			Canvas = GetComponent<CanvasGroup>();
 			IsPaused = false;
+			IsDisplayed = false;
+		}
+
+		private void Update()
+		{
+			if (IsDisplayed == false)
+				return;
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				StartCoroutine(OnResumeCoroutine());
+			}
 		}
 
 		public void OnPausedChanged(bool paused)
@@ -41,23 +61,32 @@ namespace Assets.Scripts.PauseMenu
 			IsPaused = paused;
 		}
 
+		private IEnumerator OnResumeCoroutine()
+		{
+			yield return new WaitForEndOfFrame();
+			OnResumeClicked();
+		}
+
 		public void OnResumeClicked()
 		{
 			IsPaused = false;
 			OnPauseChanged.Raise(false);
 			OnCanUseMouseChanged.Raise(true);
+			IsDisplayed = false;
 
 		}
 
 		public void OnMainMenuClicked()
 		{
 			SceneManager.LoadScene((int)SceneBuildIndex.MainMenu);
+			IsDisplayed = false;
 		}
 
 		public void OnTutorialClicked()
 		{
 			Canvas.Disable();
 			OnTutorialStarted.Raise(true);
+			IsDisplayed = false;
 		}
 	}
 }

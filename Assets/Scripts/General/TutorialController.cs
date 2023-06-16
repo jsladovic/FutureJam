@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.Helpers;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace Assets.Scripts.General
 		private CanvasGroup Canvas;
 		private Image[] Images;
 		private bool ResumeOnEnd;
-		private bool Displayed;
+		private bool IsDisplayed;
 
 		private int currentImageIndex;
 		private int CurrentImageIndex
@@ -30,7 +31,7 @@ namespace Assets.Scripts.General
 
 		private void Awake()
 		{
-			Displayed = false;
+			IsDisplayed = false;
 			Canvas = GetComponent<CanvasGroup>();
 			Canvas.Disable();
 			Images = ImagesParent.GetComponentsInChildren<Image>();
@@ -40,12 +41,12 @@ namespace Assets.Scripts.General
 
 		private void Update()
 		{
-			if (Displayed == false)
+			if (IsDisplayed == false)
 				return;
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				OnEndClicked();
+				StartCoroutine(OnEndCoroutine());
 			}
 		}
 
@@ -55,12 +56,18 @@ namespace Assets.Scripts.General
 			ResumeOnEnd = resumeOnEnd;
 			CurrentImageIndex = 0;
 			Canvas.Enable();
-			Displayed = true;
+			IsDisplayed = true;
+		}
+
+		private IEnumerator OnEndCoroutine()
+		{
+			yield return new WaitForEndOfFrame();
+			OnEndClicked();
 		}
 
 		public void OnEndClicked()
 		{
-			Displayed = false;
+			IsDisplayed = false;
 			Canvas.Disable();
 			if (ResumeOnEnd == true)
 			{
