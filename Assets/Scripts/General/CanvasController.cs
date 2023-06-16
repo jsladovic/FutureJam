@@ -105,14 +105,6 @@ namespace Assets.Scripts.General
 			TutorialPanel.SetActive(false);
 		}
 
-		public void OnPausedChanged(bool isPaused)
-		{
-			if (isPaused == true)
-				CanvasGroup.FadeIn(1.0f);
-			else
-				CanvasGroup.FadeOut(1.0f);
-		}
-
 		private void StartLevel(bool fadeOut = true)
 		{
 			GameController.Instance.StartLevel();

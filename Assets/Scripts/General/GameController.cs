@@ -56,6 +56,8 @@ namespace Assets.Scripts.General
 		private int EliteScabsToSpawnRemaining;
 		private float SecondsBetweenScabsForLevel;
 
+		private bool IsGameInProgress;
+
 		private void Awake()
 		{
 			Instance = this;
@@ -77,6 +79,9 @@ namespace Assets.Scripts.General
 
 		private void Update()
 		{
+			if (IsGameInProgress == false)
+				return;
+
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				OnPausedChanged.Raise(true);
@@ -88,6 +93,7 @@ namespace Assets.Scripts.General
 		{
 			if (CurrentLevelIndex >= Levels.Length)
 				throw new UnityException($"Oh no, level {CurrentLevelIndex + 1} is not yet implemented");
+			IsGameInProgress = false;
 			CurrentLevel = Levels[CurrentLevelIndex];
 			ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfEliteScabs;
 			TotalScabsToSpawnRemaining = ScabsRemainingInLevel;
@@ -123,6 +129,7 @@ namespace Assets.Scripts.General
 			CursorController.Instance.SetCursorSprite();
 			CanUseMouseChanged.Raise(true);
 			OnLevelStarted.Raise(CurrentLevel);
+			IsGameInProgress = true;
 		}
 
 		private IEnumerator SpawnScabCoroutine(bool firstScab)
@@ -173,6 +180,7 @@ namespace Assets.Scripts.General
 		private IEnumerator EndGameCoroutine()
 		{
 			IsGameOver = true;
+			IsGameInProgress = false;
 			yield return new WaitForSeconds(GameOverWaitSeconds);
 			OnGameOver.Raise(CurrentLevel.Index);
 		}
