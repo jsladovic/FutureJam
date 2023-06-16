@@ -15,6 +15,7 @@ namespace Assets.Scripts.General
 		private CanvasGroup Canvas;
 		private Image[] Images;
 		private bool ResumeOnEnd;
+		private bool Displayed;
 
 		private int currentImageIndex;
 		private int CurrentImageIndex
@@ -29,11 +30,23 @@ namespace Assets.Scripts.General
 
 		private void Awake()
 		{
+			Displayed = false;
 			Canvas = GetComponent<CanvasGroup>();
 			Canvas.Disable();
 			Images = ImagesParent.GetComponentsInChildren<Image>();
 			if (Images.Length == 0)
 				throw new UnityException("Missing tutorial images");
+		}
+
+		private void Update()
+		{
+			if (Displayed == false)
+				return;
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				OnEndClicked();
+			}
 		}
 
 		public void OnTutorialStarted(bool resumeOnEnd)
@@ -42,10 +55,12 @@ namespace Assets.Scripts.General
 			ResumeOnEnd = resumeOnEnd;
 			CurrentImageIndex = 0;
 			Canvas.Enable();
+			Displayed = true;
 		}
 
 		public void OnEndClicked()
 		{
+			Displayed = false;
 			Canvas.Disable();
 			if (ResumeOnEnd == true)
 			{
