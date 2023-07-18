@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.GameEvents.Events;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.General
@@ -6,9 +7,12 @@ namespace Assets.Scripts.General
     public class ClockController : MonoBehaviour
     {
         [SerializeField] private Image ClockHand;
+        [SerializeField] private VoidEvent OnLevelAlmostOver;
 
         private const int StartingHours = 7;
         private const int NumberOfWorkHours = 12;
+        private const int AlmostOverThreshold = 5;
+        private bool AlmostOverEventRaised;
 
         private float currentTime;
         private float CurrentTime
@@ -35,10 +39,16 @@ namespace Assets.Scripts.General
                 IsRunning = false;
                 GameController.Instance.OnTimeExpired();
             }
+            else if (TimeRemainingInLevel <= AlmostOverThreshold && AlmostOverEventRaised == false)
+			{
+                AlmostOverEventRaised = true;
+                OnLevelAlmostOver.Raise();
+			}
         }
 
         public void StartLevel()
         {
+            AlmostOverEventRaised = false;
             CurrentTime = StartingHours;
             TimeRemainingInLevel = GameController.TotalLevelDuration;
             IsRunning = true;

@@ -33,5 +33,10 @@ namespace Assets.Scripts.General
 		{
 			Canvas.Disable();
 		}
+
+		public void OnLevelAlmostOver()
+		{
+			Canvas.FadeOut(1.0f);
+		}
 	}
 }
