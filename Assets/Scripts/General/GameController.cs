@@ -73,7 +73,6 @@ namespace Assets.Scripts.General
 
 		private void Start()
 		{
-			CanvasController.Instance.Initialize();
 			PrepareLevel();
 		}
 
@@ -131,7 +130,6 @@ namespace Assets.Scripts.General
 		{
 			StartCoroutine(SpawnScabCoroutine(true));
 			Clock.StartLevel();
-			CanvasController.Instance.DisplayLevelText(CurrentLevel.LevelText);
 			CursorController.Instance.SetCursorSprite();
 			CanUseMouseChanged.Raise(true);
 			OnLevelStarted.Raise(CurrentLevel);

@@ -17,8 +17,6 @@ namespace Assets.Scripts.General
 		[SerializeField] private CanvasGroup ButtonsParent;
 		[SerializeField] private TextMeshProUGUI LevelText;
 		[SerializeField] private Button KickOutScabButton;
-		[SerializeField] private GameObject TutorialPanel;
-		[SerializeField] private TextMeshProUGUI TutorialText;
 		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private CanvasGroup CanvasGroup;
@@ -27,11 +25,6 @@ namespace Assets.Scripts.General
 		{
 			Instance = this;
 			CanvasGroup = GetComponent<CanvasGroup>();
-		}
-
-		public void Initialize()
-		{
-			HideTutorialText();
 		}
 
 		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)
@@ -71,12 +64,6 @@ namespace Assets.Scripts.General
 			StartLevel();
 		}
 
-		public void DisplayLevelText(string text)
-		{
-			DisplayTutorialTextCoroutine(text);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/ping");
-        }
-
 		public void KickOutScabClicked()
 		{
 			GameController.Instance.KickOutScab();
@@ -93,17 +80,6 @@ namespace Assets.Scripts.General
 		{
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.buildIndex);
-		}
-
-		private void DisplayTutorialTextCoroutine(string text)
-		{
-			TutorialPanel.SetActive(true);
-			TutorialText.text = text;
-		}
-
-		public void HideTutorialText()
-		{
-			TutorialPanel.SetActive(false);
 		}
 
 		private void StartLevel(bool fadeOut = true)
