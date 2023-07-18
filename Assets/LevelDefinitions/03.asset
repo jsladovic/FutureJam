@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 3
   LevelText: Our Union formed a picket line to block other workers from going into
     the factory.
-  NumberOfDefaultScabs: 5
-  NumberOfDesperateScabs: 2
+  NumberOfDefaultScabs: 6
+  NumberOfDesperateScabs: 1
+  NumberOfEliteScabs: 0
   AudioIndex: 1
