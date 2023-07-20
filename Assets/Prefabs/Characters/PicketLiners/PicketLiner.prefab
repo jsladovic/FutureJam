@@ -780,7 +780,7 @@ Transform:
   - {fileID: 3958871179979478305}
   - {fileID: 6654063833118421891}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1285248081465229619
 MonoBehaviour:
@@ -1010,6 +1010,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 849682820, guid: 0077c56add686cc4384d9a28ee14651c, type: 3}
+    - target: {fileID: 669200200497988386, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a3bdc5a51f4150548bb0c849c29226e5, type: 2}
     - target: {fileID: 4657332247120634919, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
       propertyPath: CarriedSprite
       value: 
@@ -1191,6 +1195,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1027918902, guid: 0077c56add686cc4384d9a28ee14651c, type: 3}
+    - target: {fileID: 669200200497988386, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 92e7177bf32d4244c8be861651546dd3, type: 2}
     - target: {fileID: 4657332247120634919, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
       propertyPath: CarriedSprite
       value: 
