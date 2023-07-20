@@ -752,8 +752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7689749573185514465}
-  - component: {fileID: 7689749573185514464}
-  - component: {fileID: 7439260650624262231}
+  - component: {fileID: 1691822827506212707}
   - component: {fileID: 1462161936400285107}
   - component: {fileID: 8193301682456308321}
   - component: {fileID: 3379554684074102782}
@@ -782,19 +781,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7689749573185514464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689749573185514492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6889632ba9eb84794bf15a5030f50606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7439260650624262231
+--- !u!114 &1691822827506212707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -824,7 +811,7 @@ MonoBehaviour:
   UnityEventReponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7439260650624262231}
+      - m_Target: {fileID: 1691822827506212707}
         m_TargetAssemblyTypeName: Assets.Scripts.PicketLiners.DragController, Assembly-CSharp
         m_MethodName: OnCanUseMouseChanged
         m_Mode: 0
