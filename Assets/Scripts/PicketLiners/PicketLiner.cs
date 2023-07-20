@@ -40,6 +40,7 @@ namespace Assets.Scripts.PicketLiners
 			SphereOfInfluenceSelector.Initialize(this);
 			ModelSelector.Initialize();
 			Rank = rank.Value;
+			print("initializing picket liner");
 			DragController.Initialize(this);
 		}
 
