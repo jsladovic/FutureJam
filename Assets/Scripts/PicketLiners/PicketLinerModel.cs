@@ -1,12 +1,16 @@
 ﻿using Assets.Scripts.Extensions;
+using Assets.Scripts.General;
 using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class PicketLinerModel : MonoBehaviour
 {
 	private SpriteRenderer SpriteRenderer;
 	private Sprite DefaultSprite;
+	private Animator Animator;
+
 	[SerializeField] private Sprite CarriedSprite;
 	[SerializeField] private SpriteRenderer MergeSpriteRenderer;
 	[SerializeField] private Transform ClickingPointsParent;
@@ -16,6 +20,7 @@ public class PicketLinerModel : MonoBehaviour
 	public void Initialize()
 	{
 		SpriteRenderer = GetComponent<SpriteRenderer>();
+		Animator = GetComponent<Animator>();
 		DefaultSprite = SpriteRenderer.sprite;
 		DisplayMergeSprite(false);
 		ClickingPoints = ClickingPointsParent.GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
@@ -54,6 +59,18 @@ public class PicketLinerModel : MonoBehaviour
 		}
 
 		return closestClickingPoint;
+	}
+
+	public void OnLevelStarted(LevelDefinition _)
+	{
+		print("on levle started");
+		Animator.PlayIdleAnimation();
+	}
+
+	public void OnLevelComplete()
+	{
+		print("on levle complete");
+		Animator.PlayHappyAnimation();
 	}
 }
 
