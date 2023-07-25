@@ -20,7 +20,7 @@ namespace Assets.Scripts.PicketLiners
 
 		public Transform[] ClickingPoints { get; set; }
 
-		private void Awake()
+		private void OnEnable()
 		{
 			if (Parent != null && string.IsNullOrEmpty(Parent.CurrentAnimationName) == false)
 			{
