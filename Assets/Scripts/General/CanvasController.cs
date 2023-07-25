@@ -20,6 +20,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private CanvasGroup CanvasGroup;
+		private bool IsClickable;
 
 		private void Awake()
 		{
@@ -43,6 +44,8 @@ namespace Assets.Scripts.General
 				}
 				return;
 			}
+
+			IsClickable = true;
 			if (displayOptions)
 			{
 				DisplayEndOfLevelCanvas(true);
@@ -61,17 +64,26 @@ namespace Assets.Scripts.General
 
 		public void ContinueClicked()
 		{
+			if (IsClickable == false)
+				return;
+			IsClickable = false;
 			StartLevel();
 		}
 
 		public void KickOutScabClicked()
 		{
+			if (IsClickable == false)
+				return;
+			IsClickable = false;
 			GameController.Instance.KickOutScab();
 			StartLevel();
 		}
 
 		public void AddPicketLinerClicked()
 		{
+			if (IsClickable == false)
+				return;
+			IsClickable = false;
 			GameController.Instance.SpawnPicketLiner();
 			StartLevel();
 		}
