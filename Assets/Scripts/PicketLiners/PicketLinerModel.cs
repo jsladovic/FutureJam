@@ -84,6 +84,13 @@ namespace Assets.Scripts.PicketLiners
 			string animationName = Animator.PlayHappyAnimation();
 			Parent.SetCurrentAnimationName(animationName);
 		}
+
+		public void OnGameOver(int _)
+		{
+			string animationName = Animator.PlaySadAnimation();
+			Parent.SetCurrentAnimationName(animationName);
+
+		}
 	}
 
 }

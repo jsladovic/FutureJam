@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,8 @@ namespace Assets.Scripts.General
 	[RequireComponent(typeof(CanvasGroup))]
 	public class GameOverController : MonoBehaviour
 	{
+		private const float GameOverWaitSeconds = 2.0f;
+
 		[SerializeField] private TextMeshProUGUI EndGameText;
 
 		private CanvasGroup Canvas;
@@ -25,6 +28,12 @@ namespace Assets.Scripts.General
 				$"\r\n" +
 				$"\r\n" +
 				$"We cannot give up!";
+			StartCoroutine(GameOverCoroutine());
+		}
+
+		private IEnumerator GameOverCoroutine()
+		{
+			yield return new WaitForSeconds(GameOverWaitSeconds);
 			Canvas.FadeIn(1.0f);
 		}
 
