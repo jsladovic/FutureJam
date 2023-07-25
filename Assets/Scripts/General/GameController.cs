@@ -172,7 +172,7 @@ namespace Assets.Scripts.General
 		public void OnScabDestroyed()
 		{
 			bool allLivesLost = HealthBarController.AreAllLivesLost();
-			if (allLivesLost == true)
+			if (allLivesLost == true && IsGameInProgress == true)
 			{
 				StartCoroutine(EndGameCoroutine());
 				return;
