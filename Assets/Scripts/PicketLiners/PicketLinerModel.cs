@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Extensions;
 using Assets.Scripts.General;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -75,21 +76,23 @@ namespace Assets.Scripts.PicketLiners
 
 		public void OnLevelStarted(LevelDefinition _)
 		{
-			string animationName = Animator.PlayIdleAnimation();
-			Parent.SetCurrentAnimationName(animationName);
+			PlayAnimation(Animator.PlayIdleAnimation);
 		}
 
 		public void OnLevelComplete()
 		{
-			string animationName = Animator.PlayHappyAnimation();
-			Parent.SetCurrentAnimationName(animationName);
+			PlayAnimation(Animator.PlayHappyAnimation);
 		}
 
 		public void OnGameOver(int _)
 		{
-			string animationName = Animator.PlaySadAnimation();
-			Parent.SetCurrentAnimationName(animationName);
+			PlayAnimation(Animator.PlaySadAnimation);
+		}
 
+		private void PlayAnimation(Func<string> action)
+		{
+			string animationName = action();
+			Parent.SetCurrentAnimationName(animationName);
 		}
 	}
 
