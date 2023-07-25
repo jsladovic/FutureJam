@@ -24,6 +24,27 @@ namespace Assets.Scripts.PicketLiners
             EliteModel.SetCarriedSprite(isCarried);
         }
 
+        public void PlayIdleAnimation()
+        {
+            BasicModel.PlayIdleAnimation();
+            AdvancedModel.PlayIdleAnimation();
+            EliteModel.PlayIdleAnimation();
+        }
+
+        public void PlayConnectBackAnimation()
+        {
+            BasicModel.PlayConnectBackAnimation();
+            AdvancedModel.PlayConnectBackAnimation();
+            EliteModel.PlayConnectBackAnimation();
+        }
+
+        public void PlayConnectFrontAnimation()
+        {
+            BasicModel.PlayConnectFrontAnimation();
+            AdvancedModel.PlayConnectFrontAnimation();
+            EliteModel.PlayConnectFrontAnimation();
+        }
+
         public void SetRank(PicketLinerRank rank)
         {
             PicketLinerModel currentModel = GetCurrentModel(rank);

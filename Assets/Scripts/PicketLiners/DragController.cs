@@ -78,6 +78,11 @@ namespace Assets.Scripts.PicketLiners
 			if (targetPicketLiner != null)
 			{
 				targetPicketLiner.UpgradeRank();
+				List<PicketLiner> remainingPicketLIners = CollidingPicketLiners.Where(pl => pl != targetPicketLiner).ToList();
+				foreach(PicketLiner picketLiner in remainingPicketLIners)
+				{
+					picketLiner.ModelSelector.PlayIdleAnimation();
+				}
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
                 DestroyPicketLiner();
 			}
@@ -104,6 +109,8 @@ namespace Assets.Scripts.PicketLiners
 				{
 					CollidingPicketLiners.Add(collidingPicketLiner);
 					DisplayMergeSprite();
+					collidingPicketLiner.ModelSelector.PlayConnectFrontAnimation();
+					Parent.ModelSelector.PlayConnectBackAnimation();
 				}
 			}
 			else
@@ -125,6 +132,13 @@ namespace Assets.Scripts.PicketLiners
 				{
 					collidingPicketLiner.DisplayMergeSprite(false);
 					CollidingPicketLiners.Remove(collidingPicketLiner);
+					collidingPicketLiner.ModelSelector.PlayIdleAnimation();
+
+					if (CollidingPicketLiners.Any() == false)
+					{
+						// TODO play carried animation
+						Parent.ModelSelector.PlayIdleAnimation();
+					}
 				}
 			}
 			else

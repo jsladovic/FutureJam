@@ -8,7 +8,7 @@ namespace Assets.Scripts.PicketLiners
 	public class PicketLiner : MonoBehaviour
 	{
 		public DragController DragController { get; private set; }
-		private ModelSelector ModelSelector;
+		public ModelSelector ModelSelector { get; private set; }
 		private SphereOfInfluenceSelector SphereOfInfluenceSelector;
 		private DragColliderParent DragColliderParent;
 		private CapsuleCollider2D Collider;

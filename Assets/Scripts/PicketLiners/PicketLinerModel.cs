@@ -76,6 +76,11 @@ namespace Assets.Scripts.PicketLiners
 
 		public void OnLevelStarted(LevelDefinition _)
 		{
+			PlayIdleAnimation();
+		}
+
+		public void PlayIdleAnimation()
+		{
 			PlayAnimation(Animator.PlayIdleAnimation);
 		}
 
@@ -87,6 +92,16 @@ namespace Assets.Scripts.PicketLiners
 		public void OnGameOver(int _)
 		{
 			PlayAnimation(Animator.PlaySadAnimation);
+		}
+
+		public void PlayConnectBackAnimation()
+		{
+			PlayAnimation(Animator.PlayConnectBackAnimation);
+		}
+
+		public void PlayConnectFrontAnimation()
+		{
+			PlayAnimation(Animator.PlayConnectFrontAnimation);
 		}
 
 		private void PlayAnimation(Func<string> action)
