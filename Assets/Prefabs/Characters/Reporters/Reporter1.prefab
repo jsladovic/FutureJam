@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7082627680362322818}
   - component: {fileID: 7106372550417933490}
   - component: {fileID: 3269023676018424737}
+  - component: {fileID: -9158668609997032470}
+  - component: {fileID: -2255704088666504208}
   m_Layer: 6
-  m_Name: Reporter2
+  m_Name: Reporter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7106372550417933490
 SpriteRenderer:
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 811655203
   m_SortingLayer: 2
   m_SortingOrder: 4
-  m_Sprite: {fileID: -967089563, guid: 5bc327b1145afc74ea947030096135de, type: 3}
+  m_Sprite: {fileID: 1808332839, guid: 5bc327b1145afc74ea947030096135de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 2250992457489940089}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3bf028bfd637631469846171b0c431ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5df7aec013378e04b9af44cda7f91395, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -105,3 +107,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-9158668609997032470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250992457489940089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8afc49859a7bb4cba331fd64b57651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowsUpLevelIndex: 0
+--- !u!114 &-2255704088666504208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250992457489940089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ea168f8115ba74fb9c565616870fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: e00bc51b36856034b9ef0000dd571101, type: 2}
+  UnityEventReponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -9158668609997032470}
+        m_TargetAssemblyTypeName: Assets.Scripts.General.ReporterController, Assembly-CSharp
+        m_MethodName: OnLevelStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
