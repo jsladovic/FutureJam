@@ -8,11 +8,13 @@ namespace Assets.Scripts.PicketLiners
         [SerializeField] private PicketLinerModel AdvancedModel;
         [SerializeField] private PicketLinerModel EliteModel;
 
-        public void Initialize()
+		public string CurrentAnimationName { get; private set; }
+
+		public void Initialize()
         {
-            BasicModel.Initialize();
-            AdvancedModel.Initialize();
-            EliteModel.Initialize();
+            BasicModel.Initialize(this);
+            AdvancedModel.Initialize(this);
+            EliteModel.Initialize(this);
         }
 
         public void SetCarriedSprite(bool isCarried)
@@ -57,6 +59,11 @@ namespace Assets.Scripts.PicketLiners
                 default:
                     throw new UnityException($"Unknown model for rank {rank}");
 			}
+		}
+
+        public void SetCurrentAnimationName(string animationName)
+		{
+            CurrentAnimationName = animationName;
 		}
 	}
 }

@@ -10,29 +10,35 @@ namespace Assets.Scripts.Extensions
 		private const string ConnectBackAnimationName = "ConnectBack";
 		private const string ConnectFrontAnimationName = "ConnectFront";
 
-		public static void PlayIdleAnimation(this Animator animator)
+		public static string PlayAnimationWithName(this Animator animator, string animationName)
 		{
-			animator.Play(IdleAnimationName);
+			animator.Play(animationName);
+			return animationName;
 		}
 
-		public static void PlayHappyAnimation(this Animator animator)
+		public static string PlayIdleAnimation(this Animator animator)
 		{
-			animator.Play(HappyAnimationName);
+			return animator.PlayAnimationWithName(IdleAnimationName);
 		}
 
-		public static void PlaySadAnimation(this Animator animator)
+		public static string PlayHappyAnimation(this Animator animator)
 		{
-			animator.Play(SadAnimationName);
+			return animator.PlayAnimationWithName(HappyAnimationName);
 		}
 
-		public static void PlayConnectBackAnimation(this Animator animator)
+		public static string PlaySadAnimation(this Animator animator)
 		{
-			animator.Play(ConnectBackAnimationName);
+			return animator.PlayAnimationWithName(SadAnimationName);
 		}
 
-		public static void PlayConnectFrontAnimation(this Animator animator)
+		public static string PlayConnectBackAnimation(this Animator animator)
 		{
-			animator.Play(ConnectFrontAnimationName);
+			return animator.PlayAnimationWithName(ConnectBackAnimationName);
+		}
+
+		public static string PlayConnectFrontAnimation(this Animator animator)
+		{
+			return animator.PlayAnimationWithName(ConnectFrontAnimationName);
 		}
 	}
 }
