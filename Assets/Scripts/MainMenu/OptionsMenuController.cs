@@ -41,6 +41,13 @@ namespace Assets.Scripts.MainMenu
 				return;
 			IsAudioMuted = !IsAudioMuted;
 			AudioVolumeController.OnMuteChanged(IsAudioMuted);
+
+			if (AudioToggleText == null)
+				return;
+			if (IsAudioMuted == true)			
+				AudioToggleText.text = "Sound Effects: Off";
+			else
+                AudioToggleText.text = "Sound Effects: On";
         }
 
 		public void MusicToggled()
@@ -49,6 +56,13 @@ namespace Assets.Scripts.MainMenu
                 return;
             IsMusicMuted = !IsMusicMuted;
             MusicVolumeController.OnMuteChanged(IsMusicMuted);
+
+			if (MusicToggleText == null)
+				return;
+			if (IsMusicMuted == true)
+				MusicToggleText.text = "Music: Off";			
+			else
+                MusicToggleText.text = "Music: On";
         }
 	}
 }
