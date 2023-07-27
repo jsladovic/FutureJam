@@ -7,6 +7,7 @@ namespace Assets.Scripts.General
 	{
 		public static ExitPointsController Instance;
 		private ExitPoint[] ExitPoints;
+		[SerializeField] private ExitPoint ThrownOutExitPoint;
 
 		private void Awake()
 		{
@@ -20,5 +21,7 @@ namespace Assets.Scripts.General
 		{
 			return ExitPoints.OrderBy(ep => Vector3.Distance(ep.transform.position, currentPosition)).First().transform.position;
 		}
+
+		public Vector3 GetThrownOutExitPoint() => ThrownOutExitPoint.transform.position;
 	}
 }

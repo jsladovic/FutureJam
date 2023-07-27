@@ -14,12 +14,14 @@ namespace Assets.Scripts.General
 
 		[SerializeField] private LevelDefinition[] Levels;
 		[SerializeField] private Scab ScabPrefab;
+		[SerializeField] private ScabLeaving ScabLeavingPrefab;
 		[SerializeField] private PicketLiner PicketLinerPrefab;
 		[SerializeField] private Transform ScabsParent;
 		[SerializeField] private Transform PicketLinersParent;
 		[SerializeField] private ClockController Clock;
 		[SerializeField] private HealthBarController HealthBarController;
 		[SerializeField] private Transform PicketLinerSpawningLocation;
+		[SerializeField] private Transform ScabLeavingSpawningLocation;
 		[SerializeField] public Transform TopLeftDraggablePosition;
 		[SerializeField] public Transform BottomRightDraggablePosition;
 
@@ -115,6 +117,8 @@ namespace Assets.Scripts.General
 			HealthBarController.DisplayLifeGained();
 			if (NumberOfScabsEntered > 0)
 				NumberOfScabsEntered--;
+
+			Instantiate(ScabLeavingPrefab, ScabLeavingSpawningLocation.position, Quaternion.identity);
 		}
 
 		public PicketLiner SpawnPicketLiner(Vector3? position = null, PicketLinerRank? rank = null)

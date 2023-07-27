@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &21368433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 722023243330613026, guid: 60f4813ba128346af8743633c027cda3, type: 3}
+  m_PrefabInstance: {fileID: 4202396802917005643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &29263411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1171,10 @@ PrefabInstance:
       propertyPath: PicketLinerSpawningLocation
       value: 
       objectReference: {fileID: 1860292756}
+    - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
+      propertyPath: ScabLeavingSpawningLocation
+      value: 
+      objectReference: {fileID: 21368433}
     - target: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
       propertyPath: BottomRightDraggablePosition
       value: 

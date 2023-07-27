@@ -76,7 +76,7 @@ namespace Assets.Scripts.General
 				return;
 			IsClickable = false;
 			GameController.Instance.KickOutScab();
-			StartLevel();
+			StartLevel(startLevel: false);
 		}
 
 		public void AddPicketLinerClicked()
@@ -94,9 +94,10 @@ namespace Assets.Scripts.General
 			SceneManager.LoadScene(scene.buildIndex);
 		}
 
-		private void StartLevel(bool fadeOut = true)
+		private void StartLevel(bool fadeOut = true, bool startLevel = true)
 		{
-			GameController.Instance.StartLevel();
+			if (startLevel == true)
+				GameController.Instance.StartLevel();
 			if (fadeOut == true)
 				DisplayButtons(null);
 			else
