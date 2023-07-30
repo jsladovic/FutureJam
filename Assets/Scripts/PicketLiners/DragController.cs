@@ -66,6 +66,7 @@ namespace Assets.Scripts.PicketLiners
 			InvalidCollisionObjects = new List<Transform>();
 			CollidingPicketLiners = new List<PicketLiner>();
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_pickup");
+			Parent.ModelSelector.PlayHoverAnimation();
 		}
 
 		private void OnMouseUp()
@@ -86,6 +87,7 @@ namespace Assets.Scripts.PicketLiners
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
                 DestroyPicketLiner();
 			}
+			Parent.ModelSelector.PlayIdleAnimation();
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
 		}
 
@@ -136,8 +138,7 @@ namespace Assets.Scripts.PicketLiners
 
 					if (CollidingPicketLiners.Any() == false)
 					{
-						// TODO play carried animation
-						Parent.ModelSelector.PlayIdleAnimation();
+						Parent.ModelSelector.PlayHoverAnimation();
 					}
 				}
 			}

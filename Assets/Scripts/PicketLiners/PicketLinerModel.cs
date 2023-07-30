@@ -104,6 +104,11 @@ namespace Assets.Scripts.PicketLiners
 			PlayAnimation(Animator.PlayConnectFrontAnimation);
 		}
 
+		public void PlayHoverAnimation()
+		{
+			PlayAnimation(Animator.PlayHoverAnimation);
+		}
+
 		private void PlayAnimation(Func<string> action)
 		{
 			string animationName = action();

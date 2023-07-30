@@ -201,10 +201,16 @@ namespace Assets.Scripts.General
 		{
 			if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true)
 				return;
-			OnLevelComplete.Raise();
+			StartCoroutine(RaiseLevelCompleteCoroutine());
 			CanUseMouseChanged.Raise(false);
 			CurrentLevelIndex++;
 			StartCoroutine(StartNewLevelCoroutine());
+		}
+
+		private IEnumerator RaiseLevelCompleteCoroutine()
+		{
+			yield return new WaitForEndOfFrame();
+			OnLevelComplete.Raise();
 		}
 
 		private IEnumerator StartNewLevelCoroutine()

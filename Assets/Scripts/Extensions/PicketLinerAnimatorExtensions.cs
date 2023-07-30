@@ -9,6 +9,7 @@ namespace Assets.Scripts.Extensions
 		private const string SadAnimationName = "Sad";
 		private const string ConnectBackAnimationName = "ConnectBack";
 		private const string ConnectFrontAnimationName = "ConnectFront";
+		private const string HoverAnimationName = "Hover";
 
 		public static string PlayAnimationWithName(this Animator animator, string animationName)
 		{
@@ -39,6 +40,11 @@ namespace Assets.Scripts.Extensions
 		public static string PlayConnectFrontAnimation(this Animator animator)
 		{
 			return animator.PlayAnimationWithName(ConnectFrontAnimationName);
+		}
+
+		public static string PlayHoverAnimation(this Animator animator)
+		{
+			return animator.PlayAnimationWithName(HoverAnimationName);
 		}
 	}
 }

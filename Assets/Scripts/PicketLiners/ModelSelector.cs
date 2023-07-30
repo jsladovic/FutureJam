@@ -24,6 +24,13 @@ namespace Assets.Scripts.PicketLiners
             EliteModel.SetCarriedSprite(isCarried);
         }
 
+        public void PlayHoverAnimation()
+        {
+            BasicModel.PlayHoverAnimation();
+            AdvancedModel.PlayHoverAnimation();
+            EliteModel.PlayHoverAnimation();
+        }
+
         public void PlayIdleAnimation()
         {
             BasicModel.PlayIdleAnimation();
