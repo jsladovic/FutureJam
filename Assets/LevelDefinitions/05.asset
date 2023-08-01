@@ -15,5 +15,6 @@ MonoBehaviour:
   Index: 5
   LevelText: A Scab is what we call those who break the picket line to go to work.
   NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 5
+  NumberOfDesperateScabs: 3
+  NumberOfEliteScabs: 0
   AudioIndex: 1

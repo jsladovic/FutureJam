@@ -15,7 +15,7 @@ MonoBehaviour:
   Index: 6
   LevelText: As long as we are not working, there is no business. And the factory
     cannot afford that.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 4
+  NumberOfDefaultScabs: 3
+  NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 1
   AudioIndex: 2

@@ -58,6 +58,7 @@ namespace Assets.Scripts.General
 		private float SecondsBetweenScabsForLevel;
 
 		private bool IsGameInProgress;
+		private bool LevelOverRaised;
 
 		private void Awake()
 		{
@@ -131,6 +132,7 @@ namespace Assets.Scripts.General
 
 		public void StartLevel()
 		{
+			LevelOverRaised = false;
 			StartCoroutine(SpawnScabCoroutine(true));
 			Clock.StartLevel();
 			CursorController.Instance.SetCursorSprite();
@@ -199,12 +201,13 @@ namespace Assets.Scripts.General
 
 		private void CheckForLevelOver()
 		{
-			if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true)
+			if (IsTimeExpired == false || ScabsRemainingInLevel > 0 || IsGameOver == true || LevelOverRaised == true)
 				return;
 			StartCoroutine(RaiseLevelCompleteCoroutine());
 			CanUseMouseChanged.Raise(false);
 			CurrentLevelIndex++;
 			StartCoroutine(StartNewLevelCoroutine());
+			LevelOverRaised = true;
 		}
 
 		private IEnumerator RaiseLevelCompleteCoroutine()

@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: Scabs are often paid extra to make the factory work again - and the
     strike to break.
   NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 7
-  NumberOfEliteScabs: 3
+  NumberOfDesperateScabs: 3
+  NumberOfEliteScabs: 2
   AudioIndex: 2

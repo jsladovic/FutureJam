@@ -15,6 +15,7 @@ MonoBehaviour:
   Index: 4
   LevelText: Despite there being a strike, there are still those who go to work inside
     the factory.
-  NumberOfDefaultScabs: 4
-  NumberOfDesperateScabs: 4
+  NumberOfDefaultScabs: 5
+  NumberOfDesperateScabs: 2
+  NumberOfEliteScabs: 0
   AudioIndex: 1

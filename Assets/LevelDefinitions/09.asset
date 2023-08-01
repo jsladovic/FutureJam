@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: Scabs are desperate people who have family members to care for, rent
     and loans to pay.
   NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 6
-  NumberOfEliteScabs: 4
+  NumberOfDesperateScabs: 3
+  NumberOfEliteScabs: 3
   AudioIndex: 2

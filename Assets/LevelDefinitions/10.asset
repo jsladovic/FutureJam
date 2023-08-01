@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: Scabs are not at fault for wanting to work, and they too sometimes join
     us at some point.
   NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 5
-  NumberOfEliteScabs: 5
+  NumberOfDesperateScabs: 2
+  NumberOfEliteScabs: 4
   AudioIndex: 2
