@@ -78,16 +78,14 @@ namespace Assets.Scripts.PicketLiners
 			PicketLiner targetPicketLiner = CollidingPicketLiners.FirstOrDefault(pl => pl.CanBeUpgraded == true);
 			if (targetPicketLiner != null)
 			{
-				targetPicketLiner.UpgradeRank();
-				List<PicketLiner> remainingPicketLIners = CollidingPicketLiners.Where(pl => pl != targetPicketLiner).ToList();
-				foreach(PicketLiner picketLiner in remainingPicketLIners)
+				foreach(PicketLiner picketLiner in CollidingPicketLiners)
 				{
 					picketLiner.ModelSelector.PlayIdleAnimation();
 				}
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
+				targetPicketLiner.UpgradeRank();
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
                 DestroyPicketLiner();
 			}
-			Parent.ModelSelector.PlayIdleAnimation();
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
 		}
 
