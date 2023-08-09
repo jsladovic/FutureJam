@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 11
   m_EditorClassIdentifier: 
   Index: 11
-  LevelText: The strike has gone so long, but the factory won't quit - so they called
-    the police.
+  LevelText: Even more of the police is now here, escorting strikebreakers into the
+    factory.
   NumberOfDefaultScabs: 2
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 4

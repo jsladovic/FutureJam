@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 06
   m_EditorClassIdentifier: 
   Index: 6
-  LevelText: As long as we are not working, there is no business. And the factory
-    cannot afford that.
+  LevelText: The police are paid to help bring scabs to the factory. They are strong,
+    but we are plenty.
   NumberOfDefaultScabs: 3
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 1

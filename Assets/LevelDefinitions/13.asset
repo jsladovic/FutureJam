@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 13
   m_EditorClassIdentifier: 
   Index: 13
-  LevelText: Police manages to get past weaker parts of the picket line, but as long
-    as we stay strong, we can fight back.
+  LevelText: There are news of strikes in other city's factories. It is good to know
+    we are not alone.
   NumberOfDefaultScabs: 1
   NumberOfDesperateScabs: 4
   NumberOfEliteScabs: 5

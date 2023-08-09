@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 04
   m_EditorClassIdentifier: 
   Index: 4
-  LevelText: Despite there being a strike, there are still those who go to work inside
-    the factory.
+  LevelText: Our number of supporters is growing - even scabs are not sure if they
+    are on the right side.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 05
   m_EditorClassIdentifier: 
   Index: 5
-  LevelText: A Scab is what we call those who break the picket line to go to work.
+  LevelText: News of the strike reach further. The factory is losing business as
+    our strike lasts.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 0
