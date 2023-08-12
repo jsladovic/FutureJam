@@ -42,7 +42,9 @@ namespace Assets.Scripts.General
 				}
 				else
 				{
-					StartLevel(fadeOut: false);
+					Background.Enable();
+					MenuItems.Disable();
+					Background.FadeOut(FadeDuration, setOnComplete: () => StartLevel(fadeOut: false));
 				}
 				return;
 			}

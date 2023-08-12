@@ -22,7 +22,7 @@ namespace Assets.Scripts.MainMenu
 
 		public void StartClicked()
 		{
-			SceneManager.LoadScene((int)SceneBuildIndex.Game);
+			MainMenu.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
 		}
 
 		public void OptionsClicked()
