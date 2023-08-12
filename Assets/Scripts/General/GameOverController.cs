@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.General
 {
-	[RequireComponent(typeof(CanvasGroup))]
 	public class GameOverController : MonoBehaviour
 	{
 		private const float GameOverWaitSeconds = 2.0f;
+		private const float FadeDuration = 1.0f;
 
 		[SerializeField] private TextMeshProUGUI EndGameText;
 
-		private CanvasGroup Canvas;
+		[SerializeField] private CanvasGroup Background;
+		[SerializeField] private CanvasGroup MenuItems;
 
 		private void Awake()
 		{
-			Canvas = GetComponent<CanvasGroup>();
-			Canvas.Disable();
+			Background.Disable();
+			MenuItems.Disable();
 		}
 
 		public void OnGameOver(int numberOfDays)
@@ -34,17 +35,22 @@ namespace Assets.Scripts.General
 		private IEnumerator GameOverCoroutine()
 		{
 			yield return new WaitForSeconds(GameOverWaitSeconds);
-			Canvas.FadeIn(1.0f);
+			Background.FadeIn(FadeDuration, setOnComplete: () => MenuItems.FadeIn(FadeDuration, immediatelyInteractible: true));
 		}
 
 		public void OnRestartClicked()
 		{
-			SceneManager.LoadScene((int)SceneBuildIndex.Game);
+			LoadScene(SceneBuildIndex.Game);
 		}
 
 		public void OnMainMenuClicked()
 		{
-			SceneManager.LoadScene((int)SceneBuildIndex.MainMenu);
+			LoadScene(SceneBuildIndex.MainMenu);
+		}
+
+		private void LoadScene(SceneBuildIndex sceneBuildIndex)
+		{
+			MenuItems.FadeOut(FadeDuration, setOnComplete: () => SceneManager.LoadScene((int)sceneBuildIndex));
 		}
 	}
 }
