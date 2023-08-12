@@ -75,7 +75,7 @@ namespace Assets.Scripts.General
 			}
 			else
 			{
-				GameController.Instance.StartLevel();
+				Canvas.FadeOut(1.0f, setOnComplete: () => GameController.Instance.StartLevel());
 			}
 		}
 

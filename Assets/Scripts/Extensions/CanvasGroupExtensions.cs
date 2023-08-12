@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Extensions
 {
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Extensions
 				canvasGroup.Enable();
 		}
 
-		public static void FadeIn(this CanvasGroup canvasGroup, float fadeInDuration, bool immediatelyInteractible = false)
+		public static void FadeIn(this CanvasGroup canvasGroup, float fadeInDuration, bool immediatelyInteractible = false, Action setOnComplete = null)
 		{
 			if (immediatelyInteractible == true)
 				canvasGroup.EnableInteractivity();
@@ -36,15 +37,19 @@ namespace Assets.Scripts.Extensions
 			}).setOnComplete(() =>
 			{
 				canvasGroup.Enable();
+				setOnComplete?.Invoke();
 			});
 		}
 
-		public static void FadeOut(this CanvasGroup canvasGroup, float fadeOutDuration)
+		public static void FadeOut(this CanvasGroup canvasGroup, float fadeOutDuration, Action setOnComplete = null)
 		{
 			canvasGroup.DisableInteractivity();
 			LeanTween.value(canvasGroup.gameObject, 1.0f, 0.0f, fadeOutDuration).setOnUpdate((float value) =>
 			{
 				canvasGroup.alpha = value;
+			}).setOnComplete(() =>
+			{
+				setOnComplete?.Invoke();
 			});
 		}
 

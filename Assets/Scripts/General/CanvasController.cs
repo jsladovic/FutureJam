@@ -8,10 +8,14 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.General
 {
-	[RequireComponent(typeof(CanvasGroup))]
 	public class CanvasController : MonoBehaviour
 	{
 		public static CanvasController Instance;
+
+		private const float FadeDuration = 1.0f;
+
+		[SerializeField] private CanvasGroup Background;
+		[SerializeField] private CanvasGroup MenuItems;
 
 		[SerializeField] private CanvasGroup ContinueButtonsParent;
 		[SerializeField] private CanvasGroup ButtonsParent;
@@ -19,13 +23,11 @@ namespace Assets.Scripts.General
 		[SerializeField] private Button KickOutScabButton;
 		[SerializeField] private BoolEvent OnTutorialStarted;
 
-		private CanvasGroup CanvasGroup;
 		private bool IsClickable;
 
 		private void Awake()
 		{
 			Instance = this;
-			CanvasGroup = GetComponent<CanvasGroup>();
 		}
 
 		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)
@@ -36,7 +38,7 @@ namespace Assets.Scripts.General
 				if (PlayerPrefsHelpers.WasTutorialDisplayed() == false)
 				{
 					OnTutorialStarted.Raise(false);
-					CanvasGroup.Disable();
+					Disable(false);
 				}
 				else
 				{
@@ -101,21 +103,39 @@ namespace Assets.Scripts.General
 			if (fadeOut == true)
 				DisplayButtons(null);
 			else
-				CanvasGroup.Disable();
+				Disable(false);
 		}
 
 		private void DisplayButtons(CanvasGroup canvasGroup)
 		{
 			if (canvasGroup == null)
 			{
-				CanvasGroup.FadeOut(1.0f);
+				Disable(true);
 			}
 			else
 			{
-				CanvasGroup.FadeIn(1.0f, immediatelyInteractible: true);
+				Enable();
 				ButtonsParent.gameObject.SetActive(canvasGroup == ButtonsParent);
 				ContinueButtonsParent.gameObject.SetActive(canvasGroup == ContinueButtonsParent);
 			}
+		}
+
+		private void Disable(bool fadeOut)
+		{
+			if (fadeOut == true)
+			{
+				MenuItems.FadeOut(FadeDuration, setOnComplete: () => Background.FadeOut(FadeDuration));
+			}
+			else
+			{
+				Background.Disable();
+				MenuItems.Disable();
+			}
+		}
+
+		private void Enable()
+		{
+			Background.FadeIn(FadeDuration, setOnComplete: () => MenuItems.FadeIn(FadeDuration, immediatelyInteractible: true));
 		}
 	}
 }
