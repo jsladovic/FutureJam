@@ -86,6 +86,10 @@ namespace Assets.Scripts.PicketLiners
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_grow");
                 DestroyPicketLiner();
 			}
+			else
+			{
+				Parent.ModelSelector.PlayIdleAnimation();
+			}
 			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/liner_drop");
 		}
 
