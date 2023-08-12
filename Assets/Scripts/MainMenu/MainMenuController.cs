@@ -9,20 +9,23 @@ namespace Assets.Scripts.MainMenu
 	[RequireComponent(typeof(CanvasGroup))]
 	public class MainMenuController : MonoBehaviour
 	{
-		private CanvasGroup MainMenu;
+		private CanvasGroup CanvasGroup;
+		[SerializeField] private CanvasGroup MainMenu;
+
 		[SerializeField] private OptionsMenuController OptionsMenu;
 		[SerializeField] private VoidEvent OnMainMenuLoaded;
 
 		private void Awake()
 		{
-			MainMenu = GetComponent<CanvasGroup>();
+			CanvasGroup = GetComponent<CanvasGroup>();
+			CanvasGroup.Disable();
 			MainMenu.Enable();
-			OnMainMenuLoaded.Raise();
+			CanvasGroup.FadeIn(1.0f, immediatelyInteractible: true, setOnComplete: () => OnMainMenuLoaded.Raise());
 		}
 
 		public void StartClicked()
 		{
-			MainMenu.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
+			CanvasGroup.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
 		}
 
 		public void OptionsClicked()
