@@ -28,6 +28,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private BoolEvent OnPausedChanged;
 		[SerializeField] private BoolEvent CanUseMouseChanged;
 		[SerializeField] private VoidEvent OnLevelComplete;
+		[SerializeField] private VoidEvent OnGameCompleted;
 		[SerializeField] private LevelDefinitionEvent OnLevelStarted;
 		[SerializeField] private IntEvent OnGameOver;
 
@@ -98,8 +99,6 @@ namespace Assets.Scripts.General
 
 		private void PrepareLevel()
 		{
-			if (CurrentLevelIndex >= Levels.Length)
-				throw new UnityException($"Oh no, level {CurrentLevelIndex + 1} is not yet implemented");
 			IsGameInProgress = false;
 			CurrentLevel = Levels[CurrentLevelIndex];
 			ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfEliteScabs;
@@ -218,6 +217,11 @@ namespace Assets.Scripts.General
 
 		private IEnumerator StartNewLevelCoroutine()
 		{
+			if (CurrentLevelIndex >= Levels.Length)
+			{
+				OnGameCompleted.Raise();
+				yield break;
+			}
 			yield return new WaitForSeconds(AfterLevelWaitSeconds);
 			PrepareLevel();
 		}
