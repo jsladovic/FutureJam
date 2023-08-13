@@ -17,5 +17,5 @@ MonoBehaviour:
     negotiations.
   NumberOfDefaultScabs: 1
   NumberOfDesperateScabs: 3
-  NumberOfEliteScabs: 6
+  NumberOfEliteScabs: 5
   AudioIndex: 3

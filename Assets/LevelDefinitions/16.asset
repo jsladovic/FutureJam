@@ -17,5 +17,5 @@ MonoBehaviour:
     inside.
   NumberOfDefaultScabs: 1
   NumberOfDesperateScabs: 3
-  NumberOfEliteScabs: 8
+  NumberOfEliteScabs: 6
   AudioIndex: 3

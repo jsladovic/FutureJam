@@ -73,6 +73,174 @@ MonoBehaviour:
   ScabLeavingSpawningLocation: {fileID: 0}
   TopLeftDraggablePosition: {fileID: 0}
   BottomRightDraggablePosition: {fileID: 0}
+  ScabSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1.6
+      inSlope: 0.100000024
+      outSlope: 0.100000024
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
+      value: 1.7
+      inSlope: 0.099999964
+      outSlope: 0.099999964
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3
+      value: 1.8
+      inSlope: 0.099999964
+      outSlope: 0.099999964
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4
+      value: 1.9
+      inSlope: 0.07500005
+      outSlope: 0.07500005
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 1.95
+      inSlope: 0.050000012
+      outSlope: 0.050000012
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 2
+      inSlope: 0.049999952
+      outSlope: 0.049999952
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 7
+      value: 2.05
+      inSlope: 0.037500024
+      outSlope: 0.037500024
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 8
+      value: 2.075
+      inSlope: 0.024999976
+      outSlope: 0.024999976
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 9
+      value: 2.1
+      inSlope: 0.024999857
+      outSlope: 0.024999857
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 12
+      value: 2.2
+      inSlope: 0.03000002
+      outSlope: 0.03000002
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 14
+      value: 2.25
+      inSlope: 0.024999976
+      outSlope: 0.024999976
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 16
+      value: 2.3
+      inSlope: 0.025000015
+      outSlope: 0.025000015
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 2.4
+      inSlope: 0.018750012
+      outSlope: 0.018750012
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 24
+      value: 2.45
+      inSlope: 0.012499988
+      outSlope: 0.012499988
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 28
+      value: 2.5
+      inSlope: 0.012499988
+      outSlope: 0.012499988
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 32
+      value: 2.55
+      inSlope: 0.008333325
+      outSlope: 0.008333325
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 40
+      value: 2.6
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnPausedChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}
   CanUseMouseChanged: {fileID: 11400000, guid: a42232d05ad07394381d33378b4f8959, type: 2}
   OnLevelComplete: {fileID: 11400000, guid: 8e9dfc1c672bfcc4fbccb793ff76879e, type: 2}

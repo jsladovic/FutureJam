@@ -24,6 +24,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private Transform ScabLeavingSpawningLocation;
 		[SerializeField] public Transform TopLeftDraggablePosition;
 		[SerializeField] public Transform BottomRightDraggablePosition;
+		[SerializeField] private AnimationCurve ScabSpeedCurve;
 
 		[SerializeField] private BoolEvent OnPausedChanged;
 		[SerializeField] private BoolEvent CanUseMouseChanged;
@@ -48,9 +49,6 @@ namespace Assets.Scripts.General
 		public const int SecondsInLevelAfterLastSpawn = 2;
 		private const float AfterLevelWaitSeconds = 1.0f;
 		public int NumberOfScabsEntered { get; private set; }
-
-		private const float BaseScabSpeed = 1.5f;
-		private const float ScabSpeedIncreasePerLevel = 0.075f;
 
 		private int TotalScabsToSpawnRemaining;
 		private int BasicScabsToSpawnRemaining;
@@ -163,7 +161,9 @@ namespace Assets.Scripts.General
 				DesperateScabsToSpawnRemaining--;
 			else
 				EliteScabsToSpawnRemaining--;
-			scab.Initialize(rank, curve, BaseScabSpeed + CurrentLevelIndex * ScabSpeedIncreasePerLevel);
+			float scabSpeed = ScabSpeedCurve.Evaluate(CurrentLevelIndex);
+			print($"Scab speed for level {CurrentLevelIndex}: {scabSpeed}");
+			scab.Initialize(rank, curve, scabSpeed);
 			TotalScabsToSpawnRemaining--;
 			if (TotalScabsToSpawnRemaining > 0)
 				StartCoroutine(SpawnScabCoroutine(false));

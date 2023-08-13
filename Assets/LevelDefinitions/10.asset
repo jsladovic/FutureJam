@@ -15,7 +15,7 @@ MonoBehaviour:
   Index: 10
   LevelText: Some scabs join the strike. They realise even money cannot buy horrible
     working conditions.
-  NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 2
-  NumberOfEliteScabs: 4
+  NumberOfDefaultScabs: 2
+  NumberOfDesperateScabs: 3
+  NumberOfEliteScabs: 3
   AudioIndex: 2

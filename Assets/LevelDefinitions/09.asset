@@ -15,7 +15,7 @@ MonoBehaviour:
   Index: 9
   LevelText: The news has reached the whole city by now. Even citizens are boycotting
     the strike.
-  NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 3
+  NumberOfDefaultScabs: 2
+  NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 3
   AudioIndex: 2

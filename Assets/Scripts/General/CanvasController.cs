@@ -14,6 +14,7 @@ namespace Assets.Scripts.General
 
 		private const float FadeDuration = 1.0f;
 
+		private CanvasGroup Canvas;
 		[SerializeField] private CanvasGroup Background;
 		[SerializeField] private CanvasGroup MenuItems;
 
@@ -28,6 +29,8 @@ namespace Assets.Scripts.General
 		private void Awake()
 		{
 			Instance = this;
+			Canvas = GetComponent<CanvasGroup>();
+			Canvas.Enable();
 		}
 
 		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)

@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: Even more of the police is now here, escorting strikebreakers into the
     factory.
   NumberOfDefaultScabs: 2
-  NumberOfDesperateScabs: 3
+  NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 4
   AudioIndex: 2

@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: The factory may buy police and scabs, but they cannot win as long as
     we keep fighting.
   NumberOfDefaultScabs: 2
-  NumberOfDesperateScabs: 4
+  NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 4
   AudioIndex: 3

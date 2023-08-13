@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: Stay strong - the company is breaking apart without us and they know
     it!
   NumberOfDefaultScabs: 1
-  NumberOfDesperateScabs: 2
-  NumberOfEliteScabs: 7
+  NumberOfDesperateScabs: 4
+  NumberOfEliteScabs: 5
   AudioIndex: 3

@@ -16,6 +16,6 @@ MonoBehaviour:
   LevelText: The police are paid to help bring scabs to the factory. They are strong,
     but we are plenty.
   NumberOfDefaultScabs: 3
-  NumberOfDesperateScabs: 3
+  NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 1
   AudioIndex: 2
