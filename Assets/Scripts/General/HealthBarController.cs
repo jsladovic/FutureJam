@@ -1,10 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.General
 {
 	public class HealthBarController : MonoBehaviour
     {
+        private const float TimeBetweenLightsBeingTurnedOff = 1.0f;
+
         private HealthBarItem[] Items;
 
         private void Awake()
@@ -29,17 +33,17 @@ namespace Assets.Scripts.General
             healthBarItem.DisplayWindowWorking(true);
         }
 
-        public void DisplayLifeGained()
+        public IEnumerator DisplayLifeGainedCoroutine()
         {
-            if (Items.Any(i => i.IsWorking == true) == false)
+            List<HealthBarItem> workingItems = Items.Where(i => i.IsWorking == true).ToList();
+            if (workingItems.Any() == false)
                 throw new UnityException("No available items found for gaining a life");
-            HealthBarItem healthBarItem;
-            do
+            foreach(HealthBarItem healthBarItem in workingItems)
             {
-                healthBarItem = Items[Random.Range(0, Items.Length)];
-            } while (healthBarItem.IsWorking == false);
-            healthBarItem.DisplayWindowWorking(false);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/light_off");
+                healthBarItem.DisplayWindowWorking(false);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/light_off");
+                yield return new WaitForSeconds(TimeBetweenLightsBeingTurnedOff);
+            }
         }
     }
 }

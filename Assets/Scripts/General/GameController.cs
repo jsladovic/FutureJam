@@ -114,9 +114,10 @@ namespace Assets.Scripts.General
 
 		public void KickOutScab()
 		{
-			HealthBarController.DisplayLifeGained();
-			if (NumberOfScabsEntered > 0)
-				NumberOfScabsEntered--;
+			if (NumberOfScabsEntered == 0)
+				throw new UnityException("Can't kick out scab if there are no scabs entered");
+			StartCoroutine(HealthBarController.DisplayLifeGainedCoroutine());
+			NumberOfScabsEntered = 0;
 
 			Instantiate(ScabLeavingPrefab, ScabLeavingSpawningLocation.position, Quaternion.identity);
 		}
