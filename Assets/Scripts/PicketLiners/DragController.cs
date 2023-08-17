@@ -112,8 +112,19 @@ namespace Assets.Scripts.PicketLiners
 				if (CollidingPicketLiners.Contains(collidingPicketLiner) == false)
 				{
 					CollidingPicketLiners.Add(collidingPicketLiner);
-					DisplayMergeSprite();
-					collidingPicketLiner.ModelSelector.PlayConnectFrontAnimation();
+					PicketLiner closestPicketLiner = GetClosestCollidingPicketLiner();
+					foreach(PicketLiner picketLiner in CollidingPicketLiners)
+					{
+						if (picketLiner == closestPicketLiner)
+						{
+							DisplayPicketLinerReadyToMerge(picketLiner);
+						}
+						else
+						{
+							picketLiner.DisplayMergeSprite(false);
+							picketLiner.ModelSelector.PlayIdleAnimation();
+						}
+					}
 					Parent.ModelSelector.PlayConnectBackAnimation();
 				}
 			}
@@ -142,6 +153,12 @@ namespace Assets.Scripts.PicketLiners
 					{
 						Parent.ModelSelector.PlayHoverAnimation();
 					}
+					else
+					{
+						PicketLiner closestPicketLiner = GetClosestCollidingPicketLiner();
+						if (closestPicketLiner != null)
+							DisplayPicketLinerReadyToMerge(closestPicketLiner);
+					}
 				}
 			}
 			else
@@ -162,14 +179,10 @@ namespace Assets.Scripts.PicketLiners
 			return sortedPicketLiners.First();
 		}
 
-		private void DisplayMergeSprite()
+		private void DisplayPicketLinerReadyToMerge(PicketLiner picketLiner)
 		{
-			if (CollidingPicketLiners.Any() == false)
-				return;
-			for (int i = 0; i < CollidingPicketLiners.Count; i++)
-			{
-				CollidingPicketLiners[i].DisplayMergeSprite(i == 0);
-			}
+			picketLiner.DisplayMergeSprite(true);
+			picketLiner.ModelSelector.PlayConnectFrontAnimation();
 		}
 
 		public void OnCanUseMouseChanged(bool canUseMouse)

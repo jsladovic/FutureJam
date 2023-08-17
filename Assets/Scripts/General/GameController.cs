@@ -145,7 +145,6 @@ namespace Assets.Scripts.General
 
 		private IEnumerator SpawnScabCoroutine(bool firstScab)
 		{
-			yield break;
 			yield return new WaitForSeconds(SecondsBetweenScabsForLevel);
 			if (IsGameOver == true)
 				yield break;
