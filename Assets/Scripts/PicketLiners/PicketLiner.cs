@@ -45,7 +45,6 @@ namespace Assets.Scripts.PicketLiners
 
 		public void OnIsDraggedChanged()
 		{
-			ModelSelector.SetCarriedSprite(IsCarried);
 			SphereOfInfluenceSelector.SetCarriedSprite(IsCarried);
 		}
 

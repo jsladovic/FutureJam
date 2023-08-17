@@ -10,12 +10,9 @@ namespace Assets.Scripts.PicketLiners
 	[RequireComponent(typeof(Animator))]
 	public class PicketLinerModel : MonoBehaviour
 	{
-		private SpriteRenderer SpriteRenderer;
-		private Sprite DefaultSprite;
 		private Animator Animator;
 		private ModelSelector Parent;
 
-		[SerializeField] private Sprite CarriedSprite;
 		[SerializeField] private SpriteRenderer MergeSpriteRenderer;
 		[SerializeField] private Transform ClickingPointsParent;
 
@@ -32,16 +29,9 @@ namespace Assets.Scripts.PicketLiners
 		public void Initialize(ModelSelector parent)
 		{
 			Parent = parent;
-			SpriteRenderer = GetComponent<SpriteRenderer>();
 			Animator = GetComponent<Animator>();
-			DefaultSprite = SpriteRenderer.sprite;
 			DisplayMergeSprite(false);
 			ClickingPoints = ClickingPointsParent.GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
-		}
-
-		public void SetCarriedSprite(bool isCarried)
-		{
-			SpriteRenderer.sprite = isCarried ? CarriedSprite : DefaultSprite;
 		}
 
 		public void DisplayMergeSprite(bool isVisible)

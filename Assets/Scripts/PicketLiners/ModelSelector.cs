@@ -17,13 +17,6 @@ namespace Assets.Scripts.PicketLiners
             EliteModel.Initialize(this);
         }
 
-        public void SetCarriedSprite(bool isCarried)
-        {
-            BasicModel.SetCarriedSprite(isCarried);
-            AdvancedModel.SetCarriedSprite(isCarried);
-            EliteModel.SetCarriedSprite(isCarried);
-        }
-
         public void PlayHoverAnimation()
         {
             BasicModel.PlayHoverAnimation();
