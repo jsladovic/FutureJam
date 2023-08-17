@@ -48,6 +48,8 @@ namespace Assets.Scripts.General
 		public const int LevelDurationSeconds = 20;
 		public const int SecondsInLevelAfterLastSpawn = 2;
 		private const float AfterLevelWaitSeconds = 1.0f;
+		private const int MaxNumberOfPicketLiners = 8;
+
 		public int NumberOfScabsEntered { get; private set; }
 
 		private int TotalScabsToSpawnRemaining;
@@ -107,7 +109,9 @@ namespace Assets.Scripts.General
 			EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs;
 			SecondsBetweenScabsForLevel = LevelDurationSeconds / (float)ScabsRemainingInLevel;
 			print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
-			CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0);
+
+			int numberOfSpawnedPicketLiners = AllPicketLiners.Sum(pl => (int)pl.Rank + 1);
+			CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0, numberOfSpawnedPicketLiners < MaxNumberOfPicketLiners);
 		}
 
 		public void KickOutScab()
@@ -162,7 +166,6 @@ namespace Assets.Scripts.General
 			else
 				EliteScabsToSpawnRemaining--;
 			float scabSpeed = ScabSpeedCurve.Evaluate(CurrentLevelIndex);
-			print($"Scab speed for level {CurrentLevelIndex}: {scabSpeed}");
 			scab.Initialize(rank, curve, scabSpeed);
 			TotalScabsToSpawnRemaining--;
 			if (TotalScabsToSpawnRemaining > 0)

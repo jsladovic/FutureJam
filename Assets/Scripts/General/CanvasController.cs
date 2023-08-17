@@ -22,6 +22,7 @@ namespace Assets.Scripts.General
 		[SerializeField] private CanvasGroup ButtonsParent;
 		[SerializeField] private TextMeshProUGUI LevelText;
 		[SerializeField] private Button KickOutScabButton;
+		[SerializeField] private Button AddPicketLinerButton;
 		[SerializeField] private BoolEvent OnTutorialStarted;
 
 		private bool IsClickable;
@@ -33,7 +34,7 @@ namespace Assets.Scripts.General
 			Canvas.Enable();
 		}
 
-		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab)
+		public void DisplayLevel(int levelIndex, bool displayOptions, bool canKickOutScab, bool canAddPicketLiner)
 		{
 			LevelText.text = $"Day {levelIndex - 1} of the strike is over.";
 			if (levelIndex == 1)
@@ -53,10 +54,11 @@ namespace Assets.Scripts.General
 			}
 
 			IsClickable = true;
-			if (displayOptions)
+			if (displayOptions == true && (canKickOutScab == true || canAddPicketLiner == true))
 			{
 				DisplayEndOfLevelCanvas(true);
 				KickOutScabButton.interactable = canKickOutScab;
+				AddPicketLinerButton.interactable = canAddPicketLiner;
 			}
 			else
 			{

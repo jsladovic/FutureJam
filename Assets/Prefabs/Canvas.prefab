@@ -1893,6 +1893,7 @@ MonoBehaviour:
   ButtonsParent: {fileID: 7224370241000355277}
   LevelText: {fileID: 6372880101084899304}
   KickOutScabButton: {fileID: 5756699433238240335}
+  AddPicketLinerButton: {fileID: 632928664859036627}
   OnTutorialStarted: {fileID: 11400000, guid: 1033ad613de3bf043b2f0dc40f68ee13, type: 2}
 --- !u!223 &7224370241188892428
 Canvas:
