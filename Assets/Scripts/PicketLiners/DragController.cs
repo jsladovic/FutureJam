@@ -75,7 +75,7 @@ namespace Assets.Scripts.PicketLiners
 				return;
 			IsDragging = false;
 
-			PicketLiner targetPicketLiner = CollidingPicketLiners.FirstOrDefault(pl => pl.CanBeUpgraded == true);
+			PicketLiner targetPicketLiner = GetClosestCollidingPicketLiner();
 			if (targetPicketLiner != null)
 			{
 				foreach(PicketLiner picketLiner in CollidingPicketLiners)
@@ -149,6 +149,17 @@ namespace Assets.Scripts.PicketLiners
 				if (InvalidCollisionObjects.Contains(collision.transform) == true)
 					InvalidCollisionObjects.Remove(collision.transform);
 			}
+		}
+
+		private PicketLiner GetClosestCollidingPicketLiner()
+		{
+			List<PicketLiner> eligiblePicketLiners = CollidingPicketLiners.Where(pl => pl.CanBeUpgraded == true).ToList();
+			if (eligiblePicketLiners.Any() == false)
+				return null;
+			if (eligiblePicketLiners.Count == 1)
+				return eligiblePicketLiners.First();
+			List<PicketLiner> sortedPicketLiners = eligiblePicketLiners.OrderBy(pl => Vector3.Distance(transform.position, pl.transform.position)).ToList();
+			return sortedPicketLiners.First();
 		}
 
 		private void DisplayMergeSprite()
