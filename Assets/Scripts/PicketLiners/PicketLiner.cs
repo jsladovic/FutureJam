@@ -25,6 +25,7 @@ namespace Assets.Scripts.PicketLiners
 				CapsuleCollider2D collider = DragColliderParent.GetCollider(value);
 				Collider.size = collider.size;
 				Collider.offset = collider.offset;
+				Collider.direction = collider.direction;
 			}
 		}
 

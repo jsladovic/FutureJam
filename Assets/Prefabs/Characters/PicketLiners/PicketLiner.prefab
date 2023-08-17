@@ -361,8 +361,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.65}
-  m_Size: {x: 1.89, y: 3.41}
+  m_Offset: {x: 0, y: 1.5}
+  m_Size: {x: 1.89, y: 2.2}
   m_Direction: 0
 --- !u!1 &2540356534121085999
 GameObject:
@@ -428,9 +428,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.09}
-  m_Size: {x: 4.5, y: 4.88}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 1.4}
+  m_Size: {x: 4.5, y: 2}
+  m_Direction: 1
 --- !u!1 &3325184468352425932
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,9 +557,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2}
-  m_Size: {x: 5.5, y: 3}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 1.4}
+  m_Size: {x: 4.5, y: 2}
+  m_Direction: 1
 --- !u!1 &4498418533644937064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic
       objectReference: {fileID: 0}
+    - target: {fileID: 7316701599502405887, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7527465281729941187, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1206,6 +1210,10 @@ PrefabInstance:
     - target: {fileID: 7316701599502405887, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
       propertyPath: m_Name
       value: Advanced
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316701599502405887, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7527465281729941187, guid: 4a655b8d2e38370499146552f7af8eea, type: 3}
       propertyPath: m_RootOrder
