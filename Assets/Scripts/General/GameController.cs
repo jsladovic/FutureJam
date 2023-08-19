@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.GameEvents.Events;
+using Assets.Scripts.Helpers;
 using Assets.Scripts.PicketLiners;
 using Assets.Scripts.Scabs;
 using System.Collections;
@@ -25,6 +26,7 @@ namespace Assets.Scripts.General
 		[SerializeField] public Transform TopLeftDraggablePosition;
 		[SerializeField] public Transform BottomRightDraggablePosition;
 		[SerializeField] private AnimationCurve ScabSpeedCurve;
+		[SerializeField] private GameData GameData;
 
 		[SerializeField] private BoolEvent OnPausedChanged;
 		[SerializeField] private BoolEvent CanUseMouseChanged;
@@ -101,13 +103,24 @@ namespace Assets.Scripts.General
 		private void PrepareLevel()
 		{
 			IsGameInProgress = false;
-			CurrentLevel = Levels[CurrentLevelIndex];
+			bool isAfterFinalLevel = CurrentLevelIndex >= Levels.Length;
+			CurrentLevel = isAfterFinalLevel ? Levels[Levels.Length - 1] : Levels[CurrentLevelIndex];
 			ScabsRemainingInLevel = CurrentLevel.NumberOfDefaultScabs + CurrentLevel.NumberOfDesperateScabs + CurrentLevel.NumberOfEliteScabs;
 			TotalScabsToSpawnRemaining = ScabsRemainingInLevel;
 			CurrentLevelCurves = MovementCurvesController.Instance.GetCurvesForLevelIndex(CurrentLevel.Index);
-			BasicScabsToSpawnRemaining = CurrentLevel.NumberOfDefaultScabs;
-			DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
-			EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs;
+			if (isAfterFinalLevel == true)
+			{
+				int difference = CurrentLevelIndex - Levels.Length + 1;
+				BasicScabsToSpawnRemaining = 1;
+				DesperateScabsToSpawnRemaining = 1;
+				EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs + difference;
+			}
+			else
+			{
+				BasicScabsToSpawnRemaining = CurrentLevel.NumberOfDefaultScabs;
+				DesperateScabsToSpawnRemaining = CurrentLevel.NumberOfDesperateScabs;
+				EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs;
+			}
 			SecondsBetweenScabsForLevel = LevelDurationSeconds / (float)ScabsRemainingInLevel;
 			print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
 
@@ -229,9 +242,17 @@ namespace Assets.Scripts.General
 				return;
 			StartCoroutine(RaiseLevelCompleteCoroutine());
 			CanUseMouseChanged.Raise(false);
+			CheckForMaxEndlessLevel();
 			CurrentLevelIndex++;
 			StartCoroutine(StartNewLevelCoroutine());
 			LevelOverRaised = true;
+		}
+
+		private void CheckForMaxEndlessLevel()
+		{
+			int previousMaxLevel = PlayerPrefsHelpers.GetMaxLevelCompleted();
+			if (CurrentLevelIndex > previousMaxLevel)
+				PlayerPrefsHelpers.SetMaxLevelCompleted(CurrentLevelIndex);
 		}
 
 		private IEnumerator RaiseLevelCompleteCoroutine()
@@ -242,7 +263,7 @@ namespace Assets.Scripts.General
 
 		private IEnumerator StartNewLevelCoroutine()
 		{
-			if (CurrentLevelIndex >= Levels.Length)
+			if (CurrentLevelIndex >= Levels.Length && GameData.GameType == Enums.GameType.Regular)
 			{
 				OnGameCompleted.Raise();
 				yield break;

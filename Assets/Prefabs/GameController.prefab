@@ -241,6 +241,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  GameData: {fileID: 11400000, guid: 4755abdb9381cfb4586597b5eab35e1e, type: 2}
   OnPausedChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}
   CanUseMouseChanged: {fileID: 11400000, guid: a42232d05ad07394381d33378b4f8959, type: 2}
   OnLevelComplete: {fileID: 11400000, guid: 8e9dfc1c672bfcc4fbccb793ff76879e, type: 2}
