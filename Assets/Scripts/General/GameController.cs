@@ -39,6 +39,7 @@ namespace Assets.Scripts.General
 		private int ScabsRemainingInLevel;
 		private MovementCurve[] CurrentLevelCurves;
 		private int LastUsedCurveIndex;
+		private int SecondLastUsedCurveIndex;
 		private bool IsTimeExpired;
 		private LevelDefinition CurrentLevel;
 		private List<PicketLiner> AllPicketLiners;
@@ -148,13 +149,7 @@ namespace Assets.Scripts.General
 			yield return new WaitForSeconds(SecondsBetweenScabsForLevel);
 			if (IsGameOver == true)
 				yield break;
-			int curveIndex;
-			do
-			{
-				curveIndex = Random.Range(0, CurrentLevelCurves.Length);
-			} while (CurrentLevelCurves.Length != 1 && curveIndex == LastUsedCurveIndex);
-			LastUsedCurveIndex = curveIndex;
-			MovementCurve curve = CurrentLevelCurves[curveIndex];
+			MovementCurve curve = GetNextCurve();
 			Scab scab = Instantiate(ScabPrefab, curve.Points.First().transform.position, Quaternion.identity, ScabsParent);
 			ScabRank rank = BasicScabsToSpawnRemaining > 0
 				? ScabRank.Basic
@@ -170,6 +165,32 @@ namespace Assets.Scripts.General
 			TotalScabsToSpawnRemaining--;
 			if (TotalScabsToSpawnRemaining > 0)
 				StartCoroutine(SpawnScabCoroutine(false));
+		}
+
+		private MovementCurve GetNextCurve()
+		{
+			if (CurrentLevelCurves == null || CurrentLevelCurves.Length == 0)
+				throw new UnityException("No curves set for level");
+			if (CurrentLevelCurves.Length == 1)
+			{
+				LastUsedCurveIndex = 0;
+				return CurrentLevelCurves[0];
+			}
+
+			if (CurrentLevelCurves.Length == 2)
+			{
+				LastUsedCurveIndex = 1 - LastUsedCurveIndex;
+				return CurrentLevelCurves[LastUsedCurveIndex];
+			}
+			int curveIndex;
+			do
+			{
+				curveIndex = Random.Range(0, CurrentLevelCurves.Length);
+			} while (curveIndex == LastUsedCurveIndex || curveIndex == SecondLastUsedCurveIndex);
+			SecondLastUsedCurveIndex = LastUsedCurveIndex;
+			LastUsedCurveIndex = curveIndex;
+			MovementCurve curve = CurrentLevelCurves[curveIndex];
+			return curve;
 		}
 
 		public void OnScabEntered()
