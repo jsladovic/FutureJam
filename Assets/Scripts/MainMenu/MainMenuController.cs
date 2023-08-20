@@ -24,6 +24,7 @@ namespace Assets.Scripts.MainMenu
 
 		private void Awake()
 		{
+			Time.timeScale = 1.0f;
 			CanvasGroup = GetComponent<CanvasGroup>();
 			CanvasGroup.Disable();
 			MainMenu.Enable();
