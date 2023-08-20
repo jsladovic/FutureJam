@@ -169,7 +169,7 @@ RectTransform:
   m_Children:
   - {fileID: 4745607891627520189}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b60e1c7eb1a2d49a0e9dee8ce817d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameData: {fileID: 11400000, guid: 4755abdb9381cfb4586597b5eab35e1e, type: 2}
 --- !u!114 &4745607891627520184
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ namespace Assets.Scripts.General
 	[RequireComponent(typeof(CanvasGroup))]
 	public class LevelTextController : MonoBehaviour
 	{
+		[SerializeField] private GameData GameData;
+
 		private CanvasGroup Canvas;
 		private TextMeshProUGUI LevelText;
 
@@ -19,14 +21,14 @@ namespace Assets.Scripts.General
 
 		public void OnLevelChanged(LevelDefinition levelDefinition)
 		{
-			DisplayTutorialText(levelDefinition.LevelText);
+			DisplayLevelText(levelDefinition.LevelText);
 		}
 
-		private void DisplayTutorialText(string text)
+		private void DisplayLevelText(string text)
 		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/UI/ping");
 			Canvas.Enable();
-			LevelText.text = text;
+			LevelText.text = GameData.GameType == Enums.GameType.Endless ? string.Empty : text;
 		}
 
 		public void HideTutorialText()
