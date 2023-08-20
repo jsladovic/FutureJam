@@ -7,6 +7,8 @@ namespace Assets.Scripts.General
 	[RequireComponent(typeof(CanvasGroup))]
 	public class LevelTextController : MonoBehaviour
 	{
+		private const float CanvasFadeTimeSeconds = 1.0f;
+
 		[SerializeField] private GameData GameData;
 
 		private CanvasGroup Canvas;
@@ -27,7 +29,7 @@ namespace Assets.Scripts.General
 		private void DisplayLevelText(string text)
 		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/UI/ping");
-			Canvas.Enable();
+			Canvas.FadeIn(CanvasFadeTimeSeconds);
 			LevelText.text = GameData.GameType == Enums.GameType.Endless ? string.Empty : text;
 		}
 
@@ -38,7 +40,7 @@ namespace Assets.Scripts.General
 
 		public void OnLevelAlmostOver()
 		{
-			Canvas.FadeOut(1.0f);
+			Canvas.FadeOut(CanvasFadeTimeSeconds);
 		}
 	}
 }
