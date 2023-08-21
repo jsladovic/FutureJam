@@ -4,6 +4,7 @@ using Assets.Scripts.Helpers;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace Assets.Scripts.General
 {
@@ -12,6 +13,7 @@ namespace Assets.Scripts.General
 	{
 		[SerializeField] private Transform ImagesParent;
 		[SerializeField] private BoolEvent OnPauseChanged;
+		[SerializeField] private VideoPlayer VideoPlayer;
 
 		private CanvasGroup Canvas;
 		private Image[] Images;
@@ -57,6 +59,7 @@ namespace Assets.Scripts.General
 			CurrentImageIndex = 0;
 			Canvas.Enable();
 			IsDisplayed = true;
+			VideoPlayer.Play();
 		}
 
 		private IEnumerator OnEndCoroutine()

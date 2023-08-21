@@ -776,6 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImagesParent: {fileID: 2222479917940607802}
   OnPauseChanged: {fileID: 11400000, guid: 15ee73f7379d62945a031cb90e6c22fc, type: 2}
+  VideoPlayer: {fileID: 266965186173975597}
 --- !u!225 &788227506144033677
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1951,7 +1952,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
   m_WaitForFirstFrame: 1
