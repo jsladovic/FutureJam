@@ -93,7 +93,8 @@ namespace Assets.Scripts.General
 		{
 			for (int i = 0; i < Images.Length; i++)
 			{
-				Images[i].gameObject.SetActive(i == CurrentImageIndex);
+				Images[i].gameObject.SetActive(false);
+				//Images[i].gameObject.SetActive(i == CurrentImageIndex);
 			}
 		}
 	}
