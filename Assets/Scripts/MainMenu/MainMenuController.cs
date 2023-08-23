@@ -45,14 +45,12 @@ namespace Assets.Scripts.MainMenu
 
 		public void StartRegularStrikeClicked()
 		{
-			GameData.GameType = GameType.Regular;
-			CanvasGroup.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
+			StartGame(GameType.Regular);
 		}
 
 		public void StartEndlessStrikeClicked()
 		{
-			GameData.GameType = GameType.Endless;
-			CanvasGroup.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
+			StartGame(GameType.Endless);
 		}
 
 		public void OptionsClicked()
@@ -75,6 +73,12 @@ namespace Assets.Scripts.MainMenu
 		public void ExitClicked()
 		{
 			Application.Quit();
+		}
+
+		private void StartGame(GameType gameType)
+		{
+			GameData.GameType = gameType;
+			CanvasGroup.FadeOut(1.0f, setOnComplete: () => SceneManager.LoadScene((int)SceneBuildIndex.Game));
 		}
 	}
 }
