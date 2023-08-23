@@ -28,7 +28,12 @@ namespace Assets.Scripts.General
         private float TimeRemainingInLevel;
         private bool IsRunning;
 
-        private void Update()
+		private void Awake()
+        {
+            CurrentTime = StartingHours;
+        }
+
+		private void Update()
         {
             if (IsRunning == false)
                 return;
