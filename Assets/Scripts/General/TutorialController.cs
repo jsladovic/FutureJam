@@ -10,6 +10,8 @@ namespace Assets.Scripts.General
 	[RequireComponent(typeof(CanvasGroup))]
 	public class TutorialController : MonoBehaviour
 	{
+		private const float FadeDuration = 1.0f;
+
 		[SerializeField] private BoolEvent OnPauseChanged;
 		[SerializeField] private VideoPlayer VideoPlayer;
 
@@ -24,6 +26,7 @@ namespace Assets.Scripts.General
 			IsDisplayed = false;
 			Canvas = GetComponent<CanvasGroup>();
 			Canvas.Disable();
+			StartCoroutine(StopVideo());
 		}
 
 		private void Update()
@@ -42,10 +45,9 @@ namespace Assets.Scripts.General
 			PlayerPrefsHelpers.SetTutorialDisplayed();
 			ResumeOnEnd = resumeOnEnd;
 			CurrentImageIndex = 0;
-			Canvas.Enable();
 			IsDisplayed = true;
-			VideoPlayer.time = 0.0;
-			VideoPlayer.Play();
+			//VideoPlayer.Stop();
+			Canvas.FadeIn(FadeDuration, setOnComplete: () => VideoPlayer.Play());
 		}
 
 		private IEnumerator OnEndCoroutine()
@@ -56,6 +58,7 @@ namespace Assets.Scripts.General
 
 		public void OnEndClicked()
 		{
+			StartCoroutine(StopVideo());
 			IsDisplayed = false;
 			Canvas.Disable();
 			if (ResumeOnEnd == true)
@@ -66,6 +69,14 @@ namespace Assets.Scripts.General
 			{
 				Canvas.FadeOut(1.0f, setOnComplete: () => GameController.Instance.StartLevel());
 			}
+		}
+
+		private IEnumerator StopVideo()
+		{
+			yield return new WaitForEndOfFrame();
+			VideoPlayer.Prepare();
+			VideoPlayer.targetTexture.Release();
+			VideoPlayer.Stop();
 		}
 	}
 }

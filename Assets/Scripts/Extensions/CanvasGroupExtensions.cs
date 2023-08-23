@@ -31,14 +31,18 @@ namespace Assets.Scripts.Extensions
 		{
 			if (immediatelyInteractible == true)
 				canvasGroup.EnableInteractivity();
-			LeanTween.value(canvasGroup.gameObject, 0.0f, 1.0f, fadeInDuration).setOnUpdate((float value) =>
-			{
-				canvasGroup.alpha = value;
-			}).setOnComplete(() =>
-			{
-				canvasGroup.Enable();
-				setOnComplete?.Invoke();
-			});
+			LeanTween
+				.value(canvasGroup.gameObject, 0.0f, 1.0f, fadeInDuration)
+				.setIgnoreTimeScale(true)
+				.setOnUpdate((float value) =>
+				{
+					canvasGroup.alpha = value;
+				})
+				.setOnComplete(() =>
+				{
+					canvasGroup.Enable();
+					setOnComplete?.Invoke();
+				});
 		}
 
 		public static void FadeOut(this CanvasGroup canvasGroup, float fadeOutDuration, Action setOnComplete = null)
