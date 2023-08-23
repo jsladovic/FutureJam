@@ -53,9 +53,9 @@ namespace Assets.Scripts.General
 		public void SetCursorSprite()
 		{
 			if (HoveredPicketLiners.Any() == false)
-				Cursor.SetCursor(DefaultCursorSprite, Vector2.zero, CursorMode.Auto);
+				Cursor.SetCursor(DefaultCursorSprite, Vector2.zero, CursorMode.ForceSoftware);
 			else
-				Cursor.SetCursor(HoveredCursorSprite, Vector2.zero, CursorMode.Auto);
+				Cursor.SetCursor(HoveredCursorSprite, Vector2.zero, CursorMode.ForceSoftware);
 		}
 	}
 }
