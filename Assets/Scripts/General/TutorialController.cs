@@ -3,7 +3,6 @@ using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.Helpers;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Assets.Scripts.General
@@ -11,34 +10,20 @@ namespace Assets.Scripts.General
 	[RequireComponent(typeof(CanvasGroup))]
 	public class TutorialController : MonoBehaviour
 	{
-		[SerializeField] private Transform ImagesParent;
 		[SerializeField] private BoolEvent OnPauseChanged;
 		[SerializeField] private VideoPlayer VideoPlayer;
 
 		private CanvasGroup Canvas;
-		private Image[] Images;
 		private bool ResumeOnEnd;
 		private bool IsDisplayed;
 
-		private int currentImageIndex;
-		private int CurrentImageIndex
-		{
-			get { return currentImageIndex; }
-			set
-			{
-				currentImageIndex = value;
-				DisplayCurrentImage();
-			}
-		}
+		public int CurrentImageIndex { get; set; }
 
 		private void Awake()
 		{
 			IsDisplayed = false;
 			Canvas = GetComponent<CanvasGroup>();
 			Canvas.Disable();
-			Images = ImagesParent.GetComponentsInChildren<Image>();
-			if (Images.Length == 0)
-				throw new UnityException("Missing tutorial images");
 		}
 
 		private void Update()
@@ -59,6 +44,7 @@ namespace Assets.Scripts.General
 			CurrentImageIndex = 0;
 			Canvas.Enable();
 			IsDisplayed = true;
+			VideoPlayer.time = 0.0;
 			VideoPlayer.Play();
 		}
 
@@ -79,25 +65,6 @@ namespace Assets.Scripts.General
 			else
 			{
 				Canvas.FadeOut(1.0f, setOnComplete: () => GameController.Instance.StartLevel());
-			}
-		}
-
-		public void OnNextClicked()
-		{
-			CurrentImageIndex = (CurrentImageIndex + 1) % Images.Length;
-		}
-
-		public void OnPreviousClicked()
-		{
-			CurrentImageIndex = (CurrentImageIndex + Images.Length - 1) % Images.Length;
-		}
-
-		private void DisplayCurrentImage()
-		{
-			for (int i = 0; i < Images.Length; i++)
-			{
-				Images[i].gameObject.SetActive(false);
-				//Images[i].gameObject.SetActive(i == CurrentImageIndex);
 			}
 		}
 	}
