@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 15
   m_EditorClassIdentifier: 
   Index: 15
-  LevelText: Stay strong - the company is breaking apart without us and they know
-    it!
+  LevelText: Unfortunately, so are we, feeding your family is next to impossible
+    if you aren't getting paid.
   NumberOfDefaultScabs: 1
   NumberOfDesperateScabs: 4
   NumberOfEliteScabs: 5

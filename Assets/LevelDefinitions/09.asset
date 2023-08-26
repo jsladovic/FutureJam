@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 09
   m_EditorClassIdentifier: 
   Index: 9
-  LevelText: The news has reached the whole city by now. Even citizens are boycotting
-    the strike.
+  LevelText: The company has promised rewards to those who manage to break through
+    our picket line.
   NumberOfDefaultScabs: 2
   NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 3

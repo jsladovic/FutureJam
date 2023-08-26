@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 05
   m_EditorClassIdentifier: 
   Index: 5
-  LevelText: News of the strike reach further. The factory is losing business as
-    our strike lasts.
+  LevelText: Press are starting to notice the protest, but so is the government that
+    doesn't agree with us.
   NumberOfDefaultScabs: 4
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 0

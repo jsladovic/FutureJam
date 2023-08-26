@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 14
   m_EditorClassIdentifier: 
   Index: 14
-  LevelText: The company lost so much money from our absence, they are considering
-    negotiations.
+  LevelText: Every day that we stand firm, the company suffers massive financial
+    losses.
   NumberOfDefaultScabs: 1
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 5

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 03
   m_EditorClassIdentifier: 
   Index: 3
-  LevelText: Reporters are now arriving as well. This may bring even more people
-    to our fight.
+  LevelText: Some of the workers don't agree with the strikes and are trying to keep
+    the factory running.
   NumberOfDefaultScabs: 6
   NumberOfDesperateScabs: 1
   NumberOfEliteScabs: 0
