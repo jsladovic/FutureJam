@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 11
   m_EditorClassIdentifier: 
   Index: 11
-  LevelText: Even more of the police is now here, escorting strikebreakers into the
-    factory.
+  LevelText: News of the strike has reached the city, and company's products are
+    boycotted by citizens.
   NumberOfDefaultScabs: 2
   NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 4
