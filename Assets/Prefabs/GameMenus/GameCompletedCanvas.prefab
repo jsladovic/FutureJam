@@ -464,7 +464,7 @@ RectTransform:
   m_Father: {fileID: 4852194739912749265}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.45, y: 0.5}
+  m_AnchorMin: {x: 0.45, y: 0.55}
   m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -497,19 +497,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'We have negotiated for an 8 hour work day with extra pay for overtime
-    work. We have also gotten extra protection from getting unjustly fired.
-
-
-    Strikes
-    like these in the beginning of the 20th century have not been smooth. Strike
-    in the Bizjak biscuit factory in Zagreb looked exactly like this, and it lasted
-    for 16 days. A complaint about the police was sent to the government, but it
-    was decided that the factory was innocent.
-
-
-    Basic worker rights have been
-    fought for tooth and nail, and we continue to do so to do this day.'
+  m_text: "We have negotiated for an 8 hour work day with extra pay for overtime
+    work.\n\nOur strike is based on a real strike that happened in Zagreb's Bizjak
+    factory. Yet, after 16 days the strike was stopped by the police. A complaint
+    was issued, but the factory was found innocent. \n\nThere are many stories like
+    ours, and there will be many more in the future. The fight goes on, and so do
+    we."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 59e5e5302f668fb43871edaedbefafb9, type: 2}
   m_sharedMaterial: {fileID: 8728637825271680943, guid: 59e5e5302f668fb43871edaedbefafb9, type: 2}
@@ -536,7 +529,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.95
+  m_fontSize: 29.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1301,7 +1294,7 @@ PrefabInstance:
     - target: {fileID: 5844684515260891345, guid: d7b8a5f61fc1abb409bf4383f2938e36, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8a73b882b1ccd1d4884a1cdc2a688a63, type: 3}
+      objectReference: {fileID: 21300000, guid: b045ead1bdf037a4e9e1ab2c5be5cace, type: 3}
     - target: {fileID: 9141983637025520014, guid: d7b8a5f61fc1abb409bf4383f2938e36, type: 3}
       propertyPath: m_Name
       value: MainMenuBg
