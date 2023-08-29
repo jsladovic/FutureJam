@@ -2,7 +2,8 @@
 {
 	public enum SceneBuildIndex
 	{
-		MainMenu = 0,
-		Game = 1,
+		SplashScreen = 0,
+		MainMenu = 1,
+		Game = 2,
 	}
 }
