@@ -17,6 +17,7 @@ namespace Assets.Scripts.MainMenu
 		[SerializeField] private CanvasGroup MainMenu;
 		[SerializeField] private Button StartEndlessButton;
 		[SerializeField] private TextMeshProUGUI StartStrikeButtonText;
+		[SerializeField] private TextMeshProUGUI LongestStrikeText;
 
 		[SerializeField] private OptionsMenuController OptionsMenu;
 		[SerializeField] private GameData GameData;
@@ -31,15 +32,14 @@ namespace Assets.Scripts.MainMenu
 			CanvasGroup.FadeIn(1.0f, immediatelyInteractible: true, setOnComplete: () => OnMainMenuLoaded.Raise());
 
 			bool isGameCompleted = PlayerPrefsHelpers.IsGameCompleted();
-			if (isGameCompleted == true)
+
+			StartStrikeButtonText.text = isGameCompleted ? "Start regular strike" : "Start strike";
+			StartEndlessButton.gameObject.SetActive(isGameCompleted);
+			LongestStrikeText.gameObject.SetActive(isGameCompleted);
+			if (isGameCompleted)
 			{
-				StartEndlessButton.gameObject.SetActive(true);
-				StartStrikeButtonText.text = "Start regular strike";
-			}
-			else
-			{
-				StartEndlessButton.gameObject.SetActive(false);
-				StartStrikeButtonText.text = "Start strike";
+				int maxLevelCompleted = PlayerPrefsHelpers.GetMaxLevelCompleted();
+				LongestStrikeText.text = $"Our longest strike lasted for {maxLevelCompleted} day{(maxLevelCompleted != 1 ? "s" : string.Empty)}.";
 			}
 		}
 

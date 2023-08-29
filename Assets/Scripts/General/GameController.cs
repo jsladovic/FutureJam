@@ -251,8 +251,8 @@ namespace Assets.Scripts.General
 		private void CheckForMaxEndlessLevel()
 		{
 			int previousMaxLevel = PlayerPrefsHelpers.GetMaxLevelCompleted();
-			if (CurrentLevelIndex > previousMaxLevel)
-				PlayerPrefsHelpers.SetMaxLevelCompleted(CurrentLevelIndex);
+			if (CurrentLevelIndex + 1 > previousMaxLevel)
+				PlayerPrefsHelpers.SetMaxLevelCompleted(CurrentLevelIndex + 1);
 		}
 
 		private IEnumerator RaiseLevelCompleteCoroutine()
