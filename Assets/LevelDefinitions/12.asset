@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 12
   m_EditorClassIdentifier: 
   Index: 12
-  LevelText: The factory may buy police and scabs, but they cannot win as long as
-    we keep fighting.
+  LevelText: Negotiations between the union and the company have started, we need
+    to hold on just a bit.
   NumberOfDefaultScabs: 2
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 4

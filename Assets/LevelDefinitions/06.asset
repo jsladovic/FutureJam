@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 06
   m_EditorClassIdentifier: 
   Index: 6
-  LevelText: The police are paid to help bring scabs to the factory. They are strong,
-    but we are plenty.
+  LevelText: We don't blame the Scabs, as we are all workers who need money to support
+    our families.
   NumberOfDefaultScabs: 3
   NumberOfDesperateScabs: 2
   NumberOfEliteScabs: 1

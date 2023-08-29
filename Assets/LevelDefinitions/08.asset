@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 08
   m_EditorClassIdentifier: 
   Index: 8
-  LevelText: Scabs are paid extra by the factory so it can continue working - and
-    break the strike.
+  LevelText: More of the press are arriving, surely citizens won't appreciate the
+    police trying to intervene.
   NumberOfDefaultScabs: 2
   NumberOfDesperateScabs: 3
   NumberOfEliteScabs: 2
