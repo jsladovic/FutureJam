@@ -122,10 +122,10 @@ namespace Assets.Scripts.General
 				EliteScabsToSpawnRemaining = CurrentLevel.NumberOfEliteScabs;
 			}
 			SecondsBetweenScabsForLevel = LevelDurationSeconds / (float)ScabsRemainingInLevel;
-			print($"starting level {CurrentLevel.Index}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
+			print($"starting level {CurrentLevelIndex + 1}, total scabs {ScabsRemainingInLevel}, time between {SecondsBetweenScabsForLevel}, number of curves {CurrentLevelCurves.Length}");
 
 			int numberOfSpawnedPicketLiners = AllPicketLiners.Sum(pl => (int)pl.Rank + 1);
-			CanvasController.Instance.DisplayLevel(CurrentLevel.Index, CurrentLevel.Index % 3 == 1, NumberOfScabsEntered > 0, numberOfSpawnedPicketLiners < MaxNumberOfPicketLiners);
+			CanvasController.Instance.DisplayLevel(CurrentLevelIndex, CurrentLevelIndex % 3 == 0, NumberOfScabsEntered > 0, numberOfSpawnedPicketLiners < MaxNumberOfPicketLiners);
 		}
 
 		public void KickOutScab()
