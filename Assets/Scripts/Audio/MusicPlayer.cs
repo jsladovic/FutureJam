@@ -13,7 +13,10 @@ namespace Assets.Scripts.Audio
         private static MusicPlayer Instance;
 		public EventInstance Music;
 		private bool DisableAudio;
-		private void Awake()
+        private int CurrentAudioIndex = 1;
+        private bool IsMenuLoaded;
+
+        private void Awake()
 		{
             if (Instance == null)
                 Instance = this;
@@ -45,8 +48,13 @@ namespace Assets.Scripts.Audio
 		public void OnAudioIndexChanged(LevelDefinition levelDef)
         {
             if (DisableAudio == true)
-                return;          
+                return;
+
+            //if (levelDef.AudioIndex != CurrentAudioIndex)
+                //Music.setParameterByName("LevelEnd", 1);
+
             Music.setParameterByName("Level", levelDef.AudioIndex);
+            //CurrentAudioIndex = levelDef.AudioIndex;
         }
 
         public void OnMenuLoaded()
@@ -54,6 +62,7 @@ namespace Assets.Scripts.Audio
             if (DisableAudio == true)
                 return;
             Music.setParameterByName("Level", 0);
+            //CurrentAudioIndex = 1;
         }
 
         public void OnGameOver()
@@ -61,7 +70,8 @@ namespace Assets.Scripts.Audio
             if (DisableAudio == true)
                 return;
 
-            Music.setParameterByName("LevelResult", -1);
+            Music.setParameterByName("LevelEnd", 1);
+            Music.setParameterByName("Level", 0);
         }
 
        /* public static PLAYBACK_STATE PlaybackState(EventInstance Event)
