@@ -8,6 +8,8 @@ namespace Assets.Scripts.Helpers
 		private const string GameCompltedKey = "GameCompleted";
 		private const string MaxLevelCompletedKey = "MaxLevelCompleted";
 		private const string IsFullScreenKey = "IsFullScreen";
+		private const string IsMusicMutedKey = "IsMusicMuted";
+		private const string IsSoundEffectsMutedKey = "IsSoundEffectsMuted";
 
 		public static bool WasTutorialDisplayed()
 		{
@@ -47,6 +49,26 @@ namespace Assets.Scripts.Helpers
 		public static void SetIsFullScreen(bool isFullScreen)
 		{
 			PlayerPrefs.SetInt(IsFullScreenKey, isFullScreen ? 1 : 0);
+		}
+
+		public static bool IsMusicMuted()
+		{
+			return PlayerPrefs.GetInt(IsMusicMutedKey, 1) == 1;
+		}
+
+		public static void SetIsMusicMuted(bool isMusicMuted)
+		{
+			PlayerPrefs.SetInt(IsMusicMutedKey, isMusicMuted ? 1 : 0);
+		}
+
+		public static bool IsSoundEffectsMuted()
+		{
+			return PlayerPrefs.GetInt(IsSoundEffectsMutedKey, 1) == 1;
+		}
+
+		public static void SetIsSoundEffectsMuted(bool isSoundEffectsMuted)
+		{
+			PlayerPrefs.SetInt(IsSoundEffectsMutedKey, isSoundEffectsMuted ? 1 : 0);
 		}
 	}
 }

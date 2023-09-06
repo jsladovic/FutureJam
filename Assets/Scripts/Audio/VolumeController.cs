@@ -1,7 +1,6 @@
 ﻿using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Audio
 {
