@@ -4,6 +4,7 @@ using Assets.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.InputManagerEntry;
 
 namespace Assets.Scripts.MainMenu
 {
@@ -14,14 +15,13 @@ namespace Assets.Scripts.MainMenu
 		[SerializeField] private TextMeshProUGUI AudioToggleText;
 		[SerializeField] private TextMeshProUGUI MusicToggleText;
 		[SerializeField] private TextMeshProUGUI FullScreenToggleText;
-		[SerializeField] private VolumeController AudioVolumeController;
-		[SerializeField] private VolumeController MusicVolumeController;
+		[SerializeField] private VolumeController VolumeController;
 
 		private CanvasGroup Canvas;
 
 		private void Awake()
 		{
-			FullScreenToggleButton.gameObject.HideForMobile();	
+			FullScreenToggleButton.gameObject.HideForMobile();
 			Canvas = GetComponent<CanvasGroup>();
 			DisplayIsFullScreen();
 			Disable();
@@ -29,6 +29,8 @@ namespace Assets.Scripts.MainMenu
 
         private void Start()
         {
+
+            VolumeController = GameObject.Find("AudioObject").GetComponent<VolumeController>();
             DisplayIsMusicMuted();
             DisplayIsSoundEffectMuted();
         }
@@ -45,7 +47,7 @@ namespace Assets.Scripts.MainMenu
 
 		public void AudioToggled()
 		{
-			if (AudioVolumeController == null)
+			if (VolumeController == null)
 				return;
 			bool isAudioMuted = PlayerPrefsHelpers.IsSoundEffectsMuted();
 			isAudioMuted = !isAudioMuted;
@@ -55,12 +57,13 @@ namespace Assets.Scripts.MainMenu
 
 		public void MusicToggled()
 		{
-			if (MusicVolumeController == null)
+			if (VolumeController == null)
 				return;
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
 			isMusicMuted = !isMusicMuted;
 			PlayerPrefsHelpers.SetIsMusicMuted(isMusicMuted);
-			DisplayIsMusicMuted();			
+			DisplayIsMusicMuted();
+			print("music toggled");
 		}
 
 		public void FullScreenToggle()
@@ -85,7 +88,7 @@ namespace Assets.Scripts.MainMenu
 			if (MusicToggleText == null)
 				return;
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
-			MusicVolumeController.OnMuteChanged(isMusicMuted);
+			VolumeController.OnMusicMuteChanged(isMusicMuted);
 			MusicToggleText.text = $"Music: {(isMusicMuted ? "Off" : "On")}";
 		}
 
@@ -94,7 +97,7 @@ namespace Assets.Scripts.MainMenu
 			if (AudioToggleText == null)
 				return;
 			bool isSoundEffectsMuted = PlayerPrefsHelpers.IsSoundEffectsMuted();
-			AudioVolumeController.OnMuteChanged(isSoundEffectsMuted);
+			VolumeController.OnAudioMuteChanged(isSoundEffectsMuted);
 			AudioToggleText.text = $"Sound Effects: {(isSoundEffectsMuted ? "Off" : "On")}";
 		}
 	}

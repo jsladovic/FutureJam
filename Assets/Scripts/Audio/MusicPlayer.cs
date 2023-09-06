@@ -11,10 +11,13 @@ namespace Assets.Scripts.Audio
 	public class MusicPlayer : MonoBehaviour
 	{
         private static MusicPlayer Instance;
-		public EventInstance Music;
-		private bool DisableAudio;
-        private int CurrentAudioIndex = 1;
-        private bool IsMenuLoaded;
+		private EventInstance Music;
+
+
+        private bool DisableAudio;
+        //private int CurrentAudioIndex = 1;
+        //private bool IsMenuLoaded;
+
 
         private void Awake()
 		{
@@ -43,7 +46,18 @@ namespace Assets.Scripts.Audio
 				DisableAudio = true;
                 return;
             }
-		}
+            try
+            {
+
+                Music.start();
+            }
+            catch (EventNotFoundException)
+            {
+                RuntimeUtils.DebugLogWarning($"[FMOD] Event not found:/Music/music");
+                DisableAudio = true;
+                return;
+            }
+        }
 
 		public void OnAudioIndexChanged(LevelDefinition levelDef)
         {
@@ -74,12 +88,7 @@ namespace Assets.Scripts.Audio
             Music.setParameterByName("Level", 0);
         }
 
-       /* public static PLAYBACK_STATE PlaybackState(EventInstance Event)
-        {
-            PLAYBACK_STATE pState;
-            Event.getPlaybackState(out pState);
-            return pState;
-        }*/
+
 
         private void OnDisable()
         {
