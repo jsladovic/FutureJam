@@ -24,12 +24,16 @@ namespace Assets.Scripts.MainMenu
 			FullScreenToggleButton.gameObject.HideForMobile();	
 			Canvas = GetComponent<CanvasGroup>();
 			DisplayIsFullScreen();
-			DisplayIsMusicMuted();
-			DisplayIsSoundEffectMuted();
 			Disable();
 		}
 
-		public void Disable()
+        private void Start()
+        {
+            DisplayIsMusicMuted();
+            DisplayIsSoundEffectMuted();
+        }
+
+        public void Disable()
 		{
 			Canvas.Disable();
 		}
@@ -56,7 +60,7 @@ namespace Assets.Scripts.MainMenu
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
 			isMusicMuted = !isMusicMuted;
 			PlayerPrefsHelpers.SetIsMusicMuted(isMusicMuted);
-			DisplayIsMusicMuted();
+			DisplayIsMusicMuted();			
 		}
 
 		public void FullScreenToggle()
@@ -82,7 +86,7 @@ namespace Assets.Scripts.MainMenu
 				return;
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
 			MusicVolumeController.OnMuteChanged(isMusicMuted);
-			MusicToggleText.text = $"Music: {(isMusicMuted ? "On" : "Off")}";
+			MusicToggleText.text = $"Music: {(isMusicMuted ? "Off" : "On")}";
 		}
 
 		private void DisplayIsSoundEffectMuted()
@@ -91,7 +95,7 @@ namespace Assets.Scripts.MainMenu
 				return;
 			bool isSoundEffectsMuted = PlayerPrefsHelpers.IsSoundEffectsMuted();
 			AudioVolumeController.OnMuteChanged(isSoundEffectsMuted);
-			AudioToggleText.text = $"Sound Effects: {(isSoundEffectsMuted ? "On" : "Off")}";
+			AudioToggleText.text = $"Sound Effects: {(isSoundEffectsMuted ? "Off" : "On")}";
 		}
 	}
 }

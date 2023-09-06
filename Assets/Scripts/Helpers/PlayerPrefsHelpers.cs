@@ -53,7 +53,7 @@ namespace Assets.Scripts.Helpers
 
 		public static bool IsMusicMuted()
 		{
-			return PlayerPrefs.GetInt(IsMusicMutedKey, 1) == 1;
+			return PlayerPrefs.GetInt(IsMusicMutedKey, 0) == 1;
 		}
 
 		public static void SetIsMusicMuted(bool isMusicMuted)
@@ -63,7 +63,7 @@ namespace Assets.Scripts.Helpers
 
 		public static bool IsSoundEffectsMuted()
 		{
-			return PlayerPrefs.GetInt(IsSoundEffectsMutedKey, 1) == 1;
+			return PlayerPrefs.GetInt(IsSoundEffectsMutedKey, 0) == 1;
 		}
 
 		public static void SetIsSoundEffectsMuted(bool isSoundEffectsMuted)
