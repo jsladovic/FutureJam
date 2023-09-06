@@ -1885,6 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c2d241615d3424d9458d86b43f1ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FullScreenToggleButton: {fileID: 7580399160167291024}
   AudioToggleText: {fileID: 5642794594661714009}
   MusicToggleText: {fileID: 2638818747861558749}
   FullScreenToggleText: {fileID: 3856008944790768919}

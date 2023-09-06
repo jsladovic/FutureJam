@@ -3,12 +3,14 @@ using Assets.Scripts.Extensions;
 using Assets.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.MainMenu
 {
 	[RequireComponent(typeof(CanvasGroup))]
 	public class OptionsMenuController : MonoBehaviour
 	{
+		[SerializeField] private Button FullScreenToggleButton;
 		[SerializeField] private TextMeshProUGUI AudioToggleText;
 		[SerializeField] private TextMeshProUGUI MusicToggleText;
 		[SerializeField] private TextMeshProUGUI FullScreenToggleText;
@@ -19,6 +21,7 @@ namespace Assets.Scripts.MainMenu
 
 		private void Awake()
 		{
+			FullScreenToggleButton.gameObject.HideForMobile();	
 			Canvas = GetComponent<CanvasGroup>();
 			DisplayIsFullScreen();
 			DisplayIsMusicMuted();
