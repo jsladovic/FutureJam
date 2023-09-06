@@ -40,6 +40,11 @@ namespace Assets.Scripts.Ui
             OnUpdateCheck();
         }
 
+        public void Refresh()
+		{
+            _labels = _labels.Where(l => l.gameObject.activeSelf == true).ToList();
+		}
+
         public void Execute()
         {
             if (_labels.Count == 0 && _inputs.Count == 0) return;

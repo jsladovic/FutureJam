@@ -3,6 +3,7 @@ using Assets.Scripts.Extensions;
 using Assets.Scripts.GameEvents.Events;
 using Assets.Scripts.General;
 using Assets.Scripts.Helpers;
+using Assets.Scripts.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ namespace Assets.Scripts.MainMenu
 		[SerializeField] private Button ExitButton;
 		[SerializeField] private TextMeshProUGUI StartStrikeButtonText;
 		[SerializeField] private TextMeshProUGUI LongestStrikeText;
+		[SerializeField] private TMPTextAutoSize TMPTextAutoSize;
 
 		[SerializeField] private OptionsMenuController OptionsMenu;
 		[SerializeField] private GameData GameData;
@@ -42,6 +44,10 @@ namespace Assets.Scripts.MainMenu
 			{
 				int maxLevelCompleted = PlayerPrefsHelpers.GetMaxLevelCompleted();
 				LongestStrikeText.text = $"Our longest strike lasted for {maxLevelCompleted} day{(maxLevelCompleted != 1 ? "s" : string.Empty)}.";
+			}
+			else
+			{
+				TMPTextAutoSize.Refresh();
 			}
 		}
 

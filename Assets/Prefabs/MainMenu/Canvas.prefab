@@ -173,6 +173,7 @@ MonoBehaviour:
   ExitButton: {fileID: 1514279540426640982}
   StartStrikeButtonText: {fileID: 1514279540809784712}
   LongestStrikeText: {fileID: 3685569237324312287}
+  TMPTextAutoSize: {fileID: 840076210361885432}
   OptionsMenu: {fileID: 6649066178199359241}
   GameData: {fileID: 11400000, guid: 4755abdb9381cfb4586597b5eab35e1e, type: 2}
   OnMainMenuLoaded: {fileID: 11400000, guid: 7fc413851282d53488fd8cb0c1cef060, type: 2}
@@ -697,6 +698,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
+--- !u!114 &840076210361885432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3483063200533832905, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
+  m_PrefabInstance: {fileID: 4323138270380525105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0d2ea416184c04db5b211bb7dfb8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1514279540426640982 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3385882707122194535, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
