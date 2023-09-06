@@ -7,6 +7,7 @@ namespace Assets.Scripts.Helpers
 		private const string TutorialDisplayedKey = "TutorialDisplayed";
 		private const string GameCompltedKey = "GameCompleted";
 		private const string MaxLevelCompletedKey = "MaxLevelCompleted";
+		private const string IsFullScreenKey = "IsFullScreen";
 
 		public static bool WasTutorialDisplayed()
 		{
@@ -36,6 +37,16 @@ namespace Assets.Scripts.Helpers
 		public static void SetMaxLevelCompleted(int level)
 		{
 			PlayerPrefs.SetInt(MaxLevelCompletedKey, level);
+		}
+
+		public static bool IsFullScreen()
+		{
+			return PlayerPrefs.GetInt(IsFullScreenKey, 1) == 1;
+		}
+
+		public static void SetIsFullScreen(bool isFullScreen)
+		{
+			PlayerPrefs.SetInt(IsFullScreenKey, isFullScreen ? 1 : 0);
 		}
 	}
 }

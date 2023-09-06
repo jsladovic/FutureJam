@@ -1,5 +1,6 @@
 using Assets.Scripts.Enums;
 using Assets.Scripts.Extensions;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -15,6 +16,8 @@ namespace Assets.Scripts.MainMenu
 
 		private void Awake()
 		{
+            bool isFullScreen = PlayerPrefsHelpers.IsFullScreen();
+            Screen.fullScreen = isFullScreen;
             Background.Disable();
             VideoPlayer.loopPointReached += OnVideoOver;
         }

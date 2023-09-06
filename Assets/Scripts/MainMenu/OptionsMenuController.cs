@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Audio;
 using Assets.Scripts.Extensions;
-using System.Threading;
+using Assets.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 
@@ -11,17 +11,19 @@ namespace Assets.Scripts.MainMenu
 	{
 		[SerializeField] private TextMeshProUGUI AudioToggleText;
 		[SerializeField] private TextMeshProUGUI MusicToggleText;
+		[SerializeField] private TextMeshProUGUI FullScreenToggleText;
 		[SerializeField] private VolumeController AudioVolumeController;
-        [SerializeField] private VolumeController MusicVolumeController;
+		[SerializeField] private VolumeController MusicVolumeController;
 
 		private bool IsAudioMuted = false;
 		private bool IsMusicMuted = false;
 
-        private CanvasGroup Canvas;
+		private CanvasGroup Canvas;
 
 		private void Awake()
 		{
 			Canvas = GetComponent<CanvasGroup>();
+			DisplayIsFullScreen();
 			Disable();
 		}
 
@@ -44,25 +46,34 @@ namespace Assets.Scripts.MainMenu
 
 			if (AudioToggleText == null)
 				return;
-			if (IsAudioMuted == true)			
-				AudioToggleText.text = "Sound Effects: Off";
-			else
-                AudioToggleText.text = "Sound Effects: On";
-        }
+			AudioToggleText.text = $"Sound Effects: {(IsAudioMuted ? "Off" : "On")}";
+		}
 
 		public void MusicToggled()
 		{
-            if (MusicVolumeController == null)
-                return;
-            IsMusicMuted = !IsMusicMuted;
-            MusicVolumeController.OnMuteChanged(IsMusicMuted);
+			if (MusicVolumeController == null)
+				return;
+			IsMusicMuted = !IsMusicMuted;
+			MusicVolumeController.OnMuteChanged(IsMusicMuted);
 
 			if (MusicToggleText == null)
 				return;
-			if (IsMusicMuted == true)
-				MusicToggleText.text = "Music: Off";			
-			else
-                MusicToggleText.text = "Music: On";
-        }
+			MusicToggleText.text = $"Music: {(IsMusicMuted ? "Off" : "On")}";
+		}
+
+		public void FullScreenToggle()
+		{
+			bool isFullScreen = PlayerPrefsHelpers.IsFullScreen();
+			isFullScreen = !isFullScreen;
+			PlayerPrefsHelpers.SetIsFullScreen(isFullScreen);
+			Screen.fullScreen = isFullScreen;
+			DisplayIsFullScreen();
+		}
+
+		private void DisplayIsFullScreen()
+		{
+			bool isFullScreen = PlayerPrefsHelpers.IsFullScreen();
+			FullScreenToggleText.text = $"Full Screen: {(isFullScreen ? "On" : "Off")}";
+		}
 	}
 }
