@@ -29,7 +29,6 @@ namespace Assets.Scripts.MainMenu
 
         private void Start()
         {
-
             VolumeController = GameObject.Find("AudioObject").GetComponent<VolumeController>();
             DisplayIsMusicMuted();
             DisplayIsSoundEffectMuted();
@@ -63,7 +62,6 @@ namespace Assets.Scripts.MainMenu
 			isMusicMuted = !isMusicMuted;
 			PlayerPrefsHelpers.SetIsMusicMuted(isMusicMuted);
 			DisplayIsMusicMuted();
-			print("music toggled");
 		}
 
 		public void FullScreenToggle()
@@ -90,6 +88,7 @@ namespace Assets.Scripts.MainMenu
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
 			VolumeController.OnMusicMuteChanged(isMusicMuted);
 			MusicToggleText.text = $"Music: {(isMusicMuted ? "Off" : "On")}";
+
 		}
 
 		private void DisplayIsSoundEffectMuted()

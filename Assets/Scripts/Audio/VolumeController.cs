@@ -13,7 +13,7 @@ namespace Assets.Scripts.Audio
         [SerializeField] private EventReference MusicMuteSnapshot;
         [SerializeField] private EventReference AudioMuteSnapshot;
 
-        private void Start()
+        private void Awake()
 		{
             if (RuntimeManager.HasBankLoaded("Master") == false)
             {
@@ -32,25 +32,19 @@ namespace Assets.Scripts.Audio
             if (DisableAudio == true /*| MusicMute.isValid() == false*/)
                 return;
             if (mute == true && PlaybackState(MusicMute) != PLAYBACK_STATE.PLAYING)
-            {
                 MusicMute.start();
-            }
-
-            else
+            else if (mute == false && PlaybackState(MusicMute) == PLAYBACK_STATE.PLAYING)
                 MusicMute.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
         }
 
         public void OnAudioMuteChanged(bool mute)
         {
-
             if (DisableAudio == true /*|| AudioMute.isValid() == false*/)
                 return;
             if (mute == true && PlaybackState(AudioMute) != PLAYBACK_STATE.PLAYING)
                 AudioMute.start();
-            else
+            else if (mute == false && PlaybackState(AudioMute) == PLAYBACK_STATE.PLAYING)
                 AudioMute.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
         }
 
         public static PLAYBACK_STATE PlaybackState(EventInstance Event)
