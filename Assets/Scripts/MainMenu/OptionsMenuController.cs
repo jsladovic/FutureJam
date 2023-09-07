@@ -4,7 +4,6 @@ using Assets.Scripts.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.InputManagerEntry;
 
 namespace Assets.Scripts.MainMenu
 {
