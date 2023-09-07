@@ -6,6 +6,8 @@ namespace Assets.Scripts.Audio
 {
 	public class VolumeController : MonoBehaviour
 	{
+        public static VolumeController Instance;
+
         private bool DisableAudio = false;
         private EventInstance MusicMute;
         private EventInstance AudioMute;
@@ -15,6 +17,7 @@ namespace Assets.Scripts.Audio
 
         private void Awake()
 		{
+            Instance = this;
             if (RuntimeManager.HasBankLoaded("Master") == false)
             {
                 RuntimeUtils.DebugLogWarning("Master audio bank not loaded");

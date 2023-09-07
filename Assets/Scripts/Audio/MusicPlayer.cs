@@ -1,10 +1,7 @@
-﻿using FMOD.Studio;
+﻿using Assets.Scripts.General;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
-using Assets.Scripts.GameEvents.Events;
-using Assets.Scripts.General;
-using Unity.VisualScripting;
-using Unity.Mathematics;
 
 namespace Assets.Scripts.Audio
 {

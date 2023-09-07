@@ -14,7 +14,6 @@ namespace Assets.Scripts.MainMenu
 		[SerializeField] private TextMeshProUGUI AudioToggleText;
 		[SerializeField] private TextMeshProUGUI MusicToggleText;
 		[SerializeField] private TextMeshProUGUI FullScreenToggleText;
-		[SerializeField] private VolumeController VolumeController;
 
 		private CanvasGroup Canvas;
 
@@ -28,7 +27,6 @@ namespace Assets.Scripts.MainMenu
 
         private void Start()
         {
-            VolumeController = GameObject.Find("AudioObject").GetComponent<VolumeController>();
             DisplayIsMusicMuted();
             DisplayIsSoundEffectMuted();
         }
@@ -45,7 +43,7 @@ namespace Assets.Scripts.MainMenu
 
 		public void AudioToggled()
 		{
-			if (VolumeController == null)
+			if (VolumeController.Instance == null)
 				return;
 			bool isAudioMuted = PlayerPrefsHelpers.IsSoundEffectsMuted();
 			isAudioMuted = !isAudioMuted;
@@ -55,7 +53,7 @@ namespace Assets.Scripts.MainMenu
 
 		public void MusicToggled()
 		{
-			if (VolumeController == null)
+			if (VolumeController.Instance == null)
 				return;
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
 			isMusicMuted = !isMusicMuted;
@@ -85,7 +83,7 @@ namespace Assets.Scripts.MainMenu
 			if (MusicToggleText == null)
 				return;
 			bool isMusicMuted = PlayerPrefsHelpers.IsMusicMuted();
-			VolumeController.OnMusicMuteChanged(isMusicMuted);
+			VolumeController.Instance.OnMusicMuteChanged(isMusicMuted);
 			MusicToggleText.text = $"Music: {(isMusicMuted ? "Off" : "On")}";
 
 		}
@@ -95,7 +93,7 @@ namespace Assets.Scripts.MainMenu
 			if (AudioToggleText == null)
 				return;
 			bool isSoundEffectsMuted = PlayerPrefsHelpers.IsSoundEffectsMuted();
-			VolumeController.OnAudioMuteChanged(isSoundEffectsMuted);
+			VolumeController.Instance.OnAudioMuteChanged(isSoundEffectsMuted);
 			AudioToggleText.text = $"Sound Effects: {(isSoundEffectsMuted ? "Off" : "On")}";
 		}
 	}
