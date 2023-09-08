@@ -17,7 +17,8 @@ namespace Assets.Scripts.Audio
 
         private void Awake()
 		{
-            Instance = this;
+            if (Instance == null)
+                Instance = this;
             if (RuntimeManager.HasBankLoaded("Master") == false)
             {
                 RuntimeUtils.DebugLogWarning("Master audio bank not loaded");

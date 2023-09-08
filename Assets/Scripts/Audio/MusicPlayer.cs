@@ -45,7 +45,6 @@ namespace Assets.Scripts.Audio
             }
             try
             {
-
                 Music.start();
             }
             catch (EventNotFoundException)
