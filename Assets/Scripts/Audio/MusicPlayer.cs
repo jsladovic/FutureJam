@@ -73,7 +73,6 @@ namespace Assets.Scripts.Audio
                 return;
             Music.setParameterByName("Level", 0);
             //CurrentAudioIndex = 1;
-
         }
 
         public void OnGameOver()
@@ -83,7 +82,6 @@ namespace Assets.Scripts.Audio
 
             Music.setParameterByName("LevelEnd", 1);
             Music.setParameterByName("Level", 0);
-            print("bomb");
         }
 
 
