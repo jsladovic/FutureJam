@@ -25,7 +25,7 @@ namespace Assets.Scripts.Ui
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (Button.interactable == false)
+            if (Button.interactable == false || IsMobileVersion() == true)
                 return;
             LeanTween.cancel(gameObject);
             LeanTween.scale(gameObject, HoverScaleFactor * OriginalSize, ScaleDuration);
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Ui
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (Button.interactable == false)
+            if (Button.interactable == false || IsMobileVersion() == true)
                 return;
             LeanTween.cancel(gameObject);
             LeanTween.scale(gameObject, OriginalSize, ScaleDuration);
@@ -53,6 +53,16 @@ namespace Assets.Scripts.Ui
                 return;
             LeanTween.cancel(gameObject);
             LeanTween.scale(gameObject, OriginalSize, ScaleDuration);
+        }
+
+        private bool IsMobileVersion()
+		{
+#if UNITY_ANDROID
+            return true;
+#elif UNITY_STANDALONE_OSX
+            return true;
+#endif
+            return false;
         }
     }
 }
