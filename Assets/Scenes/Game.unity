@@ -1514,38 +1514,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3565129041833967319, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129041841335229, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129042237889565, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129042970917566, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129043351410146, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129043367596446, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129043414291196, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565129043449928199, guid: be5c2a3e6f0584ca1a7babdd6e5efca4, type: 3}
-      propertyPath: LevelIndexUnlocked
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
