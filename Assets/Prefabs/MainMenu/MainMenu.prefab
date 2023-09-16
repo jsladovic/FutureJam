@@ -426,7 +426,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10, y: 10, z: 10, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -468,6 +468,22 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 27.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.w
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857661043842, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3102102857661043843, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -501,6 +517,22 @@ PrefabInstance:
     - target: {fileID: 3102102857781319314, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_fontSize
       value: 27.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857781319314, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.w
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857781319314, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857781319314, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102857781319314, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3102102857781319315, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y
@@ -665,6 +697,22 @@ PrefabInstance:
     - target: {fileID: 3102102858810948840, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_fontSize
       value: 27.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102858810948840, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.w
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102858810948840, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102858810948840, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102102858810948840, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
+      propertyPath: m_margin.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3102102858810948841, guid: 5633fbd25c10dd342bae1a99e7bbcd99, type: 3}
       propertyPath: m_AnchorMax.y

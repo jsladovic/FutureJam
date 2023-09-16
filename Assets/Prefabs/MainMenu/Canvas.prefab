@@ -814,7 +814,7 @@ MonoBehaviour:
   _executeOnUpdate: 1
   _labels:
   - {fileID: 1514279540809784712}
-  - {fileID: 0}
+  - {fileID: 1779937825107092136}
   - {fileID: 1514279541914875890}
   - {fileID: 1514279540694720408}
   _inputs: []
@@ -828,6 +828,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3385882708750975482, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
   m_PrefabInstance: {fileID: 4323138270380525105}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779937825107092136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2543763441498694809, guid: 350545aa2f076464d837eac9965ffacf, type: 3}
+  m_PrefabInstance: {fileID: 4323138270380525105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2627531447460267605 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2272068985113804900, guid: 350545aa2f076464d837eac9965ffacf, type: 3}

@@ -17,7 +17,6 @@ namespace Assets.Scripts.MainMenu
 		private CanvasGroup CanvasGroup;
 		[SerializeField] private CanvasGroup MainMenu;
 		[SerializeField] private Button StartEndlessButton;
-		[SerializeField] private Button ExitButton;
 		[SerializeField] private TextMeshProUGUI StartStrikeButtonText;
 		[SerializeField] private TextMeshProUGUI LongestStrikeText;
 		[SerializeField] private TMPTextAutoSize TMPTextAutoSize;
@@ -32,7 +31,6 @@ namespace Assets.Scripts.MainMenu
 			CanvasGroup = GetComponent<CanvasGroup>();
 			CanvasGroup.Disable();
 			MainMenu.Enable();
-			ExitButton.gameObject.HideForMobile();
 			CanvasGroup.FadeIn(1.0f, immediatelyInteractible: true, setOnComplete: () => OnMainMenuLoaded.Raise());
 
 			bool isGameCompleted = PlayerPrefsHelpers.IsGameCompleted();

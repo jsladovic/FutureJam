@@ -1296,8 +1296,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 12
-  m_fontSizeMax: 40
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
   m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1770,6 +1770,7 @@ GameObject:
   - component: {fileID: 8833368562106399764}
   - component: {fileID: 8833368562106399765}
   - component: {fileID: 3734498572385571776}
+  - component: {fileID: 2937410326952208086}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1829,7 +1830,27 @@ MonoBehaviour:
   AudioToggleText: {fileID: 5642794594661714009}
   MusicToggleText: {fileID: 2638818747861558749}
   FullScreenToggleText: {fileID: 3856008944790768919}
-  VolumeController: {fileID: 0}
+--- !u!114 &2937410326952208086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833368562106399771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0d2ea416184c04db5b211bb7dfb8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern: 0
+  _size: {x: 18, y: 72}
+  _executeOnUpdate: 1
+  _labels:
+  - {fileID: 5642794594661714009}
+  - {fileID: 2638818747861558749}
+  - {fileID: 3856008944790768919}
+  - {fileID: 8833368560738468860}
+  _inputs: []
 --- !u!1 &9005035901913240963
 GameObject:
   m_ObjectHideFlags: 0
