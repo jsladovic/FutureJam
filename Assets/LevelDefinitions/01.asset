@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 01
   m_EditorClassIdentifier: 
   Index: 1
-  LevelText: We started a strike at our factory, with our goal being shorter shifts
+  LevelText: We started a strike at our factory, with our goals being shorter shifts
     and a decent living wage.
   NumberOfDefaultScabs: 5
   NumberOfDesperateScabs: 0
