@@ -96,6 +96,11 @@ namespace Assets.Scripts.General
 		private IEnumerator OnPauseCoroutine()
 		{
 			yield return new WaitForEndOfFrame();
+			PauseGame();
+		}
+
+		public void PauseGame()
+		{
 			OnPausedChanged.Raise(true);
 			CanUseMouseChanged.Raise(false);
 		}

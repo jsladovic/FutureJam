@@ -378,6 +378,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!114 &668045950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 676952468101039128, guid: d961072232e024e39850cf54d282a237, type: 3}
+  m_PrefabInstance: {fileID: 676952467438822344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73a189d58bb94592aa1347e9fcde449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &688609239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1999,17 +2010,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26dfc69beea4b24ea0ed8a7b1a6b2d7, type: 3}
---- !u!114 &5015580854122695425 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6707818466758746285, guid: f26dfc69beea4b24ea0ed8a7b1a6b2d7, type: 3}
-  m_PrefabInstance: {fileID: 5015580854122695424}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0da70d8362b4f3409698d459f243413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5404899636228824571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2561,7 +2561,15 @@ PrefabInstance:
     - target: {fileID: 2598843120486745245, guid: 221f070ad27f7c54b81f62b4827df9fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5015580854122695425}
+      objectReference: {fileID: 668045950}
+    - target: {fileID: 2598843120486745245, guid: 221f070ad27f7c54b81f62b4827df9fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598843120486745245, guid: 221f070ad27f7c54b81f62b4827df9fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Scripts.General.GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4226584651513279030, guid: 221f070ad27f7c54b81f62b4827df9fd, type: 3}
       propertyPath: m_Name
       value: OptionsButton
